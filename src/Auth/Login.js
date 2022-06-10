@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Col, Row } from "reactstrap";
 import "../Styles.css";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 export default function Login() {
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
+  let _form = {
+    phone: "",
+    password: "",
+  };
+
+  const [loginForm, setLoginForm] = useState(_form);
+  const handleChange = ({ target: { name, value } }) => {
+    setLoginForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = () => {
+    console.log(loginForm);
+  };
   return (
     <div className="login-body">
       <div className="container">
@@ -16,14 +29,26 @@ export default function Login() {
             <p className="login-p">
               ...manages and tracks records of both driver(S) and passengers
             </p>
-            <button className="login-btn">Get Started</button>
+            <button className="login-btn" onClick={() => navigate("/register")}>
+              Register Here
+            </button>
           </Col>
           <Col md={6}>
             <Card className="px-5 py-5 login-card">
               <h1 className="login">Login</h1>
-              <input type="num" className="login-input" placeholder="phone" />
+              <input
+                type="num"
+                name="phone"
+                value={loginForm.phone}
+                onChange={handleChange}
+                className="login-input"
+                placeholder="phone"
+              />
               <input
                 type="password"
+                value={loginForm.password}
+                name="password"
+                onChange={handleChange}
                 className="login-input"
                 placeholder="password"
               />
@@ -48,14 +73,25 @@ export default function Login() {
                   </label>
                 </Col>
                 <Col md={6}>
-                  <p className="text-center mt-3" style={{ fontSize: 12, float:'right', cursor:'pointer' }}>
+                  <p
+                    className="text-center mt-3"
+                    style={{ fontSize: 12, float: "right", cursor: "pointer" }}
+                  >
                     Forgot password?
                   </p>
                 </Col>
               </Row>
-              <button className="login-btn mt-3">Login</button>
+              <button className="login-btn mt-3" onClick={handleSubmit}>
+                Login
+              </button>
               <p className="text-center mt-3" style={{ fontSize: 12 }}>
-                Don't have an account? | <span style={{cursor:'pointer'}}>register here!</span>
+                Don't have an account? |{" "}
+                <span
+                  style={{ cursor: "pointer" }}
+                  onClick={() => navigate("/register")}
+                >
+                  register here!
+                </span>
               </p>
             </Card>
           </Col>
