@@ -1,21 +1,17 @@
 import { useRoutes } from "react-router-dom";
 import Login from "../Auth/Login";
-import ShopCart from "../Shop/ShopCart";
-import ShopItems from "../Shop/ShopItems";
-import AppIndex from "./AppIndex";
+import Register from "../Auth/Register";
 
 function AppNavigation() {
   let element = useRoutes([
     {
       path: "/",
       element: <Login />,
-      children: [
-        { index: true, element: <ShopItems /> },
-        {
-          path: "/cart",
-          element: <ShopCart />,
-        },
-      ],
+      children: [{ index: true }],
+    },
+    {
+      path: "/register",
+      element: <Register />,
     },
   ]);
   return element;
