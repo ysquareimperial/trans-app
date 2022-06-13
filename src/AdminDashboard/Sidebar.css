@@ -13,15 +13,17 @@
 }
 
 .sidebar {
-    /* margin-top:5%; */
-    background-color: var(--secondaryColor);
+    background-color: var(--primaryColor);
+    border-right: 1px solid var(--btnColor);
     height: 100vh;
+    color: white;
 }
 
 .sidebar-row {
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    /* margin-top: 60px; */
+    background-color: #f1f1f1;
 }
 
 .sidebar-items {
@@ -31,18 +33,38 @@
 }
 
 .sidebar-items>li {
-
-    /* background-color: aqua; */
-    padding-left: 5px;
-    padding-bottom: 5px;
-    padding-top: 5px;
     display: block;
-    /* font-weight: bold; */
-    /* font-size: 20px; */
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
 }
 
-li:hover {
-    /* background-color: var(--primaryColor); */
-    border-radius: 5px;
+.sidebar-items>li:hover {
+    background-color: var(--secondaryColor);
+    color: var(--primaryColor);
+    width: 200px;
+    border-radius: 10px 20px 30px 40px;
     cursor: pointer;
+    transition: 500ms;
 }
+
+/* ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+  }
+  
+  li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  Change the link color on hover
+  li a:hover {
+    background-color: red;
+    color: white;
+  } */

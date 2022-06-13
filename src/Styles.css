@@ -1,5 +1,5 @@
 :root {
-    /* --primaryColor: rgb(5, 70, 80); */
+    --primaryColor: rgb(7, 82, 94);
     --btnColor: rgb(105, 202, 229);
     --white: rgb(255, 255, 255);
     --hover: 0px 4px 4px 0px rgba(0, 0, 0, 0.2), 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
@@ -31,6 +31,7 @@ body {
 
 .login-body {
     height: 100vh;
+    background-color: var(--primaryColor);
 }
 
 .login-card {

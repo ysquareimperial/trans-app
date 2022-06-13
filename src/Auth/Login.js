@@ -78,7 +78,7 @@ export default function Login() {
                 className="login-btn mt-3"
                 onClick={() => {
                   handleSubmit();
-                  navigate("/admin-dashboard");
+                  navigate("/admin-home");
                 }}
               >
                 Login

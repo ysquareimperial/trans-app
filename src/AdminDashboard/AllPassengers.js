@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "reactstrap";
 import { Passengers } from "./AllUsersData";
 export default function AllPassengers() {
+  const [PassengersList, setPassengersList] = useState([]);
+  const getAllUsers = () => {
+    fetch("http://127.0.0.1:34567/get_PassengerReg")
+      .then((raw) => raw.json())
+      .then((data) => {
+        if (data.results && data.results.length) {
+          setPassengersList(data.results);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  useEffect(() => {
+    getAllUsers();
+  }, []);
   return (
     <div>
+      {JSON.stringify(PassengersList)}
       <Table size="sm" striped className="mt-4">
         <thead>
           <tr>
