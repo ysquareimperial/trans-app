@@ -19,8 +19,27 @@ export default function DriverReg() {
   };
 
   const handleSubmit = () => {
-    console.log(driverReg);
-  };
+    // e.preventDefault();
+    //setLoading(true);
+    fetch('http://127.0.0.1:34567/DriverReg', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(driverReg),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        // setLoading(false);
+        console.log(data);
+        // setModalIsOpen(true);
+      })
+      .catch((err) => {
+        // setLoading(false);
+        console.log(err);
+      });
+  }
+
   return (
     <div>
       <div className="p-reg">

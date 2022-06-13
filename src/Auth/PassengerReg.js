@@ -16,9 +16,29 @@ export default function PassengerReg() {
     setPassengerReg((prev) => ({ ...prev, [name]: value }));
   };
 
+ 
   const handleSubmit = () => {
-    console.log(passengerReg);
-  };
+    // e.preventDefault();
+    //setLoading(true);
+    fetch('http://127.0.0.1:34567/PassengerReg', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(passengerReg),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        // setLoading(false);
+        console.log(data);
+        // setModalIsOpen(true);
+      })
+      .catch((err) => {
+        // setLoading(false);
+        console.log(err);
+      });
+  }
+
   return (
     <div className="p-reg">
       <input
