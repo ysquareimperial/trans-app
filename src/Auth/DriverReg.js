@@ -92,20 +92,6 @@ export default function DriverReg() {
           value={driverReg.password}
           onChange={handleChange}
         />
-        {/* <p style={{ margin: 0, marginTop: 30, fontSize: 12 }}>
-                Login as:
-              </p> */}
-        {/* <div className="login-as">
-                    <label>
-                    <p style={{ fontSize: 18, display: "inline" }}>Passenger</p>{" "}
-                    {""}
-                    <input type="radio" />
-                    </label>
-                    <label>
-                    <p style={{ fontSize: 18, display: "inline" }}>Driver</p> {""}
-                    <input type="radio" />
-                    </label>{" "}
-                </div> */}
         <Row>
           <Col md={6}>
             <label className="mt-3" style={{ fontSize: 12 }}>

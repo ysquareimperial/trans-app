@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Col, Row } from "reactstrap";
 import "../Styles.css";
 import { Navigate, useNavigate } from "react-router-dom";
+import img from "../Images/car.svg";
 export default function Login() {
   const navigate = useNavigate();
   let _form = {
@@ -23,15 +24,20 @@ export default function Login() {
       <div className="container">
         <Row className="login-row">
           {/* <Col md={1}></Col> */}
-          <Col md={6}>
-            <h1 className="login-title">Trans App</h1>
-            <h4 className="bkd">The Transit Your Can Trust...</h4>
-            <p className="login-p">
-              ...manages and tracks records of both driver(S) and passengers
-            </p>
-            <button className="login-btn" onClick={() => navigate("/register")}>
-              Register Here
-            </button>
+          <Col className="bgg" md={6}>
+            <div>
+              <h1 className="login-title">Trans App</h1>
+              <h4 className="bkd">The Transit Your Can Trust...</h4>
+              <p className="login-p">
+                ...manages and tracks records of both driver(S) and passengers
+              </p>
+              <button
+                className="login-btn"
+                onClick={() => navigate("/register")}
+              >
+                Register Here
+              </button>
+            </div>
           </Col>
           <Col md={6}>
             <Card className="px-5 py-5 login-card">
@@ -52,20 +58,7 @@ export default function Login() {
                 className="login-input"
                 placeholder="password"
               />
-              {/* <p style={{ margin: 0, marginTop: 30, fontSize: 12 }}>
-                Login as:
-              </p> */}
-              {/* <div className="login-as">
-                    <label>
-                    <p style={{ fontSize: 18, display: "inline" }}>Passenger</p>{" "}
-                    {""}
-                    <input type="radio" />
-                    </label>
-                    <label>
-                    <p style={{ fontSize: 18, display: "inline" }}>Driver</p> {""}
-                    <input type="radio" />
-                    </label>{" "}
-                </div> */}
+
               <Row>
                 <Col md={6}>
                   <label className="mt-3" style={{ fontSize: 12 }}>
@@ -81,7 +74,13 @@ export default function Login() {
                   </p>
                 </Col>
               </Row>
-              <button className="login-btn mt-3" onClick={handleSubmit}>
+              <button
+                className="login-btn mt-3"
+                onClick={() => {
+                  handleSubmit();
+                  navigate("/admin-dashboard");
+                }}
+              >
                 Login
               </button>
               <p className="text-center mt-3" style={{ fontSize: 12 }}>

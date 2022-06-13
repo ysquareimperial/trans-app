@@ -1,0 +1,48 @@
+/* :root {
+    --primaryColor: rgb(5, 70, 80);
+    --btnColor: rgb(105, 202, 229);
+    --white: rgb(255, 255, 255);
+    --hover: 0px 4px 4px 0px rgba(0, 0, 0, 0.2), 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+} */
+:root {
+    --primaryColor: rgb(5, 70, 80);
+    --secondaryColor: rgb(240, 240, 240);
+    --btnColor: rgb(105, 202, 229);
+    --white: rgb(255, 255, 255);
+    --hover: 0px 4px 4px 0px rgba(0, 0, 0, 0.2), 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar {
+    /* margin-top:5%; */
+    background-color: var(--secondaryColor);
+    height: 100vh;
+}
+
+.sidebar-row {
+    margin: 0;
+    padding: 0;
+    /* margin-top: 60px; */
+}
+
+.sidebar-items {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.sidebar-items>li {
+
+    /* background-color: aqua; */
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    display: block;
+    /* font-weight: bold; */
+    /* font-size: 20px; */
+}
+
+li:hover {
+    /* background-color: var(--primaryColor); */
+    border-radius: 5px;
+    cursor: pointer;
+}

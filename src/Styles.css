@@ -1,15 +1,13 @@
 :root {
-    --primaryColor: rgb(5, 70, 80);
+    /* --primaryColor: rgb(5, 70, 80); */
     --btnColor: rgb(105, 202, 229);
     --white: rgb(255, 255, 255);
-    /* --primaryColor: rgb(82, 114, 139); */
-    /* --btnColor: rgb(20, 42, 59); */
     --hover: 0px 4px 4px 0px rgba(0, 0, 0, 0.2), 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: var(--primaryColor)
+    /* background-color: var(--primaryColor) */
 }
 
 .login-title {
@@ -39,9 +37,11 @@ body {
     border-radius: 20px;
     margin-top: 100px;
 }
-.reg-card-con .login-card{
+
+.reg-card-con .login-card {
     margin-top: 30px;
 }
+
 .login-input {
     outline: none;
     margin-top: 20px;
@@ -72,7 +72,8 @@ input[type=radio] {
     padding: 10px;
     font-weight: bold;
 }
-.p-reg .login-btn{
+
+.p-reg .login-btn {
     width: 100%;
 }
 
@@ -82,99 +83,7 @@ input[type=radio] {
     box-shadow: var(--hover)
 }
 
-/* ul, .nav-row {
-    background-color: rgb(80, 185, 168);
-    list-style-type: none;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-} */
-
-li {
-    float: right;
-}
-
-li a {
-    display: block;
-    text-align: center;
-    padding: 16px;
-}
-
-/* li:hover {
-    background-color: var(--btnColor);
-    color: white
-} */
-
-.logo {
-    width: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.brand {
-    display: inline-block;
-    color: white;
-    font-weight: bold;
-    margin-left: 10px;
-}
-
-.voucher-card {
-    border-radius: 0;
-}
-
-.voucher-content h3 h5 {
-    text-align: center;
-}
-
-.v-top-i {
-    border: none;
-    outline: none;
-    border-bottom: 1px solid black;
-}
-
-/* .t, .th, .td{
-    border: 1px solid black;
-    text-align: left;
-    padding: 5px;
-}
-.t{
-    width: 100%;
-}
-.t-textarea{
-    width:100%;
-    height:300px;
-    outline: none;
-}
-
-input[type=date]{
-    padding-top: 0px;
-    padding: 0;
-} */
-
-.tr {
-    border: 1px solid black;
-}
-
-.d, .dsc, .r, .a {
-    border: 1px solid black;
-    height: 500px;
-}
-
-.t-textarea {
-    width: 100%;
-    height: 300px;
-    outline: none;
-}
-
 input[type=date] {
     width: 100%;
     outline: none;
-}
-
-input[type=search] {
-    width: 100%;
-    outline: none;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    padding: 10px;
 }
