@@ -1,9 +1,11 @@
+import React from "react";
 import { useRoutes } from "react-router-dom";
 import AdminHome from "../AdminDashboard/AdminHome";
 import AllUsers from "../AdminDashboard/AllUsers";
 import Login from "../Auth/Login";
 import Register from "../Auth/Register";
 import AppIndex from "./AppIndex";
+import PublishRide from "../Auth/publishRide";
 
 function AppNavigation() {
   let element = useRoutes([
@@ -29,6 +31,11 @@ function AppNavigation() {
     {
       path: "/register",
       element: <Register />,
+    },
+    ,
+    {
+      path: "/pushlish-ride",
+      element: <PublishRide />,
     },
   ]);
   return element;

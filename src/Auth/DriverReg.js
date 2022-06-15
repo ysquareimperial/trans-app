@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Col, Row } from "reactstrap";
 import { useNavigate } from "react-router-dom";
+// import publishRide from "publishRide";
 export default function DriverReg() {
   const navigate = useNavigate();
   let _form = {
@@ -32,7 +33,8 @@ export default function DriverReg() {
       .then((data) => {
         // setLoading(false);
         console.log(data);
-        // setModalIsOpen(true);
+        navigate("/pushlish-ride")
+        
       })
       .catch((err) => {
         // setLoading(false);
@@ -128,7 +130,7 @@ export default function DriverReg() {
         </button>
         <p className="text-center mt-3" style={{ fontSize: 12 }}>
           Already have an account? |{" "}
-          <span style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
+          <span style={{ cursor: "pointer" }} onClick={() => navigate("/pushlish-ride")}>
             login here!
           </span>
         </p>

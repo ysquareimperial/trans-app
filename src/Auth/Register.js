@@ -23,7 +23,7 @@ export default function Register() {
           {/* <Col md={1}></Col> */}
           <Col md={6}>
             <h1 className="login-title">Trans App</h1>
-            <h4 className="bkd">The Transit Your Can Trust...</h4>
+            <h4 className="bkd">The Transit You Can Trust...</h4>
             <p className="login-p">
               ...manages and tracks records of both driver(S) and passengers
             </p>

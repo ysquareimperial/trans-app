@@ -31,6 +31,7 @@ export default function PassengerReg() {
       .then((data) => {
         // setLoading(false);
         console.log(data);
+        navigate("/pushlish-ride")
         // setModalIsOpen(true);
       })
       .catch((err) => {
@@ -118,7 +119,7 @@ export default function PassengerReg() {
       </button>
       <p className="text-center mt-3" style={{ fontSize: 12 }}>
         Already have an account? |{" "}
-        <span style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
+        <span style={{ cursor: "pointer" }} onClick={() => navigate("/pushlish-ride")}>
           login here!
         </span>
       </p>
