@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Row } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import "./Sidebar.css";
-import { Home } from "react-feather";
+// import { Home } from "react-feather";
 export default function Sidebar() {
   const navigate = useNavigate();
   return (
