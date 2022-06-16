@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Col, Row } from "reactstrap";
 import { useNavigate } from "react-router-dom";
+import ModalAlert from '../Modal'
+
 export default function PassengerReg() {
   const navigate = useNavigate();
   let _form = {
