@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, Col, Row, CardBody, CardHeader} from 'reactstrap';
+import {Card, Col, Row, CardBody, CardHeader, Input, Button} from 'reactstrap';
 
 function publishRide() {
   return (
@@ -37,13 +37,13 @@ function publishRide() {
            <Card>
                <CardBody>
                    <Col className='mb-2'>
-                    First Name <input type="text"/>
+                    First Name <Input type="text"/>
                    </Col>
                    <Col className='mb-2'>
-                    Last Name <input type="text"/>
+                    Last Name <Input type="text"/>
                    </Col>
                    <Col className='mb-2'>
-                   language <input type="text"/>
+                   language <Input type="text"/>
                    </Col>
                </CardBody>
            </Card>
@@ -53,21 +53,25 @@ function publishRide() {
            <Card>
                <CardBody>
                    <Col className='mb-2'>
-                    Licence Plate <input type="text"/>
+                    Licence Plate <Input type="text"/>
                    </Col>
                    <Col className='mb-2'>
-                    Car Color <input type="text"/>
+                    Car Color <Input type="text"/>
                    </Col>
                    <Col className='mb-2'>
-                    Car year <input type="text"/>
+                    Car year <Input type="text"/>
                    </Col>
                    <Col className='mb-2'>
-                   Licence Number <input type="text"/>
+                   Licence Number <Input type="text"/>
                    </Col>
+                   <Col md={4}></Col>
+                   <Button>Submit</Button>
                </CardBody>
            </Card>
            </Col>
            <Col md={2}></Col>
+           
+           
        </Row>
                </CardBody>
            

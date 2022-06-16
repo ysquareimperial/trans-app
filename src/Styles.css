@@ -88,3 +88,7 @@ input[type=date] {
     width: 100%;
     outline: none;
 }
+
+.home{
+    background-color: rgb(7, 82, 94)
+}
