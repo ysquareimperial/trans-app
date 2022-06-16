@@ -126,7 +126,7 @@ export default function DriverReg() {
           </Col>
         </Row>
         <button className="login-btn mt-3" onClick={handleSubmit}>
-          Register
+          Registeryy
         </button>
         <p className="text-center mt-3" style={{ fontSize: 12 }}>
           Already have an account? |{" "}

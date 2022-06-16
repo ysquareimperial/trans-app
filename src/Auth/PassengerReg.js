@@ -10,7 +10,9 @@ export default function PassengerReg() {
     address: "",
     password: "",
   };
-
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const toggleModal = () => setModalIsOpen((p) => !p);
   const [passengerReg, setPassengerReg] = useState(_form);
   const handleChange = ({ target: { name, value } }) => {
     setPassengerReg((prev) => ({ ...prev, [name]: value }));
@@ -31,7 +33,7 @@ export default function PassengerReg() {
       .then((data) => {
         // setLoading(false);
         console.log(data);
-        navigate("/pushlish-ride")
+        navigate("/request-Ride")
         // setModalIsOpen(true);
       })
       .catch((err) => {
@@ -115,14 +117,15 @@ export default function PassengerReg() {
         </Col>
       </Row>
       <button className="login-btn mt-3" onClick={handleSubmit}>
-        Register
+        Registerxx
       </button>
       <p className="text-center mt-3" style={{ fontSize: 12 }}>
         Already have an account? |{" "}
-        <span style={{ cursor: "pointer" }} onClick={() => navigate("/pushlish-ride")}>
+        <span style={{ cursor: "pointer" }} onClick={() => navigate("/request-ride")}>
           login here!
         </span>
       </p>
+      <ModalAlert isOpen={modalIsOpen} toggle={toggleModal} />
     </div>
   );
 }

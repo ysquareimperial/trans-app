@@ -6,6 +6,7 @@ import Login from "../Auth/Login";
 import Register from "../Auth/Register";
 import AppIndex from "./AppIndex";
 import PublishRide from "../Auth/publishRide";
+import RequestRide from "../Auth/requestRide";
 
 function AppNavigation() {
   let element = useRoutes([
@@ -36,6 +37,10 @@ function AppNavigation() {
     {
       path: "/pushlish-ride",
       element: <PublishRide />,
+    },
+    {
+      path: "/request-Ride",
+      element: <RequestRide/>,
     },
   ]);
   return element;
