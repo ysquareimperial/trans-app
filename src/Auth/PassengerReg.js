@@ -119,7 +119,7 @@ export default function PassengerReg() {
         </Col>
       </Row>
       <button className="login-btn mt-3" onClick={handleSubmit}>
-        Registerxx
+        Register
       </button>
       <p className="text-center mt-3" style={{ fontSize: 12 }}>
         Already have an account? |{" "}

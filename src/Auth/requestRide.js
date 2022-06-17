@@ -26,7 +26,7 @@ function requestRide() {
   </Row>
   </Card>
       
-     <Row>
+     <Row style={{marginTop:"30px"}}>
       <h2 >Apply for a Ride</h2>
       </Row>
       
