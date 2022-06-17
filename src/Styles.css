@@ -89,6 +89,24 @@ input[type=date] {
     outline: none;
 }
 
+.select {
+    outline: none;
+    margin-top: 20px;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: rgb(237, 237, 237);
+}
+
 .home{
     background-color: rgb(7, 82, 94)
+}
+
+.mb-2 {
+    transition: width 2s;
+}
+
+.mt-2 {
+    transform: rotate(3rem);
 }

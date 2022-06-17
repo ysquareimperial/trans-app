@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {Card, Col, Row, CardBody, CardHeader, Input, Button} from 'reactstrap';
 import ModalAlert from '../Modal';
+import "../Styles.css";
 
 function PublishRide() {
   const navigate = useNavigate();
@@ -85,7 +86,7 @@ function PublishRide() {
                 <h2>Personal Information with Car Details </h2>
             </Row>
            <Card>
-               <CardBody>
+               <CardBody className='shadow'>
                 <Row>
                    <Col  md={6} className='mb-2'>
                     First Name <Input type="text"
@@ -119,7 +120,7 @@ function PublishRide() {
               <h2> Do you have a Car?</h2>
             </Row>
            <Card>
-               <CardBody>
+               <CardBody className='shadow'>
                 <Row>
 <Col md={6}  className='mb-2'>
                     Licence Plate <Input type="text"
