@@ -4,7 +4,7 @@ import { Passengers } from "./AllUsersData";
 export default function AllPassengers() {
   const [PassengersList, setPassengersList] = useState([]);
   const getAllUsers = () => {
-    fetch("http://127.0.0.1:34567/get_PassengerReg")
+    fetch("http://192.168.43.150:34567/get_PassengerReg")
       .then((raw) => raw.json())
       .then((data) => {
         if (data.results && data.results.length) {

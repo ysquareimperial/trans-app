@@ -1,0 +1,46 @@
+:root {
+    --primaryColor: rgb(7, 82, 94);
+    --btnColor: rgb(63, 167, 196);
+    --white: rgb(255, 255, 255);
+    --hover: 0px 4px 4px 0px rgba(0, 0, 0, 0.2), 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.request-card {
+    height: 100vh;
+}
+
+.driver {
+    border-radius: 50%;
+    width: 70px;
+}
+
+.car {
+    width: 80px;
+}
+
+.request-field {
+    outline: none;
+    background-color: rgb(230, 230, 230);
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    padding: 8px
+}
+
+.request-field:focus {
+    outline: none;
+}
+
+.request {
+    border: none;
+    padding: 10px;
+    background-color: var(--btnColor);
+    color: var(--white);
+    width: 20%;
+}
+
+.request:hover{
+    border-radius: 10px;
+    transition: 500ms;
+    box-shadow: var(--hover)
+}

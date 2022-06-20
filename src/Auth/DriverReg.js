@@ -22,7 +22,7 @@ export default function DriverReg() {
   const handleSubmit = () => {
     // e.preventDefault();
     //setLoading(true);
-    fetch('http://127.0.0.1:34567/DriverReg', {
+    fetch('http://192.168.43.150:34567/DriverReg', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -115,9 +115,9 @@ export default function DriverReg() {
         />
         <Row>
           <Col md={6}>
-            <label className="mt-3" style={{ fontSize: 12 }}>
+            {/* <label className="mt-3" style={{ fontSize: 12 }}>
               <input type="checkbox" /> Remember Password
-            </label>
+            </label> */}
           </Col>
           <Col md={6}>
             {/* <p className="text-center mt-3" style={{ fontSize: 12, float:'right', cursor:'pointer' }}>
@@ -128,7 +128,7 @@ export default function DriverReg() {
         <button className="login-btn mt-3" onClick={handleSubmit}>
           Register
         </button>
-        <p className="text-center mt-3" style={{ fontSize: 12 }}>
+        <p className="text-center mt-3" style={{ fontSize: 12, color:'white' }}>
           Already have an account? |{" "}
           <span style={{ cursor: "pointer" }} onClick={() => navigate("/pushlish-ride")}>
             login here!

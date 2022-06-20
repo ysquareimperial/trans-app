@@ -24,7 +24,7 @@ export default function PassengerReg() {
   const handleSubmit = () => {
     // e.preventDefault();
     //setLoading(true);
-    fetch('http://127.0.0.1:34567/PassengerReg', {
+    fetch('http://192.168.43.150:34567/PassengerReg', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -118,12 +118,12 @@ export default function PassengerReg() {
                   </p> */}
         </Col>
       </Row>
-      <button className="login-btn mt-3" onClick={handleSubmit}>
+      <button className="login-btn mt-3" onClick={()=>navigate('/request-ride')}>
         Register
       </button>
-      <p className="text-center mt-3" style={{ fontSize: 12 }}>
+      <p className="text-center mt-3" style={{ fontSize: 12, color:'white' }}>
         Already have an account? |{" "}
-        <span style={{ cursor: "pointer" }} onClick={() => navigate("/request-ride")}>
+        <span style={{ cursor: "pointer" }} onClick={() => navigate("/login")}>
           login here!
         </span>
       </p>

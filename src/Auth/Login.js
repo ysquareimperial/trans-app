@@ -26,13 +26,13 @@ export default function Login() {
           {/* <Col md={1}></Col> */}
           <Col className="bgg" md={6}>
             <div>
-              <h1 className="login-title">Trans App</h1>
+              <h1 className="login-title">trans app</h1>
               <h4 className="bkd">The Transit Your Can Trust...</h4>
               <p className="login-p">
-                ...manages and tracks records of both driver(S) and passengers
+                ...manages and tracks records of both driver(s) and passengers
               </p>
               <button
-                className="login-btn"
+                className="login-btn shadow"
                 onClick={() => navigate("/register")}
               >
                 Register Here
@@ -40,7 +40,7 @@ export default function Login() {
             </div>
           </Col>
           <Col md={6}>
-            <Card className="px-5 py-5 login-card">
+            <Card className="px-5 py-5 login-card shadow-sm">
               <h1 className="login">Login</h1>
               <input
                 type="num"
@@ -61,14 +61,21 @@ export default function Login() {
 
               <Row>
                 <Col md={6}>
-                  <label className="mt-3" style={{ fontSize: 12 }}>
+                  <label
+                    className="mt-3"
+                    style={{ fontSize: 12, float: "left"}}
+                  >
                     <input type="checkbox" /> Remember Password
                   </label>
                 </Col>
                 <Col md={6}>
                   <p
-                    className="text-center mt-3"
-                    style={{ fontSize: 12, float: "right", cursor: "pointer" }}
+                    className="login-p1 text-center mt-3"
+                    style={{
+                      fontSize: 12,
+                      float: "right",
+                      cursor: "pointer"
+                    }}
                   >
                     Forgot password?
                   </p>
@@ -78,12 +85,15 @@ export default function Login() {
                 className="login-btn mt-3"
                 onClick={() => {
                   handleSubmit();
-                  navigate("/admin-home");
+                  navigate("/request-ride");
                 }}
               >
                 Login
               </button>
-              <p className="text-center mt-3" style={{ fontSize: 12 }}>
+              <p
+                className="login-p1 text-center mt-3"
+                style={{ fontSize: 12 }}
+              >
                 Don't have an account? |{" "}
                 <span
                   style={{ cursor: "pointer" }}

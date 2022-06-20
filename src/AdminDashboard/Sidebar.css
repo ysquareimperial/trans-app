@@ -42,8 +42,8 @@
 .sidebar-items>li:hover {
     background-color: var(--secondaryColor);
     color: var(--primaryColor);
-    width: 200px;
-    border-radius: 10px 20px 30px 40px;
+    width: 210px;
+    border-radius: 0;
     cursor: pointer;
     transition: 500ms;
 }

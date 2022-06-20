@@ -6,28 +6,34 @@ import Login from "../Auth/Login";
 import Register from "../Auth/Register";
 import AppIndex from "./AppIndex";
 import PublishRide from "../Auth/publishRide";
-import RequestRide from "../Auth/requestRide";
+import RequestRide from "../Auth/RequestRide";
+import LandingPage from "../LandingPage/LandingPage";
+import PassengerHome from "../PassengerDashboard/PassengerHome";
 
 function AppNavigation() {
   let element = useRoutes([
     {
       path: "/",
-      element: <Login />,
+      element: <LandingPage />,
       children: [{ index: true }],
     },
     {
       element: <AppIndex />,
       children: [
-        { index: true, element: <AdminHome /> },
+        { index: true, element: <PassengerHome /> },
         {
-          path: "admin-home",
-          element: <AdminHome />,
+          path: "/request-ride",
+          element: <RequestRide />,
         },
         {
           path: "/all-users",
           element: <AllUsers />,
         },
       ],
+    },
+    {
+      path: "/login",
+      element: <Login />,
     },
     {
       path: "/register",
@@ -40,7 +46,7 @@ function AppNavigation() {
     },
     {
       path: "/request-Ride",
-      element: <RequestRide/>,
+      element: <RequestRide />,
     },
   ]);
   return element;

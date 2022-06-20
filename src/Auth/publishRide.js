@@ -31,7 +31,7 @@ function PublishRide() {
   const handleSubmit = () => {
     // e.preventDefault();
     //setLoading(true);
-    fetch('http://127.0.0.1:34567/pushlishride', {
+    fetch('http://192.168.43.150:34567/pushlishride', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

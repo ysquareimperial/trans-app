@@ -21,23 +21,33 @@ export default function Register() {
       <div className="container">
         <Row className="login-row">
           {/* <Col md={1}></Col> */}
-          <Col className='' md={6}>
+          <Col className="" md={6}>
             <h1 className="login-title">Trans App</h1>
             <h4 className="bkd">The Transit You Can Trust...</h4>
             <p className="login-p">
-              ...manages and tracks records of both driver(S) and passengers
+              ...manages and tracks records of both driver(s) and passengers
             </p>
-            <button className="login-btn" onClick={() => navigate("/")}>
+            <button className="login-btn" onClick={() => navigate("/login")}>
               Login Here
             </button>
           </Col>
           <Col md={6} className="reg-card-con">
             <Card className="px-5 py-5 login-card mb-4">
               <h1 className="login">Register</h1>
-              <p style={{ fontSize: 12, margin: 0, marginTop: 10 }}>
-                Register as:
-              </p>
               <div>
+                {/* <div>
+                  <p
+                    style={{
+                      fontSize: 12,
+                      margin: 0,
+                      marginTop: 10,
+                      float: "left",
+                      color: "white",
+                    }}
+                  >
+                    Register as:
+                  </p>
+                </div> */}
                 <Nav tabs className="">
                   <NavItem>
                     <NavLink

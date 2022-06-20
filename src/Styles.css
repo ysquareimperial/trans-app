@@ -14,10 +14,12 @@ body {
     font-weight: bold;
     font-size: 60px;
     margin-top: 200px;
+    color: var(--primaryColor);
 }
 
 .login {
     color: var(--primaryColor);
+    text-align: left;
 }
 
 .login-p {
@@ -26,12 +28,12 @@ body {
 }
 
 .login-p, .login-title, .bkd {
-    color: white;
+    color: var(--primaryColor);
 }
 
 .login-body {
     height: 100vh;
-    background-color: var(--primaryColor);
+    background-color: var(--white);
 }
 
 .login-card {
@@ -50,12 +52,18 @@ body {
     width: 100%;
     padding: 10px;
     border: none;
-    background-color: rgb(237, 237, 237);
-    display:shadow;
-    
+    color: var(--primaryColor);
+    background-color: rgb(223, 223, 223);
+    /* display: shadow; */
+
 }
-.cool{
-    
+
+.login-input::placeholder {
+    color: var(--primaryColor);
+}
+
+.cool {
+
     background-color: rgb(237, 237, 237);
 }
 
@@ -74,7 +82,7 @@ input[type=radio] {
 .login-btn {
     border: none;
     color: white;
-    background-color: var(--btnColor);
+    background-color: var(--primaryColor);
     padding: 10px;
     font-weight: bold;
 }
@@ -104,7 +112,7 @@ input[type=date] {
     background-color: rgb(237, 237, 237);
 }
 
-.home{
+.home {
     background-color: rgb(7, 82, 94)
 }
 
@@ -114,4 +122,8 @@ input[type=date] {
 
 .mt-2 {
     transform: rotate(3rem);
+}
+
+.login-p1 {
+    color: var(--primaryColor);
 }
