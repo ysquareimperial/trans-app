@@ -56,11 +56,12 @@ function PublishRide() {
     <div>
     <Card
     className="shadow"
-    style={{ marginTop: 10, border: "none", borderRadius: 0 ,}}>
+    style={{ marginTop: "", borderStyle: "none", borderRadius: 0 ,
+      backgroundImage: `linear-gradient(skyBlue, white)`}}>
   <Row>
       <Col md={4}>
 
-    <h1>Welcome To TransApp</h1>
+    <h1>TransApp</h1>
       </Col>
       <Col md={4}></Col>
       <Col md={2}></Col>
@@ -77,7 +78,7 @@ function PublishRide() {
     
              
                <CardBody className='mt-5' style={{
-  backgroundImage: `linear-gradient(lightBlue, white)`}}>
+  backgroundImage: `linear-gradient(light,lightGrey)`}} >
        <Row>
                    
            <Col md={2}></Col>

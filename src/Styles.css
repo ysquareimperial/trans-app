@@ -51,8 +51,13 @@ body {
     padding: 10px;
     border: none;
     background-color: rgb(237, 237, 237);
+    display:shadow;
+    
 }
-
+.cool{
+    
+    background-color: rgb(237, 237, 237);
+}
 
 label {
     margin-right: 15px;

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card,CardBody,Input,Row,Col} from "reactstrap"
+import {Card,CardBody,Input,Row,Col,Button} from "reactstrap"
 
 function requestRide() {
   return (
@@ -7,11 +7,11 @@ function requestRide() {
    
    <Card
     className="shadow"
-    style={{ marginTop: 10, border: "none", borderRadius: 0 ,}}>
+    style={{  border: "none", borderRadius: 0 ,backgroundImage: `linear-gradient(skyBlue, white)`}}>
   <Row>
       <Col md={4}>
 
-    <h1>Welcome To TransApp</h1>
+    <h1>TransApp</h1>
       </Col>
       <Col md={4}></Col>
       <Col md={2}></Col>
@@ -29,7 +29,7 @@ function requestRide() {
            <Row>
                 <h2 style={{marginTop:"30px"}}>Apply for a Ride. </h2>
             </Row>
-      <Card className="shadow" style={{marginTop:"",marginLeft:"250px",marginRight:"250px", height:"720px", border:"non"}}>
+      <Card className="shadow" style={{marginTop:"",marginLeft:"250px",marginRight:"250px", height:"770px", border:"non"}}>
         
                <CardBody >
 
@@ -37,29 +37,31 @@ function requestRide() {
                   <Row>
                     <Row>
                    <Col  md={6} className='mb-2'>
-                    Inter City<Input type="checkbox" 
+                    Inter City <Input type="checkbox" 
+                    className="cool"
                     />
                     </Col>
                    <Col  md={6} className='mb-2'>
-                    Oustside City<Input type="checkbox" 
+                    Oustside City <Input type="checkbox" 
+                    className="cool"
                     />
                     </Col>
                     </Row>
                    <Col  md={6} className='mb-2'>
-                    From <Input type="text" 
+                    From: <Input type="text" 
                     className="login-input"/>
                    </Col>
                    <Col md={6} className='mb-2'>
-                    To <Input type="text" 
+                    To: <Input type="text" 
                     className="login-input"/> 
                    </Col>
                    <Col  md={6} className='mb-2'>
-                    With Company<Input type="checkbox" 
-                    className=""/>
+                    With Company <Input type="checkbox" 
+                    className="cool"/>
                    </Col>
                    <Col  md={6} className='mb-2'>
-                    Alone<Input type="checkbox" 
-                    className=""/>
+                    Alone <Input type="checkbox" 
+                    className="cool"/>
                    </Col>
                    </Row>
                    <Row>
@@ -108,8 +110,8 @@ function requestRide() {
                    <Row>
                     
                    <Col  md={6} className='mb-2'>
-                    Will you be bringng Pets<Input type="checkbox" 
-                    />
+                    Will you be bringng Pets <Input type="checkbox" 
+                   className="cool" />
                     <Col>
                       How many? <Input type="text" 
                     className="login-input" />
@@ -134,17 +136,28 @@ function requestRide() {
                       Taxi for selected days 
                     </Col>
                     <Col>
-                     Car<Input type="checkbox"  />
+                     Car <Input type="checkbox" className="cool" />
                     </Col>                 
                     <Col>
-                     Bus<Input type="checkbox"  />
+                     Bus <Input type="checkbox" className="cool" />
                     </Col>
                     <Col>
-                     Luxirous<Input type="checkbox"  />
+                     Luxirous <Input type="checkbox" className="cool"  />
                     </Col>
                    </Row>
                    </Row>
                 </Row>
+                <center>
+                <Button
+                  className="mt-2"
+                  style={{backgroundColor:"blue",marginTop:"250px",border:"none",width:"40%"}}
+              
+                 
+                >
+                
+                Apply
+                </Button>
+                </center>
         </CardBody>
         </Card>
         
