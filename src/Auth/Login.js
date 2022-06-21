@@ -62,7 +62,7 @@ export default function Login() {
               <Row>
                 <Col md={6}>
                   <label
-                    className="mt-3"
+                    className="mt-3 login-p1"
                     style={{ fontSize: 12, float: "left"}}
                   >
                     <input type="checkbox" /> Remember Password

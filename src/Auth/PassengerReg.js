@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Col, Row } from "reactstrap";
 import { useNavigate } from "react-router-dom";
-import ModalAlert from '../Modal'
+import ModalAlert from "../Modal";
 
 export default function PassengerReg() {
   const navigate = useNavigate();
@@ -20,14 +20,13 @@ export default function PassengerReg() {
     setPassengerReg((prev) => ({ ...prev, [name]: value }));
   };
 
- 
   const handleSubmit = () => {
     // e.preventDefault();
     //setLoading(true);
-    fetch('http://192.168.43.150:34567/PassengerReg', {
-      method: 'POST',
+    fetch("http://192.168.43.150:34567/PassengerReg", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(passengerReg),
     })
@@ -35,14 +34,14 @@ export default function PassengerReg() {
       .then((data) => {
         // setLoading(false);
         console.log(data);
-        navigate("/request-Ride")
+        navigate("/request-Ride");
         // setModalIsOpen(true);
       })
       .catch((err) => {
         // setLoading(false);
         console.log(err);
       });
-  }
+  };
 
   return (
     <div className="p-reg">
@@ -92,36 +91,13 @@ export default function PassengerReg() {
         value={passengerReg.password}
         onChange={handleChange}
       />
-      {/* <p style={{ margin: 0, marginTop: 30, fontSize: 12 }}>
-                Login as:
-              </p> */}
-      {/* <div className="login-as">
-                    <label>
-                    <p style={{ fontSize: 18, display: "inline" }}>Passenger</p>{" "}
-                    {""}
-                    <input type="radio" />
-                    </label>
-                    <label>
-                    <p style={{ fontSize: 18, display: "inline" }}>Driver</p> {""}
-                    <input type="radio" />
-                    </label>{" "}
-                </div> */}
-      <Row>
-        <Col md={6}>
-          <label className="mt-3" style={{ fontSize: 12 }}>
-            <input type="checkbox" /> Remember Password
-          </label>
-        </Col>
-        <Col md={6}>
-          {/* <p className="text-center mt-3" style={{ fontSize: 12, float:'right', cursor:'pointer' }}>
-                    Forgot password?
-                  </p> */}
-        </Col>
-      </Row>
-      <button className="login-btn mt-3" onClick={()=>navigate('/request-ride')}>
+      <button
+        className="login-btn mt-3"
+        onClick={() => navigate("/request-ride")}
+      >
         Register
       </button>
-      <p className="text-center mt-3" style={{ fontSize: 12, color:'white' }}>
+      <p className="text-center mt-3" style={{ fontSize: 12, color: "white" }}>
         Already have an account? |{" "}
         <span style={{ cursor: "pointer" }} onClick={() => navigate("/login")}>
           login here!

@@ -6,7 +6,7 @@
 }
 
 .request-card {
-    height: 100vh;
+    height: 88vh;
 }
 
 .driver {
@@ -23,9 +23,10 @@
     background-color: rgb(230, 230, 230);
     border: none;
     width: 100%;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     padding: 8px
 }
+
 
 .request-field:focus {
     outline: none;
@@ -39,7 +40,7 @@
     width: 20%;
 }
 
-.request:hover{
+.request:hover {
     border-radius: 10px;
     transition: 500ms;
     box-shadow: var(--hover)

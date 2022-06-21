@@ -1,54 +1,77 @@
 import React, { useState } from "react";
-import { ArrowDownCircle } from "react-feather";
+import { Menu } from "react-feather";
 import { useNavigate } from "react-router-dom";
-import { Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Row } from 'reactstrap'
-
+import {
+  Col,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Row,
+} from "reactstrap";
+import ysquare from "../Images/ysquareimperial.png";
+import logo from "../Images/logo.png";
 import "./DashboardNavbar.css";
 export default function DashboardNavbar() {
-    const [open, setOpen] = useState(false);
-    const toggle = () => {
-        setOpen(!open);
-    };
+  const [open, setOpen] = useState(false);
+  const toggle = () => {
+    setOpen(!open);
+  };
   const navigate = useNavigate();
   return (
     <div>
-      <div className="dash-bar">
-        <Row className="dashbar-row">
-          <Col md={2} className="dash-items">
-            {/* <img src={logo} alt="sRecord" className="ln-logo" /> */}
-          </Col>
-          <Col md={9} className="dash-items"></Col>
-          <Col md={1} className="div">
-            {/* <button
-              className="signin-btn shadow"
-              onClick={() => navigate("/login")}
-              style={{ float: "right", marginRight: 30 }}
-            >
-              Sign Out
-            </button> */}
-            <Dropdown isOpen={open} toggle={toggle}>
-              <DropdownToggle className="drop-down">
-                <ArrowDownCircle />
-              </DropdownToggle>
-              <DropdownMenu className="drop-down-menu">
-                {/* <DropdownItem header>Settings & Privacy</DropdownItem> */}
-                {/* <DropdownItem disabled>Action</DropdownItem> */}
-                <DropdownItem
-                  className="drop-down-item"
-                  onClick={() => navigate("/settings")}
-                >
-                  Settings
-                </DropdownItem>
-                <DropdownItem className="drop-down-item">
-                  Help & Support
-                </DropdownItem>
-                <DropdownItem className="drop-down-item" divider />
-                <DropdownItem className="drop-down-item">Sign Out</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-          </Col>
-        </Row>
-      </div>
+      <Row className="nav-row m-0 p-0">
+        <Col md={6}>
+          <Row>
+            <Col md={1}>
+              <p className="logo">
+                {/* <img
+                  className="logo"
+                  src={logo}
+                  alt="sdfa"
+                  data-toggle="tooltip"
+                  data-placement="bottom"
+                  title="sRecord"
+                  onClick={() => navigate("/home")}
+                /> */}
+                LOGO
+              </p>
+            </Col>
+            <Col md={11}>
+              {/* <div class="has-search">
+                        <span class="form-control-feedback"><Search/></span>
+                        <input type="text" class="search-input" placeholder="Search sRecord" />
+                    </div> */}
+            </Col>
+          </Row>
+        </Col>
+        <Col md={6}>
+          <Dropdown isOpen={open} toggle={toggle}>
+            <DropdownToggle className="drop-down">
+              <Menu />
+            </DropdownToggle>
+            <DropdownMenu className="drop-down-menu">
+              {/* <DropdownItem header>Settings & Privacy</DropdownItem> */}
+              {/* <DropdownItem disabled>Action</DropdownItem> */}
+              <DropdownItem
+                className="drop-down-item"
+                onClick={() => navigate("/settings")}
+              >
+                Settings
+              </DropdownItem>
+              <DropdownItem className="drop-down-item">
+                Help & Support
+              </DropdownItem>
+              <DropdownItem className="drop-down-item" divider />
+              <DropdownItem className="drop-down-item">Sign Out</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+          <div className="dp-name" onClick={() => navigate("/profile")}>
+            <img src={ysquare} className="dp" alt="profile"  style={{display:'inline'}}/>
+            <p style={{display:'inline'}}>{' '}ysquareimperial</p>
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 }

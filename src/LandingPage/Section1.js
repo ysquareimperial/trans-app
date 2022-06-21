@@ -94,7 +94,7 @@ export default function Section1() {
             <Col md={10}>
               <div className="login-form">
                 <>
-                  <Card className="login-card shadow-lg">
+                  <Card className="search-card shadow-lg">
                     <CardBody className="">
                       {/* <div>
                       <CustomForm

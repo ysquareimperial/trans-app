@@ -5,10 +5,6 @@
     --hover: 0px 4px 4px 0px rgba(0, 0, 0, 0.2), 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
-body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    /* background-color: var(--primaryColor) */
-}
 
 .login-title {
     font-weight: bold;
@@ -28,17 +24,18 @@ body {
 }
 
 .login-p, .login-title, .bkd {
-    color: var(--primaryColor);
+    color: var(--white);
 }
 
 .login-body {
     height: 100vh;
-    background-color: var(--white);
+    background-color: var(--primaryColor);
 }
 
 .login-card {
     border-radius: 20px;
     margin-top: 100px;
+    /* background-color: rgba(255, 255, 255, 0.8); */
 }
 
 .reg-card-con .login-card {
@@ -52,6 +49,7 @@ body {
     width: 100%;
     padding: 10px;
     border: none;
+    border-radius: 5px;
     color: var(--primaryColor);
     background-color: rgb(223, 223, 223);
     /* display: shadow; */
@@ -82,9 +80,10 @@ input[type=radio] {
 .login-btn {
     border: none;
     color: white;
-    background-color: var(--primaryColor);
+    background-color: var(--btnColor);
     padding: 10px;
     font-weight: bold;
+    border-radius: 5px;
 }
 
 .p-reg .login-btn {

@@ -37,10 +37,10 @@
 
 .login-form {
     position: relative;
-    top: 10%;
+    top: 40%;
 }
 
-.login-card {
+.search-card {
     border-radius: 0;
     /* border-bottom-left-radius: 4em;
     border-top-right-radius: 4em;
@@ -63,9 +63,9 @@
     margin-right: 5px;
 }
 
-input[type=date] {
+/* input[type=date] {
     width: 100%;
-    /* margin-top: 1em; */
+    margin-top: 1em;
     border-radius: 0;
     border: none;
     background-color: rgb(245, 245, 245);
@@ -73,7 +73,7 @@ input[type=date] {
     padding: 1em;
     outline: none;
     margin-right: 5px;
-}
+} */
 
 .login-text {
     /* text-align: center; */
@@ -137,4 +137,7 @@ input[type=date] {
     border-radius: 10px;
     transition: 500ms;
     box-shadow: var(--hover)
+}
+.modal-body{
+   /* background-color: rgba(127, 205, 218, 0.1); */
 }
