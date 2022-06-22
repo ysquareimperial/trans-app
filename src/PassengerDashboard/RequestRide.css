@@ -6,7 +6,7 @@
 }
 
 .request-card {
-    height: 88vh;
+    height: 85vh;
 }
 
 .driver {
@@ -16,6 +16,14 @@
 
 .car {
     width: 80px;
+}
+
+.atm {
+    width: 80px;
+}
+
+.modal-atm {
+    width: 50px
 }
 
 .request-field {
@@ -44,4 +52,35 @@
     border-radius: 10px;
     transition: 500ms;
     box-shadow: var(--hover)
+}
+
+.request2:hover {
+    border-radius: 10px;
+    transition: 500ms;
+    box-shadow: var(--hover)
+}
+
+.visa {
+    width: 40px
+}
+
+.request2 {
+    border: none;
+    padding: 10px;
+    background-color: var(--btnColor);
+    color: var(--white);
+    width: 100%;
+}
+
+.sel {
+    outline: none;
+    background-color: rgb(230, 230, 230);
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    padding: 8px
+}
+
+.req-card {
+    background-image: linear-gradient(to bottom right, rgb(244, 252, 255), rgb(255, 255, 255));
 }

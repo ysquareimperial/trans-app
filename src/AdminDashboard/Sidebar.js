@@ -5,8 +5,8 @@ import { Clock, PlusCircle, Eye, AlignJustify } from "react-feather";
 import "./Sidebar.css";
 // import { Home } from "react-feather";
 export default function Sidebar() {
-  const location = useLocation();
   const navigate = useNavigate();
+  const location = useLocation();
   return (
     <div style={{ position: "fixed" }}>
       <ul className="sidebar-items" style={{ marginTop: 70 }}>
@@ -16,19 +16,29 @@ export default function Sidebar() {
         <li
           onClick={() => navigate("/request-ride")}
           className={`active1 ${
-            location.pathname === "" && "active_sidebar"
+            location.pathname.includes("/request-ride") && "active_sidebar"
           }`}
         >
           {" "}
           <PlusCircle className="sidebar-icon" />
           Request a ride
         </li>
-        {/* <hr></hr> */}
-        {/* <li onClick={() => navigate("/all-users")}>Manage All Users</li> */}
-        <li onClick={() => navigate("/all-users")}>
+        <li
+          onClick={() => navigate("/view-reservations")}
+          className={`active1 ${
+            location.pathname === "/view-reservations" && "active_sidebar"
+          }`}
+        >
+          {" "}
           <Eye className="sidebar-icon" /> View reservations
         </li>
-        <li onClick={() => navigate("/all-users")}>
+        <li
+          onClick={() => navigate("/all-users")}
+          className={`active1 ${
+            location.pathname === "/all-users" && "active_sidebar"
+          }`}
+        >
+          {" "}
           <Clock className="sidebar-icon" />
           Trip history
         </li>

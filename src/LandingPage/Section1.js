@@ -106,54 +106,90 @@ export default function Section1() {
                       <hr style={{ padding: 0 }}></hr>
                       <Row>
                         <Col md={6}>
-                          <p
+                          {/* <p
                             style={{ color: "white", margin: 0, marginTop: 10 }}
                           >
                             From
-                          </p>
-                          <input
-                            className="login-field"
-                            type="text"
-                            placeholder="From"
-                          />
+                          </p> */}
+                          <div className="form-group">
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder="from"
+                              id="from"
+                            />
+
+                            <label
+                              for="from"
+                              style={{ color: "rgb(160,160,160)" }}
+                              className="form-label"
+                            >
+                              From
+                            </label>
+                          </div>
                         </Col>
                         <Col md={6}>
-                          <p
+                          {/* <p
                             style={{ color: "white", margin: 0, marginTop: 10 }}
                           >
                             To
-                          </p>
-                          <input
-                            className="login-field"
-                            type="text"
-                            placeholder="To"
-                          />
+                          </p> */}
+                          <div className="form-group">
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder="to"
+                              id="to"
+                            />
+                            <label
+                              for="to"
+                              style={{ color: "rgb(160,160,160)" }}
+                              className="form-label"
+                            >
+                              To
+                            </label>
+                          </div>
                         </Col>
                       </Row>
                       <Row>
                         <Col md={6}>
-                          <p
+                          {/* <p
                             style={{ color: "white", margin: 0, marginTop: 10 }}
                           >
                             Date
-                          </p>
-                          <input
-                            className="login-field"
-                            type="date"
-                            placeholder="From"
-                          />
+                          </p> */}
+                          <div className="form-group">
+                            <input
+                              type="date"
+                              className="form-control"
+                              placeholder="Date"
+                              id="Date"
+                            />
+                            <label
+                              for="Date"
+                              className="form-label"
+                              style={{ color: "rgb(160,160,160)" }}
+                            >
+                              Date
+                            </label>
+                          </div>
                         </Col>
                         <Col md={6}>
-                          <p
-                            style={{ color: "white", margin: 0, marginTop: 10 }}
-                          >
-                            Time
-                          </p>
-                          <input
-                            className="login-field"
-                            type="time"
-                            placeholder="To"
-                          />
+                          <div className="form-group">
+                            <input
+                              type="time"
+                              className="form-control"
+                              placeholder="Time"
+                              id="Time"
+                            />
+                            <label
+                              for="Time"
+                              className="form-label"
+                              style={{ color: "rgb(160,160,160)" }}
+                            >
+                              Time
+                            </label>
+                          </div>
                         </Col>
                       </Row>
                       <button className="go mt-3" onClick={toggle1}>

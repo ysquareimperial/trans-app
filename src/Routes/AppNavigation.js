@@ -6,9 +6,11 @@ import Login from "../Auth/Login";
 import Register from "../Auth/Register";
 import AppIndex from "./AppIndex";
 import PublishRide from "../Auth/publishRide";
-import RequestRide from "../Auth/RequestRide";
 import LandingPage from "../LandingPage/LandingPage";
 import PassengerHome from "../PassengerDashboard/PassengerHome";
+import RequestRide from "../PassengerDashboard/RequestRide";
+import SuccessPayment from "../PassengerDashboard/SuccessPayment";
+import ViewReservations from "../PassengerDashboard/ViewReservations";
 
 function AppNavigation() {
   let element = useRoutes([
@@ -24,6 +26,14 @@ function AppNavigation() {
         {
           path: "/request-ride",
           element: <RequestRide />,
+        },
+        {
+          path: "/request-ride/payment-successful",
+          element: <SuccessPayment />,
+        },
+        {
+          path: "/view-reservations",
+          element: <ViewReservations />,
         },
         {
           path: "/all-users",
