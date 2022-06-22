@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardBody,
@@ -8,6 +8,9 @@ import {
   Button,
   FormGroup,
   Label,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
 } from "reactstrap";
 import "./RequestRide.css";
 import ysquare from "../Images/ysquareimperial.png";
@@ -15,6 +18,10 @@ import car from "../Images/toyota.png";
 import Goog from "./goog";
 import "./input.css";
 function RequestRide() {
+  const [open1, setOpen1] = useState(false);
+  const toggle1 = () => {
+    setOpen1(!open1);
+  };
   return (
     <div>
       <Card
@@ -36,17 +43,35 @@ function RequestRide() {
                 borderTopRightRadius: 20,
               }}
             >
-              <p
-                style={{
-                  margin: 0,
-                  padding: 0,
-                  fontWeight: "bold",
-                  color: "grey",
-                }}
-                className="p-1"
-              >
-                Request a ride
-              </p>
+              <Row>
+                <Col md={6}>
+                  <p
+                    style={{
+                      margin: 0,
+                      padding: 0,
+                      fontWeight: "bold",
+                      color: "grey",
+                    }}
+                    className="p-1"
+                  >
+                    Request a ride
+                  </p>
+                </Col>
+                <Col md={6}>
+                  <p
+                    style={{
+                      margin: 0,
+                      padding: 0,
+                      fontWeight: "bold",
+                      color: "grey",
+                      float:'right'
+                    }}
+                    className="p-1"
+                  >
+                   ₦ 4,000
+                  </p>
+                </Col>
+              </Row>
               <hr style={{ margin: 0 }}></hr>
               <Row className="p-3 mt-3">
                 <Col md={6}>
@@ -133,7 +158,7 @@ function RequestRide() {
                 </Col>
               </Row>
               <Row className="m-1">
-                <Col md={6}>
+                {/* <Col md={6}>
                   <input
                     type="text"
                     class="form-control"
@@ -154,7 +179,7 @@ function RequestRide() {
                   <label for="Destination Address" class="form-label">
                     Destination Address
                   </label>
-                </Col>
+                </Col> */}
                 <div style={{ marginTop: 10 }}>
                   <button className="request mb-3">Request</button>
                 </div>
@@ -290,8 +315,90 @@ function RequestRide() {
                 </Col>
               </Row>
             </Card>
+            <Card
+              className="shadow-sm mt-3"
+              style={{
+                borderLeft: "1px solid rgb(200, 201, 202)",
+                borderRadius: 0,
+                borderRight: 0,
+                borderTop: 0,
+                borderBottom: 0,
+
+                backgroundColor: "rgb(250, 250, 250)",
+                borderBottomRightRadius: 20,
+                borderTopRightRadius: 20,
+              }}
+            >
+              <p
+                style={{
+                  margin: 0,
+                  padding: 0,
+                  fontWeight: "bold",
+                  color: "grey",
+                }}
+                className="p-1"
+              >
+                Payment Method
+              </p>
+              <hr style={{ margin: 0 }}></hr>
+
+              <Row className="p-2">
+                <Col md={3}>
+                  <img src={car} className="car" />
+                </Col>
+                <Col md={9}>
+                  <p className="car-name" style={{ color: "grey" }}>
+                    <span style={{ fontWeight: "normal", fontSize: 13 }}>
+                      Car Name:{" "}
+                    </span>
+                    Toyota Camry
+                  </p>
+                  <p className="from-to">
+                    <span style={{ fontWeight: "normal", fontSize: 13 }}>
+                      Model:{" "}
+                    </span>
+                    2020
+                  </p>
+                  <p className="from-to">
+                    <span style={{ fontWeight: "normal", fontSize: 13 }}>
+                      Color:{" "}
+                    </span>
+                    White
+                  </p>
+                  <p className="from-to">
+                    <span style={{ fontWeight: "normal", fontSize: 13 }}>
+                      Year:{" "}
+                    </span>
+                    1
+                  </p>
+                  <p className="from-to">
+                    <span style={{ fontWeight: "normal", fontSize: 13 }}>
+                      License Plate:{" "}
+                    </span>
+                    NSR-12-122
+                  </p>
+                  <p className="from-to">
+                    <span style={{ fontWeight: "normal", fontSize: 13 }}>
+                      License Plate:{" "}
+                    </span>
+                    2020 23 2 3
+                  </p>
+                </Col>
+              </Row>
+            </Card>
           </Col>
         </Row>
+        <Dropdown isOpen={open1} toggle={toggle1}>
+          <DropdownToggle data-toggle="dropdown" tag="span" onClick={toggle1}>
+            Custom Dropdown Content
+          </DropdownToggle>
+          <DropdownMenu>
+            <div>Custom dropdown item</div>
+            <div>Custom dropdown item</div>
+            <div>Custom dropdown item</div>
+            <div>Custom dropdown item</div>
+          </DropdownMenu>
+        </Dropdown>
       </Card>
     </div>
   );
