@@ -67,7 +67,7 @@ function RequestRide() {
                     }}
                     className="p-1"
                   >
-                   Price: ₦ 4,000
+                    Price: ₦ 4,000
                   </p>
                 </Col>
               </Row>
@@ -413,9 +413,9 @@ function RequestRide() {
             </Col>
           </Row>
           <Row className="" style={{ marginTop: 25 }}>
-              <p style={{ float: "right", fontSize:25 }} className="avail">
-                Total: <span> ₦ 4,000</span>
-              </p>
+            <p style={{ float: "right", fontSize: 25 }} className="avail">
+              Total: <span> ₦ 4,000</span>
+            </p>
             <Col md={12}>
               <div className="form-group">
                 <input
@@ -509,7 +509,7 @@ function RequestRide() {
             className="request2"
             onClick={() => {
               toggle1();
-              navigate('payment-successful')
+              navigate("payment-successful");
             }}
           >
             Pay/Reserve

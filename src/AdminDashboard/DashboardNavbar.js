@@ -67,8 +67,13 @@ export default function DashboardNavbar() {
             </DropdownMenu>
           </Dropdown>
           <div className="dp-name" onClick={() => navigate("/profile")}>
-            <img src={ysquare} className="dp" alt="profile"  style={{display:'inline'}}/>
-            <p style={{display:'inline'}}>{' '}ysquareimperial</p>
+            <img
+              src={ysquare}
+              className="dp"
+              alt="profile"
+              style={{ display: "inline" }}
+            />
+            <p style={{ display: "inline" }}> ysquareimperial</p>
           </div>
         </Col>
       </Row>

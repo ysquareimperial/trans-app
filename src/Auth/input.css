@@ -48,4 +48,3 @@
 .form-control:focus+.form-label, .form-control:not(:placeholder-shown)+.form-label {
     transform: translateY(-4rem) scale(0.75) translateX(0px);
 }
-

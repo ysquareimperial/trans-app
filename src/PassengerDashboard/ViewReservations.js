@@ -15,6 +15,8 @@ export default function ViewReservations() {
       img: tripImg,
       from: "Kano",
       to: "Zaria",
+      numberOfSeat:'2',
+      nextofKinPhone:'07032906691',
       time: "12:00PM",
       date: "12/12/2020",
       price: "4,000",
@@ -134,6 +136,18 @@ export default function ViewReservations() {
                           time:{" "}
                         </span>
                         {item.time}
+                      </p>
+                      <p className="from-to">
+                        <span style={{ fontWeight: "normal", fontSize: 13 }}>
+                          Number of seat:{" "}
+                        </span>
+                        {item.numberOfSeat}
+                      </p>
+                      <p className="from-to">
+                        <span style={{ fontWeight: "normal", fontSize: 13 }}>
+                          Next of kin's phone:{" "}
+                        </span>
+                        {item.nextofKinPhone}
                       </p>
                       <p className="from-to">
                         <span style={{ fontWeight: "normal", fontSize: 13 }}>
