@@ -1,4 +1,4 @@
-.reservation-card{
+.reservation-card {
     border: none;
     border-radius: 5px;
     background-image: linear-gradient(to bottom right, rgb(244, 252, 255), rgb(255, 255, 255));
@@ -20,6 +20,7 @@
     transition: 500ms;
     box-shadow: var(--hover)
 }
+
 .del-res {
     border: none;
     padding: 8px;
@@ -34,4 +35,14 @@
     border-radius: 10px;
     transition: 500ms;
     box-shadow: var(--hover)
+}
+
+.t-data {
+    color: grey;
+    font-size: 13px;
+}
+.more:hover{
+    background-color:rgb(255, 255, 255);
+    cursor:pointer;
+    border-radius: 50px;
 }
