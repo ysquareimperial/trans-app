@@ -11,6 +11,7 @@ import PassengerHome from "../PassengerDashboard/PassengerHome";
 import RequestRide from "../PassengerDashboard/RequestRide";
 import SuccessPayment from "../PassengerDashboard/SuccessPayment";
 import ViewReservations from "../PassengerDashboard/ViewReservations";
+import TripHisory from "../PassengerDashboard/TripHistory";
 
 function AppNavigation() {
   let element = useRoutes([
@@ -34,6 +35,10 @@ function AppNavigation() {
         {
           path: "/view-reservations",
           element: <ViewReservations />,
+        },
+        {
+          path: "/trip-history",
+          element: <TripHisory />,
         },
         {
           path: "/all-users",

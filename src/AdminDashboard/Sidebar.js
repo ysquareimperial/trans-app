@@ -33,9 +33,9 @@ export default function Sidebar() {
           <Eye className="sidebar-icon" /> View reservations
         </li>
         <li
-          onClick={() => navigate("/all-users")}
+          onClick={() => navigate("/trip-history")}
           className={`active1 ${
-            location.pathname === "/all-users" && "active_sidebar"
+            location.pathname === "/trip-history" && "active_sidebar"
           }`}
         >
           {" "}

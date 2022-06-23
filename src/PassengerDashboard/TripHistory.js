@@ -9,7 +9,7 @@ import atm from "../Images/card.png";
 import tripImg from "../Images/trip.png";
 import "./ViewReservation.css";
 import { Trash } from "react-feather";
-export default function ViewReservations() {
+export default function TripHisory() {
   const trip = [
     {
       img: tripImg,
@@ -56,7 +56,7 @@ export default function ViewReservations() {
               color: "grey",
             }}
           >
-            Reservations
+            History
           </p>
           <Card className="reservation-card shadow-sm p-3 mb-3">
             <Row>
@@ -69,13 +69,14 @@ export default function ViewReservations() {
                     color: "grey",
                   }}
                 >
-                  Reservation Details
+                  {trip.map((item, index) => (
+                    <div>Trip to {item.from} on {item.date}</div>
+                  ))}
                 </p>
               </Col>
               <Col md={6}>
                 <div style={{ float: "right" }}>
-                  <button className="edit-res">Edit</button>
-                  <button className="del-res">Cancel Trip</button>
+                  <button className="del-res">Delete</button>
                 </div>
               </Col>
             </Row>
