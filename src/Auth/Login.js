@@ -4,7 +4,10 @@ import { Card, Col, Row } from "reactstrap";
 import "../Styles.css";
 import { Navigate, useNavigate } from "react-router-dom";
 import img from "../Images/car.svg";
+import useQuery from "../hooks/useQuery";
 export default function Login() {
+  const query = useQuery()
+  const gotoDashboard = query.get('rdr')
   const navigate = useNavigate();
   let _form = {
     phone: "",
@@ -85,7 +88,10 @@ export default function Login() {
                 className="login-btn mt-3"
                 onClick={() => {
                   handleSubmit();
-                  navigate("/request-ride");
+                  if(!gotoDashboard) {
+                    navigate("/overview")
+                  } else {
+                  navigate("/request-ride");}
                 }}
               >
                 Login

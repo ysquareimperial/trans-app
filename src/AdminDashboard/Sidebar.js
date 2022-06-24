@@ -10,13 +10,18 @@ export default function Sidebar() {
   return (
     <div style={{ position: "fixed" }}>
       <ul className="sidebar-items" style={{ marginTop: 70 }}>
-        <li>
+        <li
+          onClick={() => navigate("/overview")}
+          className={`active1 ${
+            location.pathname === "/overview" && "active_sidebar"
+          }`}
+        >
           <AlignJustify className="sidebar-icon" /> Overview
         </li>
         <li
-          onClick={() => navigate("/request-ride")}
+          onClick={() => navigate("/new-ride-request")}
           className={`active1 ${
-            location.pathname.includes("/request-ride") && "active_sidebar"
+            location.pathname.includes("request") && "active_sidebar"
           }`}
         >
           {" "}

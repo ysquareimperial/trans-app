@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   Row,
@@ -8,6 +8,10 @@ import {
   CardHeader,
   CardBody,
   Table,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  Button,
 } from "reactstrap";
 import visa from "../Images/visa.png";
 import carImg from "../Images/toyota.png";
@@ -15,14 +19,29 @@ import sedan from "../Images/car.png";
 import driverImg from "../Images/ysquareimperial.png";
 import protect from "../Images/protect.png";
 import master from "../Images/master.png";
-import { Clock, Calendar, User, GitPullRequest } from "react-feather";
+import {
+  Clock,
+  Calendar,
+  User,
+  GitPullRequest,
+  Eye,
+  Trash,
+  Slack,
+} from "react-feather";
 import atm from "../Images/card.png";
 import tripImg from "../Images/trip.png";
 import "./ViewReservation.css";
+import { useNavigate } from "react-router-dom";
 import { MoreVertical } from "react-feather";
 export default function TripHisory() {
+  const navigate = useNavigate();
+  const [open1, setOpen1] = useState(false);
+  const toggle1 = () => {
+    setOpen1(!open1);
+  };
   const history = [
     {
+      id: 1,
       date: "12/12/2020",
       time: "12 AM",
       from: "Kano",
@@ -30,25 +49,30 @@ export default function TripHisory() {
       car: "Toyota",
       model: "Camry",
       driver: "Muhammad Abdurrazaku",
+      text: "View",
     },
     {
-        date: "12/12/2020",
-        time: "12 AM",
-        from: "Kano",
-        to: "Jigawa",
-        car: "Toyota",
-        model: "Camry",
-        driver: "Muhammad Abdurrazaku",
-      },
-      {
-        date: "12/12/2020",
-        time: "12 AM",
-        from: "Kano",
-        to: "Jigawa",
-        car: "Toyota",
-        model: "Camry",
-        driver: "Muhammad Abdurrazaku",
-      },
+      id: 2,
+      date: "12/12/2020",
+      time: "12 AM",
+      from: "Kano",
+      to: "Jigawa",
+      car: "Toyota",
+      model: "Camry",
+      driver: "Muhammad Abdurrazaku",
+      text: "View",
+    },
+    {
+      id: 2,
+      date: "12/12/2020",
+      time: "12 AM",
+      from: "Kano",
+      to: "Jigawa",
+      car: "Toyota",
+      model: "Camry",
+      driver: "Muhammad Abdurrazaku",
+      text: "View",
+    },
   ];
   return (
     <div>
@@ -94,7 +118,11 @@ export default function TripHisory() {
                     <User className="sidebar-icon" />
                     Driver
                   </th>
-                  <th></th>
+                  <th>
+                    {" "}
+                    <Slack className="sidebar-icon" />
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -110,7 +138,19 @@ export default function TripHisory() {
                     </td>
                     <td className="t-data">{item.driver}</td>
                     <td className="t-data">
-                      <MoreVertical className="more" />
+                      <Eye
+                      size='1.5em'
+                        className="sidebar-icon-eye"
+                        onClick={() =>
+                          navigate(`/view-history?trip_id=${item.id}`)
+                        }
+                        style={{ cursor: "pointer" }}
+                      />
+                      <Trash
+                       size='1.5em'
+                        className="sidebar-icon-dlt"
+                        style={{ cursor: "pointer" }}
+                      />
                     </td>
                   </tr>
                 ))}
