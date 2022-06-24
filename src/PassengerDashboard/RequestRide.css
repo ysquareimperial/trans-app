@@ -84,3 +84,22 @@
 .req-card {
     background-image: linear-gradient(to bottom right, rgb(244, 252, 255), rgb(255, 255, 255));
 }
+
+.sidebar-icon-eye {
+    color: var(--btnColor);
+    margin-right: 10px;
+    /* font-size: 10px; */
+}
+
+.sidebar-icon-dlt {
+    color: var(--btnColor);
+    margin-right: 5px;
+}
+
+.sidebar-icon-dlt:hover {
+    color: red;
+}
+
+.sidebar-icon-eye:hover {
+    color: blue;
+}

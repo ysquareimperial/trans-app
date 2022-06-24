@@ -242,7 +242,7 @@ export default function Section1() {
               <Col md={3}>
                 <button
                   className="request-btn"
-                  onClick={() => navigate("/login")}
+                  onClick={() => navigate("/login?rdr=true")}
                 >
                   Request
                 </button>

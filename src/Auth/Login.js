@@ -5,7 +5,10 @@ import "../Styles.css";
 import { Navigate, useNavigate } from "react-router-dom";
 import img from "../Images/car.svg";
 import { login } from "../redux/action/auth";
+import useQuery from "../hooks/useQuery";
 export default function Login() {
+  const query = useQuery()
+  const gotoDashboard = query.get('rdr')
   const navigate = useNavigate();
   let _form = {
     email: "",
@@ -111,7 +114,13 @@ export default function Login() {
               </Row>
               <button
                 className="login-btn mt-3"
-                onClick={handleSubmit}
+                onClick={() => {
+                  handleSubmit();
+                  if(!gotoDashboard) {
+                    navigate("/overview")
+                  } else {
+                  navigate("/request-ride");}
+                }}
               >
                 Login
               </button>
