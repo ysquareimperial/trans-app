@@ -4,21 +4,49 @@ import { Card, Col, Row } from "reactstrap";
 import "../Styles.css";
 import { Navigate, useNavigate } from "react-router-dom";
 import img from "../Images/car.svg";
+import { login } from "../redux/action/auth";
 export default function Login() {
   const navigate = useNavigate();
   let _form = {
-    phone: "",
+    email: "",
     password: "",
   };
 
   const [loginForm, setLoginForm] = useState(_form);
+  const [loading, setLoading] = useState(false)
   const handleChange = ({ target: { name, value } }) => {
     setLoginForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = () => {
-    console.log(loginForm);
+  const handleSubmit = (e) => {
+    // e.preventDefault();
+    setLoading(true);
+    login(
+      { email: loginForm.email, password: loginForm.password },
+      (data) => {
+        console.log(data);
+        if (data && data.success) {
+          setLoading(false);
+          alert("Successfully Saved");
+          Navigate("/app/dashbord");
+        } else {
+          if (data) {
+            alert(JSON.stringify(Object.values(data)[0]));
+            setLoading(false);
+          } else {
+            setLoading(false);
+            alert("An error occured!");
+          }
+        }
+      },
+      (err) => {
+        alert(JSON.stringify(Object.values(err)[0]) || "error occured");
+        setLoading(false);
+        console.log("err", err);
+      }
+    )
   };
+
   return (
     <div className="login-body">
       <div className="container">
@@ -44,11 +72,11 @@ export default function Login() {
               <h1 className="login">Login</h1>
               <input
                 type="num"
-                name="phone"
-                value={loginForm.phone}
+                name="email"
+                value={loginForm.email}
                 onChange={handleChange}
                 className="login-input"
-                placeholder="phone"
+                placeholder="email"
               />
               <input
                 type="password"
@@ -63,7 +91,7 @@ export default function Login() {
                 <Col md={6}>
                   <label
                     className="mt-3 login-p1"
-                    style={{ fontSize: 12, float: "left"}}
+                    style={{ fontSize: 12, float: "left" }}
                   >
                     <input type="checkbox" /> Remember Password
                   </label>
@@ -83,10 +111,7 @@ export default function Login() {
               </Row>
               <button
                 className="login-btn mt-3"
-                onClick={() => {
-                  handleSubmit();
-                  navigate("/request-ride");
-                }}
+                onClick={handleSubmit}
               >
                 Login
               </button>
