@@ -1,0 +1,19 @@
+.overview-card {
+    border-radius: 10px;
+    border: none;
+    background-image: linear-gradient(to bottom right, rgb(244, 252, 255), rgb(255, 255, 255));
+}
+.overview-card-title{
+    font-weight: bold;
+    font-size: 20px;
+    color:grey;
+}
+.overview-card-footer{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 10px;
+}
+.overview-icon{
+    color:var(--btnColor);
+    float:right;
+    margin-top: 10px;
+}
