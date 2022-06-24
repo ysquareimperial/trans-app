@@ -13,8 +13,8 @@ import "../Auth/input.css";
 
 function RequestRide() {
   let requestRideForm = {
-    from: "",
-    to: "",
+    trip_from: "",
+    trip_to: "",
     date: "",
     time: "",
     numberOfSeat: "",
@@ -26,6 +26,24 @@ function RequestRide() {
   };
   const handleSubmit = () => {
     console.log(requestForm);
+    fetch("http://127.0.0.1:34567/requestride", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestForm),
+    })
+    .then((resp) => resp.json())
+    .then((data) => {
+      // setLoading(false);
+      console.log(data);
+      // navigate("/request-Ride");
+      // setModalIsOpen(true);
+    })
+    .catch((err) => {
+      // setLoading(false);
+      console.log(err);
+    });
   };
   const navigate = useNavigate();
   const [open1, setOpen1] = useState(false);
@@ -95,8 +113,8 @@ function RequestRide() {
                       className="form-control"
                       placeholder="From"
                       id="from"
-                      name='from'
-                      value={requestForm.from}
+                      name='trip_from'
+                      value={requestForm.trip_from}
                       onChange={handleChange}
                     />
                     <label for="from" className="form-label">
@@ -111,8 +129,8 @@ function RequestRide() {
                       className="form-control"
                       placeholder="To"
                       id="To"
-                      name='to'
-                      value={requestForm.to}
+                      name='trip_to'
+                      value={requestForm.trip_to}
                       onChange={handleChange}
                     />
                     <label for="To" className="form-label">

@@ -4,7 +4,7 @@ import { Drivers } from "./AllUsersData";
 export default function AllDrivers() {
   const [DriversList, setDriversList] = useState([]);
   const getAllUsers = () => {
-    fetch("http://192.168.43.150:34567/get_driverregistration")
+    fetch("http://127.0.0.1:34567/get_driverregistration")
       .then((raw) => raw.json())
       .then((data) => {
         if (data.results && data.results.length) {
