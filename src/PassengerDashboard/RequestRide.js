@@ -12,6 +12,21 @@ import Goog from "../Auth/goog";
 import "../Auth/input.css";
 
 function RequestRide() {
+  let requestRideForm = {
+    from: "",
+    to: "",
+    date: "",
+    time: "",
+    numberOfSeat: "",
+    nextOfKinPhone: "",
+  };
+  const [requestForm, setRequestForm] = useState(requestRideForm);
+  const handleChange = ({ target: { name, value } }) => {
+    setRequestForm((prev) => ({ ...prev, [name]: value }));
+  };
+  const handleSubmit = () => {
+    console.log(requestForm);
+  };
   const navigate = useNavigate();
   const [open1, setOpen1] = useState(false);
   const toggle1 = () => {
@@ -80,6 +95,9 @@ function RequestRide() {
                       className="form-control"
                       placeholder="From"
                       id="from"
+                      name='from'
+                      value={requestForm.from}
+                      onChange={handleChange}
                     />
                     <label for="from" className="form-label">
                       From
@@ -93,6 +111,9 @@ function RequestRide() {
                       className="form-control"
                       placeholder="To"
                       id="To"
+                      name='to'
+                      value={requestForm.to}
+                      onChange={handleChange}
                     />
                     <label for="To" className="form-label">
                       To
@@ -108,6 +129,9 @@ function RequestRide() {
                       className="form-control"
                       placeholder="Date"
                       id="Date"
+                      name='date'
+                      value={requestForm.date}
+                      onChange={handleChange}
                     />
                     <label for="Date" className="form-label">
                       Date
@@ -121,6 +145,9 @@ function RequestRide() {
                       className="form-control"
                       placeholder="Time"
                       id="Time"
+                      name='time'
+                      value={requestForm.time}
+                      onChange={handleChange}
                     />
                     <label for="Time" className="form-label">
                       Time
@@ -136,6 +163,9 @@ function RequestRide() {
                       className="form-control"
                       placeholder="Number of seats"
                       id="Number of seats"
+                      name='numberOfSeat'
+                      value={requestForm.numberOfSeat}
+                      onChange={handleChange}
                     />
                     <label for="Number of seats" className="form-label">
                       Number of seats
@@ -149,6 +179,9 @@ function RequestRide() {
                       className="form-control"
                       placeholder="Next of kin's phone"
                       id="Next of kin's phone"
+                      name='nextOfKinPhone'
+                      value={requestForm.nextOfKinPhone}
+                      onChange={handleChange}
                     />
                     <label for="Next of kin's phone" className="form-label">
                       Next of kin's phone
@@ -510,6 +543,7 @@ function RequestRide() {
             onClick={() => {
               toggle1();
               navigate("payment-successful");
+              handleSubmit();
             }}
           >
             Pay/Reserve
