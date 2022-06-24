@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col, Modal, ModalBody } from "reactstrap";
+import { Card, Row, Col, Modal, ModalBody, CardFooter } from "reactstrap";
 import visa from "../Images/visa.png";
 import carImg from "../Images/toyota.png";
 import driverImg from "../Images/ysquareimperial.png";
@@ -7,42 +7,34 @@ import protect from "../Images/protect.png";
 import master from "../Images/master.png";
 import atm from "../Images/card.png";
 import tripImg from "../Images/trip.png";
+import carIm from "../Images/car.png";
+import cancel from "../Images/cancel.png";
 import "./ViewReservation.css";
-import { Trash } from "react-feather";
+import "./Overview.css";
+import { XCircle } from "react-feather";
+import { PlusSquare } from "react-feather";
 export default function Overview() {
-  const trip = [
+  const overview = [
     {
-      img: tripImg,
-      from: "Kano",
-      to: "Zaria",
-      numberOfSeat:'2',
-      nextofKinPhone:'07032906691',
-      time: "12:00PM",
-      date: "12/12/2020",
-      price: "4,000",
+      cardTitle: "Total Reservations",
+      cardNumber: "50",
+      cardImage: <PlusSquare className="overview-icon" size='4em'/>,
+      today: "Today: 0",
+      date: "Total Amount: 250,000",
     },
-  ];
-  const driver = [
     {
-      img: driverImg,
-      fullName: "Musa Musa",
-      age: "40",
-      phone: "+234 09018661696",
-      address: "Sabon Gari, Kano.",
+      cardTitle: "Canceled Reservations",
+      cardNumber: "10",
+      cardImage: <XCircle  className="overview-icon" size='4em'/>,
+      today: "Today: 0",
+      date: "2020 - Present: 10",
     },
-  ];
-  const car = [
     {
-      img: carImg,
-      name: "Toyota",
-      model: "Camry",
-      color: "white",
-      year: 1,
-      licensePlate: "NSR-3-2-4",
-      licenseNumber: "1212334134",
-      age: "40",
-      phone: "+234 09018661696",
-      address: "Sabon Gari, Kano.",
+      cardTitle: "Total Reservations",
+      cardNumber: "50",
+      cardImage: <XCircle  className="overview-icon" size='4em'/>,
+      today: "Today: 0",
+      date: "2020 - Present: 50",
     },
   ];
   return (
@@ -60,8 +52,58 @@ export default function Overview() {
           >
             Overview
           </p>
-          <Card className="reservation-card shadow-sm p-3 mb-3">
-           </Card>
+
+          <Row>
+            {overview.map((item, index) => (
+              <Col md={4}>
+                <Card className="overview-card shadow-sm">
+                  <div className="p-3">
+                    <p className="overview-card-title">{item.cardTitle}</p>
+                    <Row>
+                      <Col md={6}>
+                        <p
+                          style={{
+                            fontWeight: "bold",
+                            color: "grey",
+                            fontSize: 50,
+                          }}
+                        >
+                          {item.cardNumber}
+                        </p>
+                      </Col>
+                      <Col md={6}>{item.cardImage}</Col>
+                    </Row>
+
+                    <Row>
+                      <Col md={5}>
+                        <p
+                          style={{
+                            margin: 0,
+                            color: "grey",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          {item.today}
+                        </p>
+                      </Col>
+                      <Col md={7}>
+                        <p
+                          style={{
+                            margin: 0,
+                            color: "grey",
+                            fontWeight: "bold",
+                            float: "right",
+                          }}
+                        >
+                          {item.date}
+                        </p>
+                      </Col>
+                    </Row>
+                  </div>
+                </Card>
+              </Col>
+            ))}
+          </Row>
         </Card>
       </div>
     </div>

@@ -13,9 +13,7 @@ import Goog from "../Auth/goog";
 import "../Auth/input.css";
 
 function NewRideRequest() {
-  let requestForm = {
-
-  }
+  let requestForm = {};
   const cars = [
     {
       carImage: toyota,
@@ -34,7 +32,7 @@ function NewRideRequest() {
       time: "12:00 PM",
       date: "12/02/2022",
       seats: 1,
-    }
+    },
   ];
 
   const navigate = useNavigate();
@@ -50,41 +48,28 @@ function NewRideRequest() {
   return (
     <div>
       <Card
-        className="request-card shadow p-3"
-        style={{ marginTop: 78, border: "none" }}
-      >
+          className="request-card shadow p-3"
+          style={{ marginTop: 78, border: "none" }}
+        >
+          <p
+            style={{
+              fontWeight: "bold",
+              color: "grey",
+            }}
+          >
+            Request a ride
+          </p>
         <Row>
           <Col md={8}>
             <Card
               className="req-card shadow-sm"
               style={{
-                borderLeft: "1px solid rgb(200, 201, 202)",
-                borderRadius: 0,
-                borderRight: 0,
-                borderTop: 0,
-                borderBottom: 0,
+                border: 0,
                 backgroundColor: "rgb(250, 250, 250)",
-                borderBottomRightRadius: 20,
-                borderTopRightRadius: 20,
+                borderRadius: 5,
               }}
             >
-              <Row>
-                <Col md={6}>
-                  <p
-                    style={{
-                      margin: 0,
-                      padding: 0,
-                      fontWeight: "bold",
-                      color: "grey",
-                    }}
-                    className="p-1"
-                  >
-                    Request a ride
-                  </p>
-                </Col>
-                <Col md={6}></Col>
-              </Row>
-              <hr style={{ margin: 0 }}></hr>
+              {/* <hr style={{ margin: 0 }}></hr> */}
               <Row className="p-3 mt-3">
                 <Col md={6}>
                   <div className="form-group">
@@ -177,7 +162,7 @@ function NewRideRequest() {
               <Col md={3}>
                 <button
                   className="request-btn"
-                  onClick={()=>navigate('/request-ride')}
+                  onClick={() => navigate("/request-ride")}
                 >
                   Request
                 </button>
