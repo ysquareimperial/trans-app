@@ -9,6 +9,7 @@ import atm from "../Images/card.png";
 import tripImg from "../Images/trip.png";
 import "./ViewReservation.css";
 import { Trash } from "react-feather";
+import ReservationItems from "./ReservationItems";
 export default function ViewReservations() {
   const [reservations, setReservations] = useState([]);
   const get_requestride = () => {
@@ -69,7 +70,7 @@ export default function ViewReservations() {
           className="request-card shadow p-3"
           style={{ marginTop: 78, border: "none" }}
           >
-          {JSON.stringify(reservations)}
+          {/* {JSON.stringify(reservations)} */}
           <p
             style={{
               fontWeight: "bold",
@@ -80,7 +81,7 @@ export default function ViewReservations() {
           </p>
           
           {reservations.map((im) => (
-            
+           <ReservationItems ee={im} />
           ))}
         </Card>
       </div>
