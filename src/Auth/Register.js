@@ -5,9 +5,13 @@ import "../Styles.css";
 import { useNavigate } from "react-router-dom";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
+import useQuery from "../hooks/useQuery";
 import PassengerReg from "./PassengerReg";
 import DriverReg from "./DriverReg";
 export default function Register() {
+  const query = useQuery();
+  const gotoDashboard = query.get("rdr");
+
   const navigate = useNavigate();
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);

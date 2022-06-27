@@ -47,6 +47,9 @@ export default function Sidebar() {
           <Clock className="sidebar-icon" />
           Trip history
         </li>
+        <li>Register your car</li>
+        <li>Create a trip</li>
+        <li>View passengers</li>
       </ul>
       <div className="brand"></div>
     </div>

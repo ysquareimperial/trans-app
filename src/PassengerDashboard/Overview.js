@@ -11,28 +11,32 @@ import carIm from "../Images/car.png";
 import cancel from "../Images/cancel.png";
 import "./ViewReservation.css";
 import "./Overview.css";
-import { XCircle } from "react-feather";
+import { GitPullRequest, XCircle } from "react-feather";
 import { PlusSquare } from "react-feather";
 export default function Overview() {
   const overview = [
     {
       cardTitle: "Total Reservations",
       cardNumber: "50",
-      cardImage: <PlusSquare className="overview-icon" size='4em'/>,
+      cardImage: <PlusSquare className="overview-icon" size="4em" />,
       today: "Today: 0",
       date: "Total Amount: 250,000",
     },
     {
       cardTitle: "Canceled Reservations",
       cardNumber: "10",
-      cardImage: <XCircle  className="overview-icon" size='4em'/>,
+      cardImage: <XCircle className="overview-icon" size="4em" />,
       today: "Today: 0",
       date: "2020 - Present: 10",
     },
     {
-      cardTitle: "Total Reservations",
-      cardNumber: "50",
-      cardImage: <XCircle  className="overview-icon" size='4em'/>,
+      cardTitle: "Total Ride Distance",
+      cardNumber: (
+        <>
+          50,000 <span style={{ fontSize: 15 }}>km</span>
+        </>
+      ),
+      cardImage: <GitPullRequest className="overview-icon" size="4em" />,
       today: "Today: 0",
       date: "2020 - Present: 50",
     },
@@ -60,7 +64,7 @@ export default function Overview() {
                   <div className="p-3">
                     <p className="overview-card-title">{item.cardTitle}</p>
                     <Row>
-                      <Col md={6}>
+                      <Col md={8}>
                         <p
                           style={{
                             fontWeight: "bold",
@@ -71,7 +75,7 @@ export default function Overview() {
                           {item.cardNumber}
                         </p>
                       </Col>
-                      <Col md={6}>{item.cardImage}</Col>
+                      <Col md={4}>{item.cardImage}</Col>
                     </Row>
 
                     <Row>
