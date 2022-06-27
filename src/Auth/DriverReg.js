@@ -6,6 +6,7 @@ export default function DriverReg() {
   const navigate = useNavigate();
   let _form = {
     fullName: "",
+    Age:"",
     phone: "",
     nin: "",
     licenseNo: "",
@@ -51,6 +52,14 @@ export default function DriverReg() {
           placeholder="Full Name"
           name="fullName"
           value={driverReg.fullName}
+          onChange={handleChange}
+        />
+          <input
+          type="text"
+          className="login-input"
+          placeholder="Age"
+          name="Age"
+          value={driverReg.Age}
           onChange={handleChange}
         />
         <Row>

@@ -12,12 +12,16 @@ import { Trash } from "react-feather";
 import ReservationItems from "./ReservationItems";
 export default function ViewReservations() {
   const [reservations, setReservations] = useState([]);
+  const [driverdetails, setDriverdetails] = useState([]);
+  const [cardetails, setCardetails] = useState([]);
   const get_requestride = () => {
-    fetch("http://127.0.0.1:34567/get_requestride")
+    fetch("http://127.0.0.1:34567/get_details")
       .then((raw) => raw.json())
       .then((data) => {
         if (data.results && data.results.length) {
           setReservations(data.results);
+          setDriverdetails(data.results);
+          setCardetails(data.results);
         }
       })
       .catch((e) => {
@@ -28,18 +32,18 @@ export default function ViewReservations() {
   useEffect(() => {
     get_requestride();
   }, []);
-  const trip = [
-    {
-      img: tripImg,
-      from: "Kano",
-      to: "Zaria",
-      numberOfSeat:'2',
-      nextofKinPhone:'07032906691',
-      time: "12:00PM",
-      date: "12/12/2020",
-      price: "4,000",
-    },
-  ];
+  // const trip = [
+  //   {
+  //     img: tripImg,
+  //     from: "Kano",
+  //     to: "Zaria",
+  //     numberOfSeat:'2',
+  //     nextofKinPhone:'07032906691',
+  //     time: "12:00PM",
+  //     date: "12/12/2020",
+  //     price: "4,000",
+  //   },
+  // ];
   const driver = [
     {
       img: driverImg,

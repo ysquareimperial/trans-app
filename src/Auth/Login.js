@@ -11,7 +11,7 @@ export default function Login() {
   const gotoDashboard = query.get('rdr')
   const navigate = useNavigate();
   let _form = {
-    email: "",
+   phoneNo: "",
     password: "",
   };
 
@@ -75,11 +75,11 @@ export default function Login() {
               <h1 className="login">Login</h1>
               <input
                 type="num"
-                name="email"
-                value={loginForm.email}
+                name="phoneNo"
+                value={loginForm.phoneNo}
                 onChange={handleChange}
                 className="login-input"
-                placeholder="email"
+                placeholder="phoneNo"
               />
               <input
                 type="password"

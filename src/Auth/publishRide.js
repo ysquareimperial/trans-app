@@ -9,15 +9,13 @@ function PublishRide() {
   const navigate = useNavigate();
   const [modalInfo, setModalInfo] = useState({})
   let _form = {
-    FirstName: "",
-    LastName: "",
-    language: "",
+    CarName:"",
     LicencePlate: "",
-    password: "",
     Caryear: "",
     LicenceNumber : "",
     CarColor :"",
     Carmodel:"",
+    Totalseats:"",
 
   };
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -31,7 +29,7 @@ function PublishRide() {
   const handleSubmit = () => {
     // e.preventDefault();
     //setLoading(true);
-    fetch('http://127.0.0.1:34567/pushlishride', {
+    fetch('http://127.0.0.1:34567/Publish_ride', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -83,40 +81,8 @@ function PublishRide() {
                    
            <Col md={2}></Col>
            <Col md={8}>
-           <Row>
-                <h2>Personal Information with Car Details </h2>
-            </Row>
-           <Card>
-               <CardBody className='shadow'>
-                <Row>
-                   <Col  md={6} className='mb-2'>
-                    First Name <Input type="text"
-                      className="login-input"
-                      placeholder="First Name"
-                      name="FirstName"
-                      value={publishRide.FirstName}
-                      onChange={handleChange}/>
                    </Col>
                    <Col md={6} className='mb-2'>
-                    Last Name <Input type="text"
-                    className="login-input"
-                    placeholder="LastName"
-                    name="LastName"
-                    value={publishRide.LastName}
-                    onChange={handleChange}/> 
-                   </Col>
-                </Row>
-                  
-                   <Col md={6} className='mb-2'>
-                   language <Input type="text
-                   "className="login-input"
-                   placeholder="language"
-                   name="language"
-                   value={publishRide.language}
-                   onChange={handleChange}/>
-                   </Col>
-               </CardBody>
-           </Card>
            <Row>
               <h2> Do you have a Car?</h2>
             </Row>
@@ -124,12 +90,15 @@ function PublishRide() {
                <CardBody className='shadow'>
                 <Row>
 <Col md={6}  className='mb-2'>
-                    Licence Plate <Input type="text"
-                    className="login-input"
-                    placeholder="Licence Plate "
-                    name="LicencePlate"
-                    value={publishRide.LicencePlate}
-                    onChange={handleChange}/>
+  <Row>
+    <Col md={6}  className='mb-2'>
+                
+                    Car Name <Input type="text"
+                      className="login-input"
+                      placeholder="  Car Name  "
+                      name="CarName"
+                      value={publishRide.CarName}
+                      onChange={handleChange}/>
                    </Col>
                    <Col md={6}  className='mb-2'>
                     Car Color <Input type="text"
@@ -139,6 +108,16 @@ function PublishRide() {
                       value={publishRide.CarColor}
                       onChange={handleChange}/>
                    </Col>
+  </Row>
+
+                    Licence Plate <Input type="text"
+                    className="login-input"
+                    placeholder="Licence Plate "
+                    name="LicencePlate"
+                    value={publishRide.LicencePlate}
+                    onChange={handleChange}/>
+                   </Col>
+                 
                 </Row>
                    <Row> <Col className='mb-2'>
                     Car year <Input type="text"
@@ -165,6 +144,14 @@ function PublishRide() {
                     onChange={handleChange}/>
                    </Col>
                   
+                   <Col md={6} className='mb-2'>
+                  Total seats <Input type="text"
+                    className="login-input"
+                    placeholder=" Total seats "
+                    name="Totalseats"
+                    value={ publishRide.Totalseats}
+                    onChange={handleChange}/>
+                   </Col>
                    <Col md={{ size: '6', offset: '5' }}>
                 <Button
                   className="mt-2"
@@ -180,7 +167,7 @@ function PublishRide() {
                </CardBody>
            </Card>
            </Col>
-           <Col md={2}></Col>
+        
            
            
        </Row>

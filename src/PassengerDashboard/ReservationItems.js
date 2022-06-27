@@ -20,24 +20,24 @@ function ReservationItems ({ee}) {
       const driver = [
         {
           img: driverImg,
-          fullName: "Musa Musa",
-          age: "40",
-          phone: "+234 09018661696",
-          address: "Sabon Gari, Kano.",
+          fullName:ee.fullName,
+          age: ee.Age,
+          phone:ee.phoneNo,
+          address:ee.currentAddress,
         },
       ];
       const car = [
         {
           img: carImg,
-          name: "Toyota",
-          model: "Camry",
-          color: "white",
-          year: 1,
-          licensePlate: "NSR-3-2-4",
-          licenseNumber: "1212334134",
-          age: "40",
-          phone: "+234 09018661696",
-          address: "Sabon Gari, Kano.",
+          name:ee.CarName,
+          model:ee.Carmodel,
+          color:ee.CarColor,
+          year:ee.Caryear,
+          licensePlate:ee.LicencePlate,
+          // licenseNumber:ee.LicencePlate,
+          // age: "40",
+          // phone: "+234 09018661696",
+          // address: "Sabon Gari, Kano.",
         },
       ];
     return(
