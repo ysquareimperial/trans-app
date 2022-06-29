@@ -4,24 +4,11 @@ import { Card, Col, Row } from "reactstrap";
 import "../Styles.css";
 import { Navigate, useNavigate } from "react-router-dom";
 import img from "../Images/car.svg";
-import useQuery from "../hooks/useQuery";
+import PassengerLogin from "./PassengerLogin";
+import DriverLogin from "./DriverLogin";
 export default function Login() {
-  const query = useQuery()
-  const gotoDashboard = query.get('rdr')
   const navigate = useNavigate();
-  let _form = {
-    phone: "",
-    password: "",
-  };
-
-  const [loginForm, setLoginForm] = useState(_form);
-  const handleChange = ({ target: { name, value } }) => {
-    setLoginForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = () => {
-    console.log(loginForm);
-  };
+  const [select, setSelect] = useState(2);
   return (
     <div className="login-body">
       <div className="container">
@@ -43,74 +30,28 @@ export default function Login() {
             </div>
           </Col>
           <Col md={6}>
-            <Card className="px-5 py-5 login-card shadow-sm">
-              <h1 className="login">Login</h1>
-              <input
-                type="num"
-                name="phone"
-                value={loginForm.phone}
-                onChange={handleChange}
-                className="login-input"
-                placeholder="phone"
-              />
-              <input
-                type="password"
-                value={loginForm.password}
-                name="password"
-                onChange={handleChange}
-                className="login-input"
-                placeholder="password"
-              />
-
-              <Row>
-                <Col md={6}>
-                  <label
-                    className="mt-3 login-p1"
-                    style={{ fontSize: 12, float: "left"}}
-                  >
-                    <input type="checkbox" /> Remember Password
-                  </label>
-                </Col>
-                <Col md={6}>
-                  <p
-                    className="login-p1 text-center mt-3"
-                    style={{
-                      fontSize: 12,
-                      float: "right",
-                      cursor: "pointer"
-                    }}
-                  >
-                    Forgot password?
-                  </p>
-                </Col>
-              </Row>
+            <div className="loginas-btn">
               <button
-                className="login-btn mt-3"
-                onClick={() => {
-                  handleSubmit();
-                  if(!gotoDashboard) {
-                    navigate("/overview")
-                  } else {
-                  navigate("/request-ride");}
-                }}
+                className={
+                  select === 2 ? "role-btn" : "role-btn-active "
+                }
+                onClick={() => setSelect(2)}
+                style={{borderTopLeftRadius:10}}
               >
-                Login
+                Passenger
               </button>
-              <p
-                className="login-p1 text-center mt-3"
-                style={{ fontSize: 12 }}
+              <button
+                className={
+                  select === 3 ? "role-btn" : "role-btn-active  "
+                }
+                onClick={() => setSelect(3)}
+                style={{borderTopRightRadius:10}}
               >
-                Don't have an account? |{" "}
-                <span
-                  style={{ cursor: "pointer" }}
-                  onClick={() => navigate("/register")}
-                >
-                  register here!
-                </span>
-              </p>
-            </Card>
+                Driver
+              </button>
+            </div>
+            {select === 2 ? <PassengerLogin /> : <DriverLogin />}
           </Col>
-          {/* <Col md={1}></Col> */}
         </Row>
       </div>
     </div>

@@ -34,7 +34,7 @@
 
 .login-card {
     border-radius: 20px;
-    margin-top: 100px;
+    /* margin-top: 100px; */
     /* background-color: rgba(255, 255, 255, 0.8); */
 }
 
@@ -127,3 +127,28 @@ input[type=date] {
     color: var(--primaryColor);
 }
 
+
+.loginas-btn {
+    margin-top: 15%;
+    /* margin-bottom: 2%; */
+    text-align: center;
+
+}
+
+.role-btn {
+    border: none;
+    color: var(--primaryColor);
+    background-color: var(--white);
+    padding: 10px;
+    font-weight: bold;
+    width: 50%;
+}
+
+.role-btn-active {
+    /* border-radius:0 5px 0 0; */
+    color: var(--white);
+    background-color: var(--btnColor);
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+}
