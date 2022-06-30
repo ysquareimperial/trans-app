@@ -147,7 +147,7 @@ function RequestRide() {
                       className="form-control"
                       placeholder="Date"
                       id="Date"
-                      name='date'
+                      name="date"
                       value={requestForm.date}
                       onChange={handleChange}
                     />
@@ -163,7 +163,7 @@ function RequestRide() {
                       className="form-control"
                       placeholder="Time"
                       id="Time"
-                      name='time'
+                      name="time"
                       value={requestForm.time}
                       onChange={handleChange}
                     />
@@ -181,7 +181,7 @@ function RequestRide() {
                       className="form-control"
                       placeholder="Number of seats"
                       id="Number of seats"
-                      name='numberOfSeat'
+                      name="numberOfSeat"
                       value={requestForm.numberOfSeat}
                       onChange={handleChange}
                     />
@@ -197,7 +197,7 @@ function RequestRide() {
                       className="form-control"
                       placeholder="Next of kin's phone"
                       id="Next of kin's phone"
-                      name='nextOfKinPhone'
+                      name="nextOfKinPhone"
                       value={requestForm.nextOfKinPhone}
                       onChange={handleChange}
                     />
@@ -356,7 +356,7 @@ function RequestRide() {
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
-                      License Plate:{" "}
+                      License Number:{" "}
                     </span>
                     2020 23 2 3
                   </p>

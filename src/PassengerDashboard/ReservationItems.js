@@ -4,11 +4,11 @@ import driverImg from "../Images/ysquareimperial.png";
 import tripImg from "../Images/trip.png";
 import carImg from "../Images/toyota.png";
 
-function ReservationItems ({ee}) {
+function ReservationItems ({ee={}}) {
     const trip = [
         {
           img: tripImg,
-          from:ee.trip_from,
+          from: ee.trip_from,
           to: ee.trip_to,
           numberOfSeat:ee.numberOfSeat,
           nextofKinPhone:ee.nextOfKinPhone,

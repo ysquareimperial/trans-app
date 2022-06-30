@@ -91,10 +91,7 @@ export default function PassengerReg() {
         value={passengerReg.password}
         onChange={handleChange}
       />
-      <button
-        className="login-btn mt-3"
-        onClick={() => navigate("/request-ride")}
-      >
+      <button className="login-btn mt-3" onClick={() => navigate("/overview")}>
         Register
       </button>
       <p className="text-center mt-3" style={{ fontSize: 12, color: "white" }}>

@@ -32,41 +32,7 @@ export default function ViewReservations() {
   useEffect(() => {
     get_requestride();
   }, []);
-  // const trip = [
-  //   {
-  //     img: tripImg,
-  //     from: "Kano",
-  //     to: "Zaria",
-  //     numberOfSeat:'2',
-  //     nextofKinPhone:'07032906691',
-  //     time: "12:00PM",
-  //     date: "12/12/2020",
-  //     price: "4,000",
-  //   },
-  // ];
-  const driver = [
-    {
-      img: driverImg,
-      fullName: "Musa Musa",
-      age: "40",
-      phone: "+234 09018661696",
-      address: "Sabon Gari, Kano.",
-    },
-  ];
-  const car = [
-    {
-      img: carImg,
-      name: "Toyota",
-      model: "Camry",
-      color: "white",
-      year: 1,
-      licensePlate: "NSR-3-2-4",
-      licenseNumber: "1212334134",
-      age: "40",
-      phone: "+234 09018661696",
-      address: "Sabon Gari, Kano.",
-    },
-  ];
+  
   return (
     <div>
       <div>
@@ -74,7 +40,7 @@ export default function ViewReservations() {
           className="request-card shadow p-3"
           style={{ marginTop: 78, border: "none" }}
           >
-          {/* {JSON.stringify(reservations)} */}
+          {JSON.stringify(reservations)}
           <p
             style={{
               fontWeight: "bold",

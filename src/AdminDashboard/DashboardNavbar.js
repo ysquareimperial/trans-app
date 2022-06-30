@@ -73,7 +73,7 @@ export default function DashboardNavbar() {
               alt="profile"
               style={{ display: "inline" }}
             />
-            <p style={{ display: "inline" }}> ysquareimperial</p>
+            <p style={{ display: "inline" }}>Profile</p>
           </div>
         </Col>
       </Row>

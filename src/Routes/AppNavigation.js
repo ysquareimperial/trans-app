@@ -14,8 +14,10 @@ import ViewReservations from "../PassengerDashboard/ViewReservations";
 import TripHisory from "../PassengerDashboard/TripHistory";
 import ViewHistory from "../PassengerDashboard/ViewHistory";
 import Overview from "../PassengerDashboard/Overview";
+import DriverOverview from "../DriverDashboard/DriverOverview";
 import NewRideRequest from "../PassengerDashboard/NewRideRequest";
 import AvailableCars from "../PassengerDashboard/AvailableCars";
+import Profile from "../PassengerDashboard/Profile";
 
 function AppNavigation() {
   let element = useRoutes([
@@ -60,6 +62,8 @@ function AppNavigation() {
           path: "/view-history",
           element: <ViewHistory />,
         },
+        { path: "/profile", element: <Profile /> },
+        { path: "/driver", element: <DriverOverview /> },
         {
           path: "/all-users",
           element: <AllUsers />,
