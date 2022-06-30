@@ -20,13 +20,15 @@ import Profile from "../PassengerDashboard/Profile";
 import RegisterCar from "../DriverDashboard/RegisterCar";
 import CreateTrip from "../DriverDashboard/CreateTrip";
 import ViewPassengers from "../DriverDashboard/ViewPassengers";
+import Cars from "../DriverDashboard/Cars";
+import Trips from "../DriverDashboard/Trips";
 
 function AppNavigation() {
   let element = useRoutes([
     {
       path: "/",
       element: <LandingPage />,
-      children: [{ index: true }]
+      children: [{ index: true }],
     },
     {
       element: <AppIndex />,
@@ -66,8 +68,10 @@ function AppNavigation() {
         },
         { path: "/profile", element: <Profile /> },
         { path: "/driver", element: <DriverOverview /> },
-        { path: "/register-your-car", element: <RegisterCar /> },
-        { path: "/create-trip", element: <CreateTrip /> },
+        { path: "/cars", element: <Cars /> },
+        { path: "/cars/register-your-car", element: <RegisterCar /> },
+        { path: "/trips", element: <Trips /> },
+        { path: "/trips/create-trip", element: <CreateTrip /> },
         { path: "/view-passengers", element: <ViewPassengers /> },
         {
           path: "/all-users",
