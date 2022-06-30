@@ -1,46 +1,37 @@
 import React from "react";
-import { Card, Row, Col, Modal, ModalBody, CardFooter } from "reactstrap";
-import visa from "../Images/visa.png";
-import carImg from "../Images/toyota.png";
-import driverImg from "../Images/ysquareimperial.png";
-import protect from "../Images/protect.png";
-import master from "../Images/master.png";
-import atm from "../Images/card.png";
-import tripImg from "../Images/trip.png";
-import carIm from "../Images/car.png";
-import cancel from "../Images/cancel.png";
+import { Card } from "reactstrap";
 import '../PassengerDashboard/ViewReservation.css'
 import '../PassengerDashboard/Overview'
-import { GitPullRequest, XCircle } from "react-feather";
-import { PlusSquare } from "react-feather";
+// import { GitPullRequest, XCircle } from "react-feather";
+// import { PlusSquare } from "react-feather";
 export default function DriverOverview() {
-  const overview = [
-    {
-      cardTitle: "Total Reservations",
-      cardNumber: "50",
-      cardImage: <PlusSquare className="overview-icon" size="4em" />,
-      today: "Today: 0",
-      date: "Total Amount: 250,000",
-    },
-    {
-      cardTitle: "Canceled Reservations",
-      cardNumber: "10",
-      cardImage: <XCircle className="overview-icon" size="4em" />,
-      today: "Today: 0",
-      date: "2020 - Present: 10",
-    },
-    {
-      cardTitle: "Total Ride Distance",
-      cardNumber: (
-        <>
-          50,000 <span style={{ fontSize: 15 }}>km</span>
-        </>
-      ),
-      cardImage: <GitPullRequest className="overview-icon" size="4em" />,
-      today: "Today: 0",
-      date: "2020 - Present: 50",
-    },
-  ];
+  // const overview = [
+  //   {
+  //     cardTitle: "Total Reservations",
+  //     cardNumber: "50",
+  //     cardImage: <PlusSquare className="overview-icon" size="4em" />,
+  //     today: "Today: 0",
+  //     date: "Total Amount: 250,000",
+  //   },
+  //   {
+  //     cardTitle: "Canceled Reservations",
+  //     cardNumber: "10",
+  //     cardImage: <XCircle className="overview-icon" size="4em" />,
+  //     today: "Today: 0",
+  //     date: "2020 - Present: 10",
+  //   },
+  //   {
+  //     cardTitle: "Total Ride Distance",
+  //     cardNumber: (
+  //       <>
+  //         50,000 <span style={{ fontSize: 15 }}>km</span>
+  //       </>
+  //     ),
+  //     cardImage: <GitPullRequest className="overview-icon" size="4em" />,
+  //     today: "Today: 0",
+  //     date: "2020 - Present: 50",
+  //   },
+  // ];
   return (
     <div>
       <div>
@@ -54,10 +45,10 @@ export default function DriverOverview() {
               color: "grey",
             }}
           >
-            Overview
+            Driver
           </p>
 
-          <Row>
+          {/* <Row>
             {overview.map((item, index) => (
               <Col md={4}>
                 <Card className="overview-card shadow-sm">
@@ -107,7 +98,7 @@ export default function DriverOverview() {
                 </Card>
               </Col>
             ))}
-          </Row>
+          </Row> */}
         </Card>
       </div>
     </div>

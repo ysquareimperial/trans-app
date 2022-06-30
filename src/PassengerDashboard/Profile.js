@@ -2,15 +2,9 @@ import React from "react";
 import {
   CreditCard,
   Edit2,
-  GitBranch,
-  GitCommit,
-  GitMerge,
   GitPullRequest,
   MapPin,
-  PenTool,
   Phone,
-  Plus,
-  PlusCircle,
   PlusSquare,
   XCircle,
 } from "react-feather";
@@ -36,7 +30,7 @@ export default function Profile() {
           <div>
             <Row>
               <Col md={2}>
-                <img src={ysquare} className="profile-image shadow" />
+                <img src={ysquare} alt='profile img' className="profile-image shadow" />
               </Col>
               <Col md={8}>
                 <h2 style={{ color: "grey" }}>Yasir Ado Hassan</h2>

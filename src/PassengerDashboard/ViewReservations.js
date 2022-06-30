@@ -1,14 +1,9 @@
 import React from "react";
-import { Card, Row, Col, Modal, ModalBody } from "reactstrap";
-import visa from "../Images/visa.png";
+import { Card, Row, Col } from "reactstrap";
 import carImg from "../Images/toyota.png";
 import driverImg from "../Images/ysquareimperial.png";
-import protect from "../Images/protect.png";
-import master from "../Images/master.png";
-import atm from "../Images/card.png";
 import tripImg from "../Images/trip.png";
 import "./ViewReservation.css";
-import { Trash } from "react-feather";
 export default function ViewReservations() {
   const trip = [
     {
@@ -114,7 +109,7 @@ export default function ViewReservations() {
                   </Row>
                   <Row className="p-2">
                     <Col md={3}>
-                      <img src={item.img} className="" />
+                      <img alt='' src={item.img} className="" />
                     </Col>
                     <Col md={9}>
                       <p className="car-name" style={{ color: "grey" }}>
@@ -200,7 +195,7 @@ export default function ViewReservations() {
                 </Row> */}
                   <Row className="p-2">
                     <Col md={3}>
-                      <img src={item.img} className="driver" />
+                      <img alt='' src={item.img} className="driver" />
                     </Col>
                     <Col md={9}>
                       <p className="car-name" style={{ color: "grey" }}>
@@ -272,7 +267,7 @@ export default function ViewReservations() {
                 </Row> */}
                   <Row className="p-2">
                     <Col md={3}>
-                      <img src={item.img} className="car" />
+                      <img alt='' src={item.img} className="car" />
                     </Col>
                     <Col md={9}>
                       <p className="car-name" style={{ color: "grey" }}>

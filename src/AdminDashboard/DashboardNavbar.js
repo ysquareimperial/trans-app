@@ -10,7 +10,6 @@ import {
   Row,
 } from "reactstrap";
 import ysquare from "../Images/ysquareimperial.png";
-import logo from "../Images/logo.png";
 import "./DashboardNavbar.css";
 export default function DashboardNavbar() {
   const [open, setOpen] = useState(false);

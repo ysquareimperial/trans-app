@@ -8,7 +8,7 @@ import master from "../Images/master.png";
 import { useNavigate } from "react-router";
 import visa from "../Images/visa.png";
 import car from "../Images/toyota.png";
-import Goog from "../Auth/goog";
+// import Goog from "../Auth/goog";
 import "../Auth/input.css";
 
 function RequestRide() {
@@ -226,7 +226,7 @@ function RequestRide() {
               <hr style={{ margin: 0 }}></hr>
               <Row className="p-2">
                 <Col md={3}>
-                  <img src={ysquare} className="driver" />
+                  <img alt='user' src={ysquare} className="driver" />
                 </Col>
                 <Col md={9}>
                   <p className="car-name" style={{ color: "grey" }}>
@@ -285,7 +285,7 @@ function RequestRide() {
 
               <Row className="p-2">
                 <Col md={3}>
-                  <img src={car} className="car" />
+                  <img alt='car' src={car} className="car" />
                 </Col>
                 <Col md={9}>
                   <p className="car-name" style={{ color: "grey" }}>
@@ -374,10 +374,10 @@ function RequestRide() {
 
               <Row className="p-2">
                 <Col md={3}>
-                  <img src={atm} className="atm" />
+                  <img alt='atm' src={atm} className="atm" />
                 </Col>
                 <Col md={9}>
-                  {/* <img src={visa} className='visa'/> */}
+                  {/* <img alt='' src={visa} className='visa'/> */}
                   <p
                     className="car-name"
                     style={{
@@ -388,7 +388,7 @@ function RequestRide() {
                     }}
                   >
                     <span style={{ fontWeight: "normal", fontSize: 13 }}></span>
-                    Master - <img src={master} />
+                    Master - <img alt='master' src={master} />
                   </p>
                   <p
                     className="car-name"
@@ -402,7 +402,7 @@ function RequestRide() {
                     <span style={{ fontWeight: "normal", fontSize: 13 }}></span>
                     Visa -{" "}
                   </p>
-                  <img src={visa} className="visa" />
+                  <img alt='visa' src={visa} className="visa" />
                 </Col>
               </Row>
             </Card>
@@ -436,13 +436,13 @@ function RequestRide() {
           </Row>
           <Row className="">
             <Col md={12}>
-              <img src={atm} className="modal-atm" />
+              <img alt='' src={atm} className="modal-atm" />
               <p style={{ display: "inline", fontSize: 13 }}>
                 {" "}
                 Provide the information below with either:{" "}
               </p>
-              <img src={master} />
-              <img src={visa} className="visa" />
+              <img alt='' src={master} />
+              <img alt='' src={visa} className="visa" />
             </Col>
           </Row>
           <Row className="" style={{ marginTop: 25 }}>
@@ -536,7 +536,7 @@ function RequestRide() {
             <Col md={4}></Col>
           </Row>
           <p style={{ fontSize: 13 }}>
-            <img src={protect} /> Your payment information is safe with us
+            <img alt='' src={protect} /> Your payment information is safe with us
           </p>
           <button
             className="request2"

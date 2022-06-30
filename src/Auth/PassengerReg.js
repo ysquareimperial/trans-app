@@ -13,7 +13,7 @@ export default function PassengerReg() {
     password: "",
   };
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const toggleModal = () => setModalIsOpen((p) => !p);
   const [passengerReg, setPassengerReg] = useState(_form);
   const handleChange = ({ target: { name, value } }) => {
@@ -91,7 +91,13 @@ export default function PassengerReg() {
         value={passengerReg.password}
         onChange={handleChange}
       />
-      <button className="login-btn mt-3" onClick={() => navigate("/overview")}>
+      <button
+        className="login-btn mt-3"
+        onClick={() => {
+          navigate("/overview");
+          handleSubmit();
+        }}
+      >
         Register
       </button>
       <p className="text-center mt-3" style={{ fontSize: 12, color: "white" }}>

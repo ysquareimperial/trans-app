@@ -1,19 +1,12 @@
 import React, { useState } from "react";
 import { Card, Row, Col, Modal, ModalBody } from "reactstrap";
 import "./RequestRide.css";
-import ysquare from "../Images/ysquareimperial.png";
-import protect from "../Images/protect.png";
-import atm from "../Images/card.png";
-import master from "../Images/master.png";
 import { useNavigate } from "react-router";
-import visa from "../Images/visa.png";
-import car from "../Images/toyota.png";
 import toyota from "../Images/toyota.png";
-import Goog from "../Auth/goog";
 import "../Auth/input.css";
 
 function NewRideRequest() {
-  let requestForm = {};
+  // let requestForm = {};
   const cars = [
     {
       carImage: toyota,
@@ -40,10 +33,10 @@ function NewRideRequest() {
   const toggle1 = () => {
     setOpen1(!open1);
   };
-  const [open2, setOpen2] = useState(false);
-  const toggle2 = () => {
-    setOpen2(!open2);
-  };
+  // const [open2, setOpen2] = useState(false);
+  // const toggle2 = () => {
+  //   setOpen2(!open2);
+  // };
 
   return (
     <div>
@@ -145,7 +138,7 @@ function NewRideRequest() {
           {cars.map((item, index) => (
             <Row className="mt-4">
               <Col md={3}>
-                <img src={toyota} style={{ width: 110 }} />
+                <img src={toyota} style={{ width: 110 }} alt='car'/>
               </Col>
               <Col md={6}>
                 <p className="car-name">{item.carName}</p>

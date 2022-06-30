@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, Col, Form, Modal, ModalBody, Row } from "reactstrap";
+import { Card, CardBody, Col, Modal, ModalBody, Row } from "reactstrap";
 import car from "../Images/car.jpg";
 import { useNavigate } from "react-router-dom";
 import "./Section1.css";
@@ -225,7 +225,7 @@ export default function Section1() {
           {cars.map((item, index) => (
             <Row className="mt-4">
               <Col md={3}>
-                <img src={toyota} style={{ width: 110 }} />
+                <img src={toyota} style={{ width: 110 }} alt='bg'/>
               </Col>
               <Col md={6}>
                 <p className="car-name">{item.carName}</p>

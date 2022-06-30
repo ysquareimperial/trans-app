@@ -4,11 +4,11 @@ import {
   Table,
 } from "reactstrap";
 import toyota from "../Images/toyota.png";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import ysquareimperial from "../Images/ysquareimperial.png";
 
 export default function AvailableCars() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const cars = [
     {
@@ -49,6 +49,7 @@ export default function AvailableCars() {
                 <th>
                   <img
                     //   src={sedan}
+                    alt='sedan'
                     className="sidebar-icon"
                     style={{ width: 30 }}
                   />

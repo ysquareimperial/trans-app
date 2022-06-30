@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Col, Row } from "reactstrap";
+import { Col, Row } from "reactstrap";
 import "../Styles.css";
-import { Navigate, useNavigate } from "react-router-dom";
-import img from "../Images/car.svg";
+import { useNavigate } from "react-router-dom";
 import PassengerLogin from "./PassengerLogin";
 import DriverLogin from "./DriverLogin";
 export default function Login() {
@@ -32,20 +31,16 @@ export default function Login() {
           <Col md={6}>
             <div className="loginas-btn">
               <button
-                className={
-                  select === 2 ? "role-btn" : "role-btn-active "
-                }
+                className={select === 2 ? "role-btn" : "role-btn-active "}
                 onClick={() => setSelect(2)}
-                style={{borderTopLeftRadius:10}}
+                style={{ borderTopLeftRadius: 10 }}
               >
                 Passenger
               </button>
               <button
-                className={
-                  select === 3 ? "role-btn" : "role-btn-active  "
-                }
+                className={select === 3 ? "role-btn" : "role-btn-active  "}
                 onClick={() => setSelect(3)}
-                style={{borderTopRightRadius:10}}
+                style={{ borderTopRightRadius: 10 }}
               >
                 Driver
               </button>

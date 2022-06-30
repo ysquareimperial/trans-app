@@ -1,26 +1,21 @@
-import React, { useState } from "react";
-import { Card, Row, Col, Modal, ModalBody } from "reactstrap";
+import React from "react";
+import { Card, Row, Col } from "reactstrap";
 import "./RequestRide.css";
-import ysquare from "../Images/ysquareimperial.png";
-import protect from "../Images/protect.png";
 import atm from "../Images/card.png";
-import master from "../Images/master.png";
+// import master from "../Images/master.png";
 import { useNavigate } from "react-router";
-import visa from "../Images/visa.png";
-import car from "../Images/toyota.png";
-import Goog from "../Auth/goog";
 import "../Auth/input.css";
 
 function RequestRide() {
   const navigate = useNavigate();
-  const [open1, setOpen1] = useState(false);
-  const toggle1 = () => {
-    setOpen1(!open1);
-  };
-  const [open2, setOpen2] = useState(false);
-  const toggle2 = () => {
-    setOpen2(!open2);
-  };
+  // const [open1, setOpen1] = useState(false);
+  // const toggle1 = () => {
+  //   setOpen1(!open1);
+  // };
+  // const [open2, setOpen2] = useState(false);
+  // const toggle2 = () => {
+  //   setOpen2(!open2);
+  // };
   return (
     <div>
       <Row style={{ marginTop: 78, border: "none" }}>
@@ -55,7 +50,7 @@ function RequestRide() {
             <div className="p-3">
               <Row className="p-2">
                 <Col md={2}>
-                  <img src={atm} className="atm" />
+                  <img src={atm} alt='atm' className="atm" />
                 </Col>
                 <Col md={10}>
                   <p style={{ fontSize: 13 }}>
