@@ -2,12 +2,13 @@ import React from "react";
 import { Edit } from "react-feather";
 import { useNavigate } from "react-router-dom";
 import { Card, Col, Row } from "reactstrap";
-
+import tripImg from '../Images/trip.jpg'
 export default function Trips() {
   const navigate = useNavigate();
 
   const trip = [
     {
+      img: tripImg,
       from: "Kano",
       to: "Abuja",
       date: "12/12/2222",
@@ -57,7 +58,7 @@ export default function Trips() {
                 <Card className="reservation-card shadow-sm p-3 mb-3">
                   <Row className="p-2">
                     <Col md={5}>
-                      {/* <img alt="" src={item.img} className="driver-car" /> */}
+                      <img alt="" src={item.img} className="trip-image" />
                     </Col>
                     <Col md={5}>
                       <p className="car-name" style={{ color: "grey" }}>
