@@ -55,20 +55,20 @@ export default function Sidebar() {
           Overview
         </li>
         <li
-          onClick={() => navigate("/register-your-car")}
+          onClick={() => navigate("/cars")}
           className={`active1 ${
-            location.pathname === "/register-your-car" && "active_sidebar"
+            location.pathname.includes("cars") && "active_sidebar"
           }`}
         >
-          Register your car
+          Cars
         </li>
         <li
-          onClick={() => navigate("/create-trip")}
+          onClick={() => navigate("/trips")}
           className={`active1 ${
-            location.pathname === "/create-trip" && "active_sidebar"
+            location.pathname.includes ("trip") && "active_sidebar"
           }`}
         >
-          Create a trip
+          Trips
         </li>
         <li
           onClick={() => navigate("/view-passengers")}
@@ -76,7 +76,7 @@ export default function Sidebar() {
             location.pathname === "/view-passengers" && "active_sidebar"
           }`}
         >
-          View passengers
+          Passengers
         </li>
       </ul>
       <div className="brand"></div>

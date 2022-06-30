@@ -45,7 +45,7 @@
     padding: 10px;
     background-color: var(--btnColor);
     color: var(--white);
-    width: 20%;
+    /* width: 20%; */
 }
 
 .request:hover {
