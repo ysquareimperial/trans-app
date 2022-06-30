@@ -1,24 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Card,
-  Row,
-  Col,
-  Modal,
-  ModalBody,
-  CardHeader,
-  CardBody,
   Table,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  Button,
 } from "reactstrap";
-import visa from "../Images/visa.png";
-import carImg from "../Images/toyota.png";
 import sedan from "../Images/car.png";
-import driverImg from "../Images/ysquareimperial.png";
-import protect from "../Images/protect.png";
-import master from "../Images/master.png";
 import {
   Clock,
   Calendar,
@@ -28,17 +13,17 @@ import {
   Trash,
   Slack,
 } from "react-feather";
-import atm from "../Images/card.png";
-import tripImg from "../Images/trip.png";
+// import atm from "../Images/card.png";
+// import tripImg from "../Images/trip.png";
 import "./ViewReservation.css";
 import { useNavigate } from "react-router-dom";
-import { MoreVertical } from "react-feather";
+// import { MoreVertical } from "react-feather";
 export default function TripHisory() {
   const navigate = useNavigate();
-  const [open1, setOpen1] = useState(false);
-  const toggle1 = () => {
-    setOpen1(!open1);
-  };
+  // const [open1, setOpen1] = useState(false);
+  // const toggle1 = () => {
+  //   setOpen1(!open1);
+  // };
   const history = [
     {
       id: 1,
@@ -108,6 +93,7 @@ export default function TripHisory() {
                   <th>
                     <img
                       src={sedan}
+                      alt=''
                       className="sidebar-icon"
                       style={{ width: 30 }}
                     />

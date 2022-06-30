@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "reactstrap";
-import { Drivers } from "./AllUsersData";
 export default function AllDrivers() {
   const [DriversList, setDriversList] = useState([]);
   const getAllUsers = () => {

@@ -10,7 +10,6 @@ import {
   Row,
 } from "reactstrap";
 import ysquare from "../Images/ysquareimperial.png";
-import logo from "../Images/logo.png";
 import "./DashboardNavbar.css";
 export default function DashboardNavbar() {
   const [open, setOpen] = useState(false);
@@ -63,7 +62,7 @@ export default function DashboardNavbar() {
                 Help & Support
               </DropdownItem>
               <DropdownItem className="drop-down-item" divider />
-              <DropdownItem className="drop-down-item">Sign Out</DropdownItem>
+              <DropdownItem className="drop-down-item" onClick={()=>navigate('/login')}>Sign Out</DropdownItem>
             </DropdownMenu>
           </Dropdown>
           <div className="dp-name" onClick={() => navigate("/profile")}>

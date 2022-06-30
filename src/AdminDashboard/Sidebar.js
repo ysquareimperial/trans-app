@@ -1,5 +1,4 @@
 import React from "react";
-import { Col, Row } from "reactstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Clock, PlusCircle, Eye, AlignJustify } from "react-feather";
 import "./Sidebar.css";
@@ -47,9 +46,38 @@ export default function Sidebar() {
           <Clock className="sidebar-icon" />
           Trip history
         </li>
-        <li>Register your car</li>
-        <li>Create a trip</li>
-        <li>View passengers</li>
+        <li
+          onClick={() => navigate("/driver")}
+          className={`active1 ${
+            location.pathname === "/driver" && "active_sidebar"
+          }`}
+        >
+          Overview
+        </li>
+        <li
+          onClick={() => navigate("/register-your-car")}
+          className={`active1 ${
+            location.pathname === "/register-your-car" && "active_sidebar"
+          }`}
+        >
+          Register your car
+        </li>
+        <li
+          onClick={() => navigate("/create-trip")}
+          className={`active1 ${
+            location.pathname === "/create-trip" && "active_sidebar"
+          }`}
+        >
+          Create a trip
+        </li>
+        <li
+          onClick={() => navigate("/view-passengers")}
+          className={`active1 ${
+            location.pathname === "/view-passengers" && "active_sidebar"
+          }`}
+        >
+          View passengers
+        </li>
       </ul>
       <div className="brand"></div>
     </div>

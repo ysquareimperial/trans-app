@@ -1,14 +1,6 @@
 import React from "react";
-import { Card, Row, Col, Modal, ModalBody, CardFooter } from "reactstrap";
-import visa from "../Images/visa.png";
-import carImg from "../Images/toyota.png";
-import driverImg from "../Images/ysquareimperial.png";
-import protect from "../Images/protect.png";
-import master from "../Images/master.png";
-import atm from "../Images/card.png";
-import tripImg from "../Images/trip.png";
-import carIm from "../Images/car.png";
-import cancel from "../Images/cancel.png";
+import { Card, Row, Col} from "reactstrap";
+
 import "./ViewReservation.css";
 import "./Overview.css";
 import { GitPullRequest, XCircle } from "react-feather";

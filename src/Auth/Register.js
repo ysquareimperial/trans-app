@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Col, Row } from "reactstrap";
 import "../Styles.css";
 import { useNavigate } from "react-router-dom";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
-import useQuery from "../hooks/useQuery";
+// import useQuery from "../hooks/useQuery";
 import PassengerReg from "./PassengerReg";
 import DriverReg from "./DriverReg";
 export default function Register() {
-  const query = useQuery();
-  const gotoDashboard = query.get("rdr");
+  // const query = useQuery();
+  // const gotoDashboard = query.get("rdr");
 
   const navigate = useNavigate();
-  const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
+  // const [modal, setModal] = useState(false);
+  // const toggle = () => setModal(!modal);
 
   const [activeTab, setActiveTab] = useState("0");
   const toggle2 = (tab) => {

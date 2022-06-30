@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { Col, Row } from "reactstrap";
 import DashboardNavbar from "../AdminDashboard/DashboardNavbar";
 import Sidebar from "../AdminDashboard/Sidebar";
-import Navbar from "../LandingPage/Navbar";
+// import Navbar from "../LandingPage/Navbar";
 // import '../Dashboard/Dashboard.css'
 export default function AppIndex() {
   return (

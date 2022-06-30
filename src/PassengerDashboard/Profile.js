@@ -2,15 +2,9 @@ import React, { useEffect, useState } from "react";
 import {
   CreditCard,  
   Edit2,
-  GitBranch,
-  GitCommit,
-  GitMerge,
   GitPullRequest,
   MapPin,
-  PenTool,
   Phone,
-  Plus,
-  PlusCircle,
   PlusSquare,
   XCircle,
 } from "react-feather";
@@ -54,7 +48,7 @@ export default function Profile({zz}) {
             {/* {JSON.stringify(profile)} */}
             <Row>
               <Col md={2}>
-                <img src={ysquare} className="profile-image shadow" />
+                <img src={ysquare} alt='profile img' className="profile-image shadow" />
               </Col>
               <Col md={8}>
                 <h2 style={{ color: "grey" }}>{profile.fullName}</h2>
