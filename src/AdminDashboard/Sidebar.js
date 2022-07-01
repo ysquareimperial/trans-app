@@ -1,6 +1,14 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Clock, PlusCircle, Eye, AlignJustify, Users, GitPullRequest } from "react-feather";
+import sedan from "../Images/car.png";
+import {
+  Clock,
+  PlusCircle,
+  Eye,
+  AlignJustify,
+  Users,
+  GitPullRequest,
+} from "react-feather";
 import "./Sidebar.css";
 // import { Home } from "react-feather";
 export default function Sidebar() {
@@ -52,7 +60,7 @@ export default function Sidebar() {
             location.pathname === "/driver" && "active_sidebar"
           }`}
         >
-           {" "}
+          {" "}
           <AlignJustify className="sidebar-icon" />
           Overview
         </li>
@@ -62,15 +70,22 @@ export default function Sidebar() {
             location.pathname.includes("cars") && "active_sidebar"
           }`}
         >
+          <img
+            src={sedan}
+            alt=""
+            className="sidebar-icon"
+            style={{ width: 30 }}
+          />
           Cars
         </li>
         <li
           onClick={() => navigate("/trips")}
           className={`active1 ${
-            location.pathname.includes ("trips") && "active_sidebar"
+            location.pathname.includes("trips") && "active_sidebar"
           }`}
-        > {" "}
-        <GitPullRequest className="sidebar-icon" />
+        >
+          {" "}
+          <GitPullRequest className="sidebar-icon" />
           Trips
         </li>
         <li
@@ -79,7 +94,7 @@ export default function Sidebar() {
             location.pathname === "/view-passengers" && "active_sidebar"
           }`}
         >
-           {" "}
+          {" "}
           <Users className="sidebar-icon" />
           Passengers
         </li>
