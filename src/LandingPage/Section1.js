@@ -6,6 +6,21 @@ import "./Section1.css";
 import { useState } from "react";
 import toyota from "../Images/toyota.png";
 export default function Section1() {
+  let _form = [
+    {
+      from: "",
+      to: "",
+      date: "",
+      time: "",
+    },
+  ];
+  const [searchForm, setSearchForm] = useState(_form);
+  const handleChange = ({ target: { name, value } }) => {
+    setSearchForm((prev) => ({ ...prev, [name]: value }));
+  };
+  const handleSubmit = () => {
+    console.log(searchForm);
+  };
   const navigate = useNavigate();
   const [open1, setOpen1] = useState(false);
   const [Cars, setCars] = useState([]);
@@ -135,6 +150,9 @@ export default function Section1() {
                               className="form-control"
                               placeholder="from"
                               id="from"
+                              name="from"
+                              value={searchForm.from}
+                              onChange={handleChange}
                             />
 
                             <label
@@ -158,6 +176,9 @@ export default function Section1() {
                               className="form-control"
                               placeholder="to"
                               id="to"
+                              name="to"
+                              value={searchForm.to}
+                              onChange={handleChange}
                             />
                             <label
                               for="to"
@@ -182,6 +203,9 @@ export default function Section1() {
                               className="form-control"
                               placeholder="Date"
                               id="Date"
+                              name="date"
+                              value={searchForm.date}
+                              onChange={handleChange}
                             />
                             <label
                               for="Date"
@@ -199,6 +223,9 @@ export default function Section1() {
                               className="form-control"
                               placeholder="Time"
                               id="Time"
+                              name="time"
+                              value={searchForm.time}
+                              onChange={handleChange}
                             />
                             <label
                               for="Time"
@@ -210,7 +237,13 @@ export default function Section1() {
                           </div>
                         </Col>
                       </Row>
-                      <button className="go mt-3" onClick={toggle1}>
+                      <button
+                        className="go mt-3"
+                        onClick={() => {
+                          toggle1();
+                          handleSubmit();
+                        }}
+                      >
                         Go
                       </button>
                       <div className="text-center">
@@ -243,7 +276,7 @@ export default function Section1() {
           {cars.map((item, index) => (
             <Row className="mt-4">
               <Col md={3}>
-                <img src={toyota} style={{ width: 110 }} alt='bg'/>
+                <img src={toyota} style={{ width: 110 }} alt="bg" />
               </Col>
               <Col md={6}>
                 <p className="car-name">{item.carName}</p>
@@ -260,7 +293,11 @@ export default function Section1() {
               <Col md={3}>
                 <button
                   className="request-btn"
-                  onClick={() => navigate("/login?rdr=true")}
+                  onClick={() =>
+                    navigate(
+                      `/login?rdr=true&from=${searchForm.from}&to=${searchForm.to}&date=${searchForm.date}&time=${searchForm.time}`
+                    )
+                  }
                 >
                   Request
                 </button>

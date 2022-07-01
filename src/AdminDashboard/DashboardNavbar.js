@@ -62,7 +62,11 @@ export default function DashboardNavbar() {
                 Help & Support
               </DropdownItem>
               <DropdownItem className="drop-down-item" divider />
-              <DropdownItem className="drop-down-item" onClick={()=>navigate('/login')}>Sign Out</DropdownItem>
+              <DropdownItem className="drop-down-item" onClick={()=>{
+                localStorage.removeItem('transapp:phone')
+                localStorage.removeItem('transapp:type')
+                navigate('/login')
+              }}>Sign Out</DropdownItem>
             </DropdownMenu>
           </Dropdown>
           <div className="dp-name" onClick={() => navigate("/profile")}>

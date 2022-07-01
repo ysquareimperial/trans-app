@@ -11,6 +11,8 @@ export default function PassengerReg() {
     nin: "",
     address: "",
     password: "",
+    account_type: 'passenger'
+
   };
   const [modalIsOpen, setModalIsOpen] = useState(false);
   // const [loading, setLoading] = useState(false);
@@ -23,7 +25,7 @@ export default function PassengerReg() {
   const handleSubmit = () => {
     // e.preventDefault();
     //setLoading(true);
-    fetch("http://127.0.0.1:34567/PassengerReg", {
+    fetch("http://127.0.0.1:34567/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -34,17 +34,17 @@ export function createUser(data = [], success = (f) => f, error = (f) => f) {
 
 export function passengerLogin({ phone, password }, cb = (f) => f, error = (f) => f) {
   return async (dispatch) => {
-    fetch(`${apiURL}/${endpoint}/users/passenger-login`, {
+    fetch(`${apiURL}/${endpoint}/users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ phone, password }),
+      body: JSON.stringify({ phone, password, account_type: 'passenger' }),
     })
       .then((raw) => raw.json())
       .then((data) => {
         if (data.success) {
           dispatch({ type: LOGIN, payload: data });
-          // localStorage.setItem("management_system", data.token);
-          // console.log(data.token)
+          localStorage.setItem("transapp:phone", JSON.stringify(data.user.phoneNo));
+          localStorage.setItem("transapp:type", 'passenger');
           cb(data);
         } else {
           error(data);
@@ -60,17 +60,19 @@ export function passengerLogin({ phone, password }, cb = (f) => f, error = (f) =
 
 export function driverLogin({ phone, password }, cb = (f) => f, error = (f) => f) {
   return async (dispatch) => {
-    fetch(`${apiURL}/${endpoint}/users/driver-login`, {
+    fetch(`${apiURL}/${endpoint}/users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ phone, password }),
+      body: JSON.stringify({ phone, password, account_type: 'driver' }),
     })
       .then((raw) => raw.json())
       .then((data) => {
         // console.log(data)
         if (data.success) {
           dispatch({ type: LOGIN, payload: data });
-          // localStorage.setItem("management_system", data.token);
+          localStorage.setItem("transapp:phone", JSON.stringify(data.user.phoneNo));
+          localStorage.setItem("transapp:type", 'driver');
+          // console.log('testing')
           // console.log(data.token)
           cb(data);
         } else {
@@ -94,41 +96,65 @@ export function authLoading() {
 export function logout(callback = (f) => f) {
   return (dispatch) => {
     dispatch({ type: LOGOUT });
-    localStorage.removeItem("management_system");
+    localStorage.removeItem('transapp:phone')
+    localStorage.removeItem('transapp:type')
     callback();
   };
 }
 
-export function initUser(callback = (f) => f, error = f => f) {
+export function initUser(driver_callback = (f) => f, passenger_callback=f=>f, error = f => f) {
   return (dispatch) => {
-    let token = localStorage.getItem("management_system");
+    let phone = localStorage.getItem("transapp:phone");
+    let type = localStorage.getItem("transapp:type");
 
-    if (token) {
-      verifyToken(token)
-        .then((data) => {
-          console.log(data);
-          if (data.success) {
-            dispatch({ type: LOGIN, payload: data });
-            callback();
-            console.log(data);
-          } else {
-            callback();
-            localStorage.removeItem("management_system");
-            console.log("Token expired");
-            dispatch({ type: LOGOUT });
-          }
-        })
-        .catch((err) => {
-          // console.log(err, 'wjehjyewhjwjhhwhjwe')
-          error();
-          // localStorage.removeItem("management_system");
-          console.log("Token is invalid");
-          dispatch({ type: LOGOUT });
-        });
+    if(phone) {
+      if(type === 'driver') {
+        _postApi(`/auth/users/user-info`, {phone : JSON.parse(phone)}, data => {
+          dispatch({ type: LOGIN, payload: data });
+          driver_callback()
+        }, error)
+
+      } else if (type === 'passenger') {
+        
+        _postApi(`/auth/users/user-info`, {phone : JSON.parse(phone)}, data => {
+          dispatch({ type: LOGIN, payload: data });
+          passenger_callback()
+        }, error)
+
+      } else  {
+        localStorage.removeItem('transapp:phone')
+        localStorage.removeItem('transapp:type')
+        error()
+      }
     } else {
-      error();
-      dispatch({ type: LOGOUT });
+      error()
     }
+    // if (token) {
+    //   verifyToken(token)
+    //     .then((data) => {
+    //       console.log(data);
+    //       if (data.success) {
+    //         dispatch({ type: LOGIN, payload: data });
+    //         callback();
+    //         console.log(data);
+    //       } else {
+    //         callback();
+    //         localStorage.removeItem("management_system");
+    //         console.log("Token expired");
+    //         dispatch({ type: LOGOUT });
+    //       }
+    //     })
+    //     .catch((err) => {
+    //       // console.log(err, 'wjehjyewhjwjhhwhjwe')
+    //       error();
+    //       // localStorage.removeItem("management_system");
+    //       console.log("Token is invalid");
+    //       dispatch({ type: LOGOUT });
+    //     });
+    // } else {
+    //   error();
+    //   dispatch({ type: LOGOUT });
+    // }
   };
 }
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Card, Row, Col, Modal, ModalBody } from "reactstrap";
 import "./RequestRide.css";
+import useQuery from "../hooks/useQuery";
 import ysquare from "../Images/ysquareimperial.png";
 import protect from "../Images/protect.png";
 import atm from "../Images/card.png";
@@ -8,15 +9,20 @@ import master from "../Images/master.png";
 import { useNavigate } from "react-router";
 import visa from "../Images/visa.png";
 import car from "../Images/toyota.png";
-// import Goog from "../Auth/goog";
+
 import "../Auth/input.css";
 
 function RequestRide() {
+  const query = useQuery();
+  const from = query.get("from");
+  const to = query.get("to");
+  const date = query.get("date");
+  const time = query.get("time");
   let requestRideForm = {
-    trip_from: "",
-    trip_to: "",
-    date: "",
-    time: "",
+    from,
+    to,
+    date,
+    time,
     numberOfSeat: "",
     nextOfKinPhone: "",
   };
@@ -244,7 +250,7 @@ function RequestRide() {
               <hr style={{ margin: 0 }}></hr>
               <Row className="p-2">
                 <Col md={3}>
-                  <img alt='user' src={ysquare} className="driver" />
+                  <img alt="user" src={ysquare} className="driver" />
                 </Col>
                 <Col md={9}>
                   <p className="car-name" style={{ color: "grey" }}>
@@ -303,7 +309,7 @@ function RequestRide() {
 
               <Row className="p-2">
                 <Col md={3}>
-                  <img alt='car' src={car} className="car" />
+                  <img alt="car" src={car} className="car" />
                 </Col>
                 <Col md={9}>
                   <p className="car-name" style={{ color: "grey" }}>
@@ -392,7 +398,7 @@ function RequestRide() {
 
               <Row className="p-2">
                 <Col md={3}>
-                  <img alt='atm' src={atm} className="atm" />
+                  <img alt="atm" src={atm} className="atm" />
                 </Col>
                 <Col md={9}>
                   {/* <img alt='' src={visa} className='visa'/> */}
@@ -406,7 +412,7 @@ function RequestRide() {
                     }}
                   >
                     <span style={{ fontWeight: "normal", fontSize: 13 }}></span>
-                    Master - <img alt='master' src={master} />
+                    Master - <img alt="master" src={master} />
                   </p>
                   <p
                     className="car-name"
@@ -420,7 +426,7 @@ function RequestRide() {
                     <span style={{ fontWeight: "normal", fontSize: 13 }}></span>
                     Visa -{" "}
                   </p>
-                  <img alt='visa' src={visa} className="visa" />
+                  <img alt="visa" src={visa} className="visa" />
                 </Col>
               </Row>
             </Card>
@@ -454,13 +460,13 @@ function RequestRide() {
           </Row>
           <Row className="">
             <Col md={12}>
-              <img alt='' src={atm} className="modal-atm" />
+              <img alt="" src={atm} className="modal-atm" />
               <p style={{ display: "inline", fontSize: 13 }}>
                 {" "}
                 Provide the information below with either:{" "}
               </p>
-              <img alt='' src={master} />
-              <img alt='' src={visa} className="visa" />
+              <img alt="" src={master} />
+              <img alt="" src={visa} className="visa" />
             </Col>
           </Row>
           <Row className="" style={{ marginTop: 25 }}>
@@ -504,7 +510,7 @@ function RequestRide() {
             <Col md={4}>
               <div class="form-group">
                 <div>
-                  <select name="cars" className="sel">
+                  <select name="months" className="sel">
                     <option value="volvo">00</option>
                     <option value="volvo">01</option>
                     <option value="volvo">02</option>
@@ -554,7 +560,8 @@ function RequestRide() {
             <Col md={4}></Col>
           </Row>
           <p style={{ fontSize: 13 }}>
-            <img alt='' src={protect} /> Your payment information is safe with us
+            <img alt="" src={protect} /> Your payment information is safe with
+            us
           </p>
           <button
             className="request2"

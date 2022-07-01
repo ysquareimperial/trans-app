@@ -1,12 +1,30 @@
 import React, { useState } from "react";
 import { Card, Row, Col, Modal, ModalBody } from "reactstrap";
+import useQuery from "../hooks/useQuery";
 import "./RequestRide.css";
 import { useNavigate } from "react-router";
 import toyota from "../Images/toyota.png";
 import "../Auth/input.css";
 
 function NewRideRequest() {
-  // let requestForm = {};
+  const query = useQuery();
+  const from = query.get("from");
+  const to = query.get("to");
+  const date = query.get("date");
+  const time = query.get("time");
+  let newRideRequestForm = {
+    from,
+    to,
+    date,
+    time,
+  };
+  const [rideRequestForm, setRideRequestForm] = useState(newRideRequestForm);
+  const handleChange = ({ target: { name, value } }) => {
+    setRideRequestForm((prev) => ({ ...prev, [name]: value }));
+  };
+  const handleSubmit = () => {
+    console.log(rideRequestForm);
+  };
   const cars = [
     {
       carImage: toyota,
@@ -41,17 +59,17 @@ function NewRideRequest() {
   return (
     <div>
       <Card
-          className="request-card shadow p-3"
-          style={{ marginTop: 78, border: "none" }}
+        className="request-card shadow p-3"
+        style={{ marginTop: 78, border: "none" }}
+      >
+        <p
+          style={{
+            fontWeight: "bold",
+            color: "grey",
+          }}
         >
-          <p
-            style={{
-              fontWeight: "bold",
-              color: "grey",
-            }}
-          >
-            Request a ride
-          </p>
+          Request a ride
+        </p>
         <Row>
           <Col md={8}>
             <Card
@@ -71,6 +89,9 @@ function NewRideRequest() {
                       className="form-control"
                       placeholder="From"
                       id="from"
+                      name="from"
+                      value={rideRequestForm.from}
+                      onChange={handleChange}
                     />
                     <label for="from" className="form-label">
                       From
@@ -84,6 +105,9 @@ function NewRideRequest() {
                       className="form-control"
                       placeholder="To"
                       id="To"
+                      name="to"
+                      value={rideRequestForm.to}
+                      onChange={handleChange}
                     />
                     <label for="To" className="form-label">
                       To
@@ -99,6 +123,9 @@ function NewRideRequest() {
                       className="form-control"
                       placeholder="Date"
                       id="Date"
+                      name="date"
+                      value={rideRequestForm.date}
+                      onChange={handleChange}
                     />
                     <label for="Date" className="form-label">
                       Date
@@ -112,6 +139,9 @@ function NewRideRequest() {
                       className="form-control"
                       placeholder="Time"
                       id="Time"
+                      name="time"
+                      value={rideRequestForm.time}
+                      onChange={handleChange}
                     />
                     <label for="Time" className="form-label">
                       Time
@@ -122,7 +152,13 @@ function NewRideRequest() {
 
               <Row className="m-1">
                 <div style={{ marginTop: "" }}>
-                  <button className="request mb-3" onClick={toggle1}>
+                  <button
+                    className="request mb-3"
+                    onClick={() => {
+                      toggle1();
+                      handleSubmit();
+                    }}
+                  >
                     Search for ride
                   </button>
                 </div>
@@ -138,7 +174,7 @@ function NewRideRequest() {
           {cars.map((item, index) => (
             <Row className="mt-4">
               <Col md={3}>
-                <img src={toyota} style={{ width: 110 }} alt='car'/>
+                <img src={toyota} style={{ width: 110 }} alt="car" />
               </Col>
               <Col md={6}>
                 <p className="car-name">{item.carName}</p>
@@ -155,7 +191,11 @@ function NewRideRequest() {
               <Col md={3}>
                 <button
                   className="request-btn"
-                  onClick={() => navigate("/request-ride")}
+                  onClick={() =>
+                    navigate(
+                      `/request-ride?from=${rideRequestForm.from}&to=${rideRequestForm.to}&date=${rideRequestForm.date}&time=${rideRequestForm.time}`
+                    )
+                  }
                 >
                   Request
                 </button>

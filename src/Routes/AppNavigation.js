@@ -1,5 +1,5 @@
-import React from "react";
-import { useRoutes } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate, useRoutes } from "react-router-dom";
 // import AdminHome from "../AdminDashboard/AdminHome";
 import AllUsers from "../AdminDashboard/AllUsers";
 import Login from "../Auth/Login";
@@ -22,8 +22,22 @@ import CreateTrip from "../DriverDashboard/CreateTrip";
 import ViewPassengers from "../DriverDashboard/ViewPassengers";
 import Cars from "../DriverDashboard/Cars";
 import Trips from "../DriverDashboard/Trips";
+import { initUser } from "../redux/action/auth";
+import {useDispatch} from 'react-redux'
 
 function AppNavigation() {
+  const navigate=useNavigate()
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(initUser(() => {
+      navigate("/driver");
+    }, () => {
+      navigate("/overview");
+    }, () => {
+      navigate("/login");
+    }))
+  }, [])
+
   let element = useRoutes([
     {
       path: "/",

@@ -13,6 +13,7 @@ export default function DriverReg() {
     licenseExpiry: "",
     address: "",
     password: "",
+    account_type: 'driver'
   };
 
   const [driverReg, setDriverReg] = useState(_form);
@@ -23,7 +24,7 @@ export default function DriverReg() {
   const handleSubmit = () => {
     // e.preventDefault();
     //setLoading(true);
-    fetch('http://127.0.0.1:34567/DriverReg', {
+    fetch('http://127.0.0.1:34567/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

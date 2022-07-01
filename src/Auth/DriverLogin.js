@@ -20,7 +20,7 @@ export default function DriverLogin() {
     // console.log(loginForm);
     dispatch(driverLogin(loginForm, data => {
       console.log(data)
-      alert(data.message)
+      // alert(data.message)
       navigate("/driver");
     }, err => {
       console.log(err)

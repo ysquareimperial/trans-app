@@ -8,6 +8,10 @@ import { passengerLogin } from "../redux/action/auth";
 export default function PassengerLogin() {
   const query = useQuery();
   const gotoDashboard = query.get("rdr");
+  const from = query.get("from");
+  const to = query.get("to");
+  const date = query.get("date");
+  const time = query.get("time");
   const navigate = useNavigate();
   const dispatch = useDispatch()
   let _form = {
@@ -24,7 +28,7 @@ export default function PassengerLogin() {
     // console.log(loginForm);
     dispatch(passengerLogin(loginForm, data => {
       console.log(data)
-      alert(data.message)
+      // alert(data.message)
       navigate("/overview");;
     }, err => {
       console.log(err)

@@ -1,14 +1,19 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Clock, PlusCircle, Eye, AlignJustify } from "react-feather";
+import { Clock, PlusCircle, Eye, AlignJustify, Users, GitPullRequest } from "react-feather";
+import {useSelector} from "react-redux"
+
 import "./Sidebar.css";
 // import { Home } from "react-feather";
 export default function Sidebar() {
   const navigate = useNavigate();
   const location = useLocation();
+  const user = useSelector(state => state.auth.user)
   return (
     <div style={{ position: "fixed" }}>
       <ul className="sidebar-items" style={{ marginTop: 70 }}>
+       {user.account_type === 'passenger' ? 
+       <>
         <li
           onClick={() => navigate("/overview")}
           className={`active1 ${
@@ -46,12 +51,17 @@ export default function Sidebar() {
           <Clock className="sidebar-icon" />
           Trip history
         </li>
+</>
+:
+<>
         <li
           onClick={() => navigate("/driver")}
           className={`active1 ${
             location.pathname === "/driver" && "active_sidebar"
           }`}
         >
+           {" "}
+          <AlignJustify className="sidebar-icon" />
           Overview
         </li>
         <li
@@ -65,9 +75,10 @@ export default function Sidebar() {
         <li
           onClick={() => navigate("/trips")}
           className={`active1 ${
-            location.pathname.includes ("trip") && "active_sidebar"
+            location.pathname.includes ("trips") && "active_sidebar"
           }`}
-        >
+        > {" "}
+        <GitPullRequest className="sidebar-icon" />
           Trips
         </li>
         <li
@@ -76,8 +87,12 @@ export default function Sidebar() {
             location.pathname === "/view-passengers" && "active_sidebar"
           }`}
         >
+           {" "}
+          <Users className="sidebar-icon" />
           Passengers
         </li>
+        </>
+        }
       </ul>
       <div className="brand"></div>
     </div>
