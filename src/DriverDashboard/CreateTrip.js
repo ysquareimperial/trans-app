@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, Col, Row } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 
-export default function RegisterCar() {
+export default function Trip() {
   let _form = [
     {
       from: "",
@@ -19,8 +19,28 @@ export default function RegisterCar() {
     setCreateTripForm((prev) => ({ ...prev, [name]: value }));
   };
   const handleSubmit = () => {
-    console.log(createTripForm);
-  };
+    // e.preventDefault();
+    //setLoading(true);
+    fetch('http://127.0.0.1:34567/Trips', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(createTripForm),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        // setLoading(false);
+        console.log(data);
+        // toggleModal()
+        // navigate("/pushlish-ride")
+        // setModalIsOpen(true);
+      })
+      .catch((err) => {
+        // setLoading(false);
+        console.log(err);
+      });
+  }
   return (
     <div>
       <div>

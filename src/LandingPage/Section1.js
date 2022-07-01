@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, CardBody, Col, Modal, ModalBody, Row } from "reactstrap";
 import car from "../Images/car.jpg";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,24 @@ import toyota from "../Images/toyota.png";
 export default function Section1() {
   const navigate = useNavigate();
   const [open1, setOpen1] = useState(false);
+  const [Cars, setCars] = useState([]);
+  const [availabletrips, setAvailabletrips] = useState([]);
+  const get_Availabletrips = () => {
+    fetch("http://127.0.0.1:34567/get_Trips")
+      .then((raw) => raw.json())
+      .then((data) => {
+        if (data.results && data.results.length) {
+          setAvailabletrips(data.results);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  useEffect(() => {
+    get_Availabletrips();
+  }, [])
   const toggle1 = () => {
     setOpen1(!open1);
   };

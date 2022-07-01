@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Edit } from "react-feather";
 import { useNavigate } from "react-router-dom";
 import { Card, Col, Row } from "reactstrap";
 
 export default function Trips() {
   const navigate = useNavigate();
+  const [trips, setTrips] = useState([]);
+  const get_Trips = () => {
+    fetch("http://127.0.0.1:34567/get_Trips")
+      .then((raw) => raw.json())
+      .then((data) => {
+        if (data.results && data.results.length) {
+          setTrips(data.results);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
+  useEffect(() => {
+    get_Trips();
+  }, [])
   const trip = [
     {
       from: "Kano",
@@ -61,7 +77,7 @@ export default function Trips() {
                     </Col>
                     <Col md={5}>
                       <p className="car-name" style={{ color: "grey" }}>
-                        Trip from {item.from} to {item.to}
+                        Trip from {item.Trip_from} to {item.Trip_to}
                       </p>
 
                       <p className="from-to">

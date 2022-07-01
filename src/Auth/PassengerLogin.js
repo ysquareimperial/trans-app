@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import useQuery from "../hooks/useQuery";
 import { useNavigate } from "react-router-dom";
 import { Card, Col, Row } from "reactstrap";
+import {useDispatch} from 'react-redux'
+import { passengerLogin } from "../redux/action/auth";
+
 export default function PassengerLogin() {
   const query = useQuery();
   const gotoDashboard = query.get("rdr");
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   let _form = {
     phone: "",
     password: "",
@@ -15,8 +19,17 @@ export default function PassengerLogin() {
     setLoginForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  
   const handleSubmit = () => {
-    console.log(loginForm);
+    // console.log(loginForm);
+    dispatch(passengerLogin(loginForm, data => {
+      console.log(data)
+      alert(data.message)
+      navigate("/overview");;
+    }, err => {
+      console.log(err)
+      alert(err.message)
+    }))
   };
   return (
     <div>
@@ -65,11 +78,11 @@ export default function PassengerLogin() {
           className="login-btn mt-3"
           onClick={() => {
             handleSubmit();
-            if (!gotoDashboard) {
-              navigate("/overview");
-            } else {
-              navigate("/request-ride");
-            }
+            // if (!gotoDashboard) {
+           
+            // } else {
+            
+            // }
           }}
         >
           Login

@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, Col, Row } from "reactstrap";
+import { driverLogin } from "../redux/action/auth";
+import {useDispatch} from 'react-redux'
+
 export default function DriverLogin() {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   let _form = {
     phone: "",
     password: "",
@@ -13,7 +17,15 @@ export default function DriverLogin() {
   };
 
   const handleSubmit = () => {
-    console.log(loginForm);
+    // console.log(loginForm);
+    dispatch(driverLogin(loginForm, data => {
+      console.log(data)
+      alert(data.message)
+      navigate("/driver");
+    }, err => {
+      console.log(err)
+      alert(err.message)
+    }))
   };
   return (
     <div>
@@ -60,11 +72,7 @@ export default function DriverLogin() {
         </Row>
         <button
           className="login-btn mt-3"
-          onClick={() => {
-            handleSubmit();
-
-            navigate("/driver");
-          }}
+          onClick={handleSubmit}
         >
           Login
         </button>

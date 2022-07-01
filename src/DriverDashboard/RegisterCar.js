@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 
@@ -20,8 +20,32 @@ export default function RegisterCar() {
     setRegisterCarForm((prev) => ({ ...prev, [name]: value }));
   };
   const handleSubmit = () => {
-    console.log(registerCarForm);
-  };
+    // e.preventDefault();
+    //setLoading(true);
+    fetch('http://127.0.0.1:34567/registercar', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(registerCarForm),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        // setLoading(false);
+        console.log(data);
+        // toggleModal()
+        // navigate("/pushlish-ride")
+        // setModalIsOpen(true);
+      })
+      .catch((err) => {
+        // setLoading(false);
+        console.log(err);
+      });
+      
+  }
+  useEffect(() => {
+    // RegisterCar();
+  }, [])
   return (
     <div>
       <div>

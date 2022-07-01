@@ -32,23 +32,50 @@ export function createUser(data = [], success = (f) => f, error = (f) => f) {
   };
 }
 
-export function login({ email, password }, cb = (f) => f, error = (f) => f) {
+export function passengerLogin({ phone, password }, cb = (f) => f, error = (f) => f) {
   return async (dispatch) => {
-    fetch(`${apiURL}/${endpoint}/users/login`, {
+    fetch(`${apiURL}/${endpoint}/users/passenger-login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ phone, password }),
     })
       .then((raw) => raw.json())
       .then((data) => {
-        if (data.error) {
-          error(data.error);
-          dispatch({ type: ERROR, payload: data.error });
-        } else {
+        if (data.success) {
           dispatch({ type: LOGIN, payload: data });
-          localStorage.setItem("management_system", data.token);
-          console.log(data.token)
+          // localStorage.setItem("management_system", data.token);
+          // console.log(data.token)
           cb(data);
+        } else {
+          error(data);
+          dispatch({ type: ERROR, payload: data.error });
+        }
+      })
+      .catch((err) => {
+        error(err);
+        dispatch({ type: ERROR, payload: err });
+      });
+  };
+}
+
+export function driverLogin({ phone, password }, cb = (f) => f, error = (f) => f) {
+  return async (dispatch) => {
+    fetch(`${apiURL}/${endpoint}/users/driver-login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ phone, password }),
+    })
+      .then((raw) => raw.json())
+      .then((data) => {
+        // console.log(data)
+        if (data.success) {
+          dispatch({ type: LOGIN, payload: data });
+          // localStorage.setItem("management_system", data.token);
+          // console.log(data.token)
+          cb(data);
+        } else {
+          error(data);
+          dispatch({ type: ERROR, payload: data.error });
         }
       })
       .catch((err) => {
@@ -139,14 +166,14 @@ export function signup(
           };
           console.log("success------------------", resp);
           if (query_type === "new_admin") {
-            dispatch(
-              login({ phone: form.phone, password: form.password }, success_cb)
-            );
+            // dispatch(
+            //   login({ phone: form.phone, password: form.password }, success_cb)
+            // );
           }
         } else {
           if (resp.status === 200) {
             // _customNotify("Successfully Created");
-            dispatch(login({ phone: form.phone, password: form.password }, cb));
+            // dispatch(login({ phone: form.phone, password: form.password }, cb));
           } else {
             console.log("error", resp);
             //   _warningNotify(`Error: ${resp.msg}`);
@@ -182,7 +209,7 @@ export function createNewUser(form, cb, error_cb = (f) => f) {
             // dispatch({ type: SIGN_UP_LOADING })
           };
           dispatch(
-            login({ phone: form.phone, password: form.password }, success_cb)
+            // login({ phone: form.phone, password: form.password }, success_cb)
           );
         } else {
           console.log("error", resp);
