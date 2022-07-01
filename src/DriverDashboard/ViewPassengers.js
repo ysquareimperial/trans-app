@@ -30,34 +30,7 @@ export default function ViewPassengers() {
       passengerImage: image1,
       passengerName: "Yasir Ado Hassan",
     },
-    {
-      passengerImage: image1,
-      passengerName: "Yasir Ado Hassan",
-    },
-    {
-      passengerImage: image1,
-      passengerName: "Yasir Ado Hassan",
-    },
-    {
-      passengerImage: image1,
-      passengerName: "Yasir Ado Hassan",
-    },
-    {
-      passengerImage: image1,
-      passengerName: "Yasir Ado Hassan",
-    },
-    {
-      passengerImage: image1,
-      passengerName: "Yasir Ado Hassan",
-    },
-    {
-      passengerImage: image1,
-      passengerName: "Yasir Ado Hassan",
-    },
-    {
-      passengerImage: image1,
-      passengerName: "Yasir Ado Hassan",
-    },
+  
   ];
 
   return (
