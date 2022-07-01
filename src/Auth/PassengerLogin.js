@@ -5,6 +5,10 @@ import { Card, Col, Row } from "reactstrap";
 export default function PassengerLogin() {
   const query = useQuery();
   const gotoDashboard = query.get("rdr");
+  const from = query.get("from");
+  const to = query.get("to");
+  const date = query.get("date");
+  const time = query.get("time");
   const navigate = useNavigate();
   let _form = {
     phone: "",
@@ -68,7 +72,9 @@ export default function PassengerLogin() {
             if (!gotoDashboard) {
               navigate("/overview");
             } else {
-              navigate("/request-ride");
+              navigate(
+                `/request-ride?from=${from}&to=${to}&date=${date}&time=${time}`
+              );
             }
           }}
         >

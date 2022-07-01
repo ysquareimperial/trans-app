@@ -88,7 +88,7 @@ export default function Trips() {
                         <span style={{ fontWeight: "normal", fontSize: 13 }}>
                           Price:{" "}
                         </span>
-                        {item.price}
+                        ₦{item.price}
                       </p>
                     </Col>
                     <Col md={2}>
