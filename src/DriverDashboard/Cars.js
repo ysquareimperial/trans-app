@@ -3,22 +3,24 @@ import { Edit } from "react-feather";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Card, Col, Row } from "reactstrap";
 import carImg from "../Images/toyota.png";
-
+import {useSelector} from "react-redux";
+import { _fetchApi } from "../redux/action/api";
+ 
 export default function Cars() {
+  const driverInfo = useSelector(state => state.auth.user)
   const [cars, setCars] = useState([]);
   const navigate = useNavigate()
  
   const get_registercar = () => {
-    fetch("http://127.0.0.1:34567/get_registercar")
-      .then((raw) => raw.json())
-      .then((data) => {
-        if (data.results && data.results.length) {
-          setCars(data.results);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    _fetchApi(`/get_registercar?user_id=${driverInfo.id}`, 
+    (data) => {
+          if (data.results && data.results.length) {
+            setCars(data.results);
+          }
+        }, 
+        (e) => {
+          console.log(e);
+        })
   };
 
   useEffect(() => {
@@ -85,6 +87,7 @@ export default function Cars() {
               <Col md={6}>
                 <Card className="reservation-card shadow-sm p-3 mb-3">
                   <Row className="p-2">
+                 
                     <Col md={5}>
                       <img alt="" src={item.img} className="driver-car" />
                     </Col>
@@ -116,7 +119,7 @@ export default function Cars() {
                         <span style={{ fontWeight: "normal", fontSize: 13 }}>
                           License Plate:{" "}
                         </span>
-                        {item.LicensePlate}
+                        {item.Platenumber}
                       </p>
                     </Col>
                     <Col md={2}>

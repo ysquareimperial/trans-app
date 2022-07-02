@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./Section1.css";
 import { useState } from "react";
 import toyota from "../Images/toyota.png";
+import { _postApi } from "../redux/action/api";
 export default function Section1() {
   let _form = [
     {
@@ -15,12 +16,12 @@ export default function Section1() {
     },
   ];
   const [searchForm, setSearchForm] = useState(_form);
+  const [tripList, setTripList] = useState([])
+
   const handleChange = ({ target: { name, value } }) => {
     setSearchForm((prev) => ({ ...prev, [name]: value }));
   };
-  const handleSubmit = () => {
-    console.log(searchForm);
-  };
+  
   const navigate = useNavigate();
   const [open1, setOpen1] = useState(false);
   const [Cars, setCars] = useState([]);
@@ -38,60 +39,70 @@ export default function Section1() {
       });
   };
 
-  useEffect(() => {
-    get_Availabletrips();
-  }, [])
+  // useEffect(() => {
+  //   get_Availabletrips();
+  // }, [])
   const toggle1 = () => {
     setOpen1(!open1);
   };
 
-  const cars = [
-    {
-      carImage: toyota,
-      carName: "Toyota Camry",
-      from: "Kano",
-      to: "Kaduna",
-      time: "12:00 PM",
-      date: "12/02/2022",
-      seats: 1,
-    },
-    {
-      carImage: toyota,
-      carName: "Toyota Camry",
-      from: "Kano",
-      to: "Kaduna",
-      time: "12:00 PM",
-      date: "12/02/2022",
-      seats: 1,
-    },
-    {
-      carImage: toyota,
-      carName: "Toyota Camry",
-      from: "Kano",
-      to: "Kaduna",
-      time: "12:00 PM",
-      date: "12/02/2022",
-      seats: 1,
-    },
-    {
-      carImage: toyota,
-      carName: "Toyota Camry",
-      from: "Kano",
-      to: "Kaduna",
-      time: "12:00 PM",
-      date: "12/02/2022",
-      seats: 1,
-    },
-    {
-      carImage: toyota,
-      carName: "Toyota Camry",
-      from: "Kano",
-      to: "Kaduna",
-      time: "12:00 PM",
-      date: "12/02/2022",
-      seats: 1,
-    },
-  ];
+  const handleSubmit = () => {
+    // console.log(searchForm);
+    _postApi(`/get_availableTrips`,searchForm, data => {
+      setTripList(data.results)
+      toggle1();
+    }, err => {
+      alert(`An error occured`)
+    })
+  };
+
+  // const cars = [
+  //   {
+  //     carImage: toyota,
+  //     carName: "Toyota Camry",
+  //     from: "Kano",
+  //     to: "Kaduna",
+  //     time: "12:00 PM",
+  //     date: "12/02/2022",
+  //     seats: 1,
+  //   },
+  //   {
+  //     carImage: toyota,
+  //     carName: "Toyota Camry",
+  //     from: "Kano",
+  //     to: "Kaduna",
+  //     time: "12:00 PM",
+  //     date: "12/02/2022",
+  //     seats: 1,
+  //   },
+  //   {
+  //     carImage: toyota,
+  //     carName: "Toyota Camry",
+  //     from: "Kano",
+  //     to: "Kaduna",
+  //     time: "12:00 PM",
+  //     date: "12/02/2022",
+  //     seats: 1,
+  //   },
+  //   {
+  //     carImage: toyota,
+  //     carName: "Toyota Camry",
+  //     from: "Kano",
+  //     to: "Kaduna",
+  //     time: "12:00 PM",
+  //     date: "12/02/2022",
+  //     seats: 1,
+  //   },
+  //   {
+  //     carImage: toyota,
+  //     carName: "Toyota Camry",
+  //     from: "Kano",
+  //     to: "Kaduna",
+  //     time: "12:00 PM",
+  //     date: "12/02/2022",
+  //     seats: 1,
+  //   },
+  // ];
   return (
     <div>
       <Row
@@ -240,7 +251,7 @@ export default function Section1() {
                       <button
                         className="go mt-3"
                         onClick={() => {
-                          toggle1();
+                          // toggle1();
                           handleSubmit();
                         }}
                       >
@@ -273,7 +284,8 @@ export default function Section1() {
       <Modal size="" isOpen={open1} toggle={toggle1} className="avail-cars">
         <ModalBody className="modal-body">
           <p className="avail">Available Cars</p>
-          {cars.map((item, index) => (
+          {/* {JSON.stringify(tripList)} */}
+          {tripList.map((item, index) => (
             <Row className="mt-4">
               <Col md={3}>
                 <img src={toyota} style={{ width: 110 }} alt="bg" />
@@ -281,13 +293,13 @@ export default function Section1() {
               <Col md={6}>
                 <p className="car-name">{item.carName}</p>
                 <p className="from-to">
-                  {item.from} to {item.to}
+                  {item.Trip_from} to {item.Trip_to}
                 </p>
                 <p className="time">{item.time}</p>
                 <p className="from-to">{item.date}</p>
                 <p className="from-to">
                   Available seats:{" "}
-                  <span style={{ fontWeight: "bold" }}>{item.seats}</span>
+                  <span style={{ fontWeight: "bold" }}>{item.availableSeats	}</span>
                 </p>
               </Col>
               <Col md={3}>

@@ -10,7 +10,7 @@ export default function AppIndex() {
     <div className="home-container">
       <Row className="navbar m-0 p-0">
         <Col lg={12} md={12} sm={12} xs={12}>
-          <DashboardNavbar/>
+          <DashboardNavbar />
         </Col>
       </Row>
       <Row className="sidebar-row">

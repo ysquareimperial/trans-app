@@ -13,7 +13,7 @@ export function createUser(data = [], success = (f) => f, error = (f) => f) {
   return (dispatch) => {
     dispatch({ type: CREATING_USER });
     _postApi(
-      `/${endpoint}/users/create`,
+      `/api/${endpoint}/users/create`,
       data,
       (result) => {
         if (result.errors) {
@@ -34,7 +34,7 @@ export function createUser(data = [], success = (f) => f, error = (f) => f) {
 
 export function passengerLogin({ phone, password }, cb = (f) => f, error = (f) => f) {
   return async (dispatch) => {
-    fetch(`${apiURL}/${endpoint}/users/login`, {
+    fetch(`${apiURL}/api/${endpoint}/users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ phone, password, account_type: 'passenger' }),
@@ -60,7 +60,7 @@ export function passengerLogin({ phone, password }, cb = (f) => f, error = (f) =
 
 export function driverLogin({ phone, password }, cb = (f) => f, error = (f) => f) {
   return async (dispatch) => {
-    fetch(`${apiURL}/${endpoint}/users/login`, {
+    fetch(`${apiURL}/api/${endpoint}/users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ phone, password, account_type: 'driver' }),
@@ -109,14 +109,14 @@ export function initUser(driver_callback = (f) => f, passenger_callback=f=>f, er
 
     if(phone) {
       if(type === 'driver') {
-        _postApi(`/auth/users/user-info`, {phone : JSON.parse(phone)}, data => {
+        _postApi(`/api/auth/users/user-info`, {phone : JSON.parse(phone)}, data => {
           dispatch({ type: LOGIN, payload: data });
           driver_callback()
         }, error)
 
       } else if (type === 'passenger') {
         
-        _postApi(`/auth/users/user-info`, {phone : JSON.parse(phone)}, data => {
+        _postApi(`/api/auth/users/user-info`, {phone : JSON.parse(phone)}, data => {
           dispatch({ type: LOGIN, payload: data });
           passenger_callback()
         }, error)

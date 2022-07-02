@@ -34,7 +34,7 @@ function AppNavigation() {
     }, () => {
       navigate("/overview");
     }, () => {
-      navigate("/login");
+      // navigate("/login");
     }))
   }, [])
 

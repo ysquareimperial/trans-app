@@ -1,6 +1,6 @@
 import store from "../store";
 
-const localEndpoint = "http://localhost:34567/api";
+const localEndpoint = "http://localhost:34567";
 export const apiURL = localEndpoint;
 // process.env.NODE_ENV === 'production' ? remoteEndpoint : localEndpoint
 

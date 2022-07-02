@@ -23,7 +23,7 @@ function RequestRide() {
     to,
     date,
     time,
-    numberOfSeat: "",
+    Seat: "",
     nextOfKinPhone: "",
   };
   const [requestForm, setRequestForm] = useState(requestRideForm);
@@ -187,8 +187,8 @@ function RequestRide() {
                       className="form-control"
                       placeholder="Number of seats"
                       id="Number of seats"
-                      name="numberOfSeat"
-                      value={requestForm.numberOfSeat}
+                      name="Seat"
+                      value={requestForm.Seat}
                       onChange={handleChange}
                     />
                     <label for="Number of seats" className="form-label">

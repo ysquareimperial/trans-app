@@ -36,7 +36,7 @@ export default function PassengerReg() {
       .then((data) => {
         // setLoading(false);
         console.log(data);
-        navigate("/request-Ride");
+        navigate("/overview");
         // setModalIsOpen(true);
       })
       .catch((err) => {

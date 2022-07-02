@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "reactstrap";
 import { useNavigate } from "react-router-dom";
+import {useSelector} from "react-redux";
+import { _postApi } from "../redux/action/api";
 
 export default function RegisterCar() {
+  const driverInfo = useSelector(state => state.auth.user)
+
   let _form = [
     {
       carName: "",
@@ -11,7 +15,7 @@ export default function RegisterCar() {
       carSeats: "",
       carColor: "",
       carYear: "",
-      LicensePlate: "",
+      Platenumber: "",
     },
   ];
   const navigate = useNavigate();
@@ -22,25 +26,13 @@ export default function RegisterCar() {
   const handleSubmit = () => {
     // e.preventDefault();
     //setLoading(true);
-    fetch('http://127.0.0.1:34567/registercar', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(registerCarForm),
+    _postApi('/registercar', {...registerCarForm,driver_id: driverInfo.id }, (data) => {
+      console.log(data);
+    }, (err) => {
+      console.log(err);
     })
-      .then((resp) => resp.json())
-      .then((data) => {
-        // setLoading(false);
-        console.log(data);
-        // toggleModal()
-        // navigate("/pushlish-ride")
-        // setModalIsOpen(true);
-      })
-      .catch((err) => {
-        // setLoading(false);
-        console.log(err);
-      });
+
+ 
       
   }
   useEffect(() => {
@@ -175,8 +167,8 @@ export default function RegisterCar() {
                         className="form-control"
                         placeholder="License Plate"
                         id="License Plate"
-                        name="licensePlate"
-                        value={registerCarForm.licensePlate}
+                        name="Platenumber"
+                        value={registerCarForm.Platenumber}
                         onChange={handleChange}
                       />
                       <label for="License Plate" className="form-label">

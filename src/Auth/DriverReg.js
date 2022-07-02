@@ -35,7 +35,7 @@ export default function DriverReg() {
       .then((data) => {
         // setLoading(false);
         console.log(data);
-        navigate("/pushlish-ride")
+        navigate("/driver")
         
       })
       .catch((err) => {
