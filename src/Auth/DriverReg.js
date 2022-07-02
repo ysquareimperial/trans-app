@@ -22,10 +22,10 @@ export default function DriverReg() {
   const handleSubmit = () => {
     // e.preventDefault();
     //setLoading(true);
-    fetch('http://192.168.43.150:34567/DriverReg', {
-      method: 'POST',
+    fetch("http://192.168.43.150:34567/DriverReg", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(driverReg),
     })
@@ -33,14 +33,13 @@ export default function DriverReg() {
       .then((data) => {
         // setLoading(false);
         console.log(data);
-        navigate("/pushlish-ride")
-        
+        navigate("/pushlish-ride");
       })
       .catch((err) => {
         // setLoading(false);
         console.log(err);
       });
-  }
+  };
 
   return (
     <div>
@@ -125,12 +124,24 @@ export default function DriverReg() {
                   </p> */}
           </Col>
         </Row>
-        <button className="login-btn mt-3" onClick={handleSubmit}>
+        <button
+          className="login-btn mt-3"
+          onClick={() => {
+            handleSubmit();
+            navigate("/driver");
+          }}
+        >
           Register
         </button>
-        <p className="text-center mt-3" style={{ fontSize: 12, color:'white' }}>
+        <p
+          className="text-center mt-3"
+          style={{ fontSize: 12, color: "white" }}
+        >
           Already have an account? |{" "}
-          <span style={{ cursor: "pointer" }} onClick={() => navigate("/pushlish-ride")}>
+          <span
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate("/login")}
+          >
             login here!
           </span>
         </p>
