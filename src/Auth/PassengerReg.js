@@ -47,6 +47,9 @@ export default function PassengerReg() {
 
   return (
     <div className="p-reg">
+      <form>
+
+      
       <input
         type="text"
         className="login-input"
@@ -109,6 +112,7 @@ export default function PassengerReg() {
         </span>
       </p>
       <ModalAlert isOpen={modalIsOpen} toggle={toggleModal} />
+      </form>
     </div>
   );
 }
