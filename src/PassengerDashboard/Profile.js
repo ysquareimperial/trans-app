@@ -11,8 +11,10 @@ import {
 import { Card, Col, Row } from "reactstrap";
 import ysquare from "../Images/ysquareimperial.png";
 import "./Profile.css";
+import {useSelector} from "react-redux";
 export default function Profile({zz}) {
   const [profile, setProfile] = useState({});
+  const uerInfo = useSelector(state => state.auth.user)
   const get_profile = () => {
     fetch("http://127.0.0.1:34567/profile")
       .then((raw) => raw.json())
@@ -51,24 +53,24 @@ export default function Profile({zz}) {
                 <img src={ysquare} alt='profile img' className="profile-image shadow" />
               </Col>
               <Col md={8}>
-                <h2 style={{ color: "grey" }}>{profile.fullName}</h2>
+                <h2 style={{ color: "grey" }}>{uerInfo.fullName}</h2>
                 <p style={{ color: "rgb(7, 82, 94)" }}>
-                {profile.email}
+                {uerInfo.email}
                 </p>
                 <Row>
                   <Col md={6}>
                     <p className="acc-abt">
                       <Phone className="pro-icon" />
-                      Phone: <span className="spn">{profile.phoneNo}</span>
+                      Phone: <span className="spn">{uerInfo.phoneNo}</span>
                     </p>
                     <p className="acc-abt">
                       <MapPin className="pro-icon" />
                       Address:{" "}
-                      <span className="spn">{profile.currentAddress}</span>
+                      <span className="spn">{uerInfo.currentAddress}</span>
                     </p>
                     <p className="acc-abt">
                       <CreditCard className="pro-icon" /> NIN:{" "}
-                      <span className="spn">{profile.NIN}</span>
+                      <span className="spn">{uerInfo.NIN}</span>
                     </p>
                   </Col>
                   <Col md={6}>

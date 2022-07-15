@@ -3,36 +3,39 @@ import { Edit } from "react-feather";
 import { useNavigate } from "react-router-dom";
 import { Card, Col, Row } from "reactstrap";
 import tripImg from '../Images/trip.jpg'
+import {useSelector} from "react-redux";
+import { _fetchApi } from "../redux/action/api";
 export default function Trips() {
   const navigate = useNavigate();
   const [trips, setTrips] = useState([]);
+  const uerInfo = useSelector(state => state.auth.user)
   const get_Trips = () => {
-    fetch("http://127.0.0.1:34567/get_Trips")
-      .then((raw) => raw.json())
-      .then((data) => {
-        if (data.results && data.results.length) {
-          setTrips(data.results);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    _fetchApi(`/get_Trips?user_id=${uerInfo .id}`, 
+    (data) => {
+          if (data.results && data.results.length) {
+            setTrips(data.results);
+          }
+        }, 
+        (e) => {
+          console.log(e);
+        })
   };
+
 
   useEffect(() => {
     get_Trips();
   }, [])
-  const trip = [
-    {
-      img: tripImg,
-      from: "Kano",
-      to: "Abuja",
-      date: "12/12/2222",
-      time: "12:AM",
-      availableSeats: 4,
-      price: "5000",
-    },
-  ];
+  // const trip = [
+  //   {
+  //     img: tripImg,
+  //     from:uerInfo.Trip_from ,
+  //     to:uerInfo.Trip_to,
+  //     date: uerInfo.date,
+  //     time: uerInfo.time,
+  //     availableSeats: uerInfo.availableSeats,
+  //     price: uerInfo.price ,
+  //   },
+  // ];
   return (
     <div>
       <div>
@@ -69,7 +72,7 @@ export default function Trips() {
           </Row>
 
           <Row>
-            {trip.map((item, index) => (
+            {trips.map((item, index) => (
               <Col md={6}>
                 <Card className="reservation-card shadow-sm p-3 mb-3">
                   <Row className="p-2">
@@ -78,7 +81,7 @@ export default function Trips() {
                     </Col>
                     <Col md={5}>
                       <p className="car-name" style={{ color: "grey" }}>
-                        Trip from {item.Trip_from} to {item.Trip_to}
+                         {item.Trip_from} to {item.Trip_to}
                       </p>
 
                       <p className="from-to">

@@ -9,15 +9,19 @@ import master from "../Images/master.png";
 import { useNavigate } from "react-router";
 import visa from "../Images/visa.png";
 import car from "../Images/toyota.png";
+import {useSelector} from "react-redux";
+
 
 import "../Auth/input.css";
 
 function RequestRide() {
+  const uerInfo = useSelector(state => state.auth.user)
   const query = useQuery();
   const from = query.get("from");
   const to = query.get("to");
   const date = query.get("date");
   const time = query.get("time");
+  const trip_id = query.get("Trip_id");
   let requestRideForm = {
     from,
     to,
@@ -37,7 +41,7 @@ function RequestRide() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(requestForm),
+      body: JSON.stringify({...requestForm, user_id:uerInfo.id, trip_id}),
     })
     .then((resp) => resp.json())
     .then((data) => {

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Card, Col, Row } from "reactstrap";
 import { useNavigate } from "react-router-dom";
+import {useSelector} from "react-redux";
 
 export default function Trip() {
+  const driverInfo = useSelector(state => state.auth.user)
+
   let _form = [
     {
       from: "",
@@ -26,7 +29,7 @@ export default function Trip() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(createTripForm),
+      body: JSON.stringify({...createTripForm, driver_id: driverInfo.id}),
     })
       .then((resp) => resp.json())
       .then((data) => {

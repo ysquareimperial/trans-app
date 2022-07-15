@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menu } from "react-feather";
 import { useNavigate } from "react-router-dom";
 import {
@@ -11,7 +11,29 @@ import {
 } from "reactstrap";
 import ysquare from "../Images/ysquareimperial.png";
 import "./DashboardNavbar.css";
+import {useSelector} from "react-redux";
+
+
+
 export default function DashboardNavbar() {
+  const [profile, setProfile] = useState({});
+const uerInfo = useSelector(state => state.auth.user)
+const get_profile = () => {
+  fetch("http://127.0.0.1:34567/profile")
+    .then((raw) => raw.json())
+    .then((data) => {
+      if (data.results && data.results.length) {
+        setProfile(data.results[0]);
+      }
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
+
+useEffect(() => {
+  get_profile();
+},[])
   const [open, setOpen] = useState(false);
   const toggle = () => {
     setOpen(!open);
@@ -76,7 +98,7 @@ export default function DashboardNavbar() {
               alt="profile"
               style={{ display: "inline" }}
             />
-            <p style={{ display: "inline" }}>Profile</p>
+            <p style={{ display: "inline" }}>{uerInfo.fullName}</p>
           </div>
         </Col>
       </Row>

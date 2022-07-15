@@ -4,36 +4,37 @@ import driverImg from "../Images/ysquareimperial.png";
 import tripImg from "../Images/trip.png";
 import carImg from "../Images/toyota.png";
 
-function ReservationItems ({ee={}}) {
+function ReservationItems ({item={}}) {
     const trip = [
         {
           img: tripImg,
-          from: ee.trip_from,
-          to: ee.trip_to,
-          numberOfSeat:ee.numberOfSeat,
-          nextofKinPhone:ee.nextOfKinPhone,
-          time: ee.time,
-          date: ee.date,
-          price: "4,000",
+          from: item.trip_from,
+          to: item.trip_to,
+          numberOfSeat:item.numberOfSeat,
+          nextofKinPhone:item.nextOfKinPhone,
+          time: item.time,
+          date: item.date,
+          price: item.price,
+          nextOfKinPhone:item.nextOfKinPhone,
         },
       ];
       const driver = [
         {
           img: driverImg,
-          fullName:ee.fullName,
-          age: ee.Age,
-          phone:ee.phoneNo,
-          address:ee.currentAddress,
+          fullName:item.fullName,
+          age: item.Age,
+          phone:item.phoneNo,
+          address:item.currentAddress,
         },
       ];
       const car = [
         {
           img: carImg,
-          name:ee.CarName,
-          model:ee.Carmodel,
-          color:ee.CarColor,
-          year:ee.Caryear,
-          licensePlate:ee.LicencePlate,
+          name:item.CarName,
+          model:item.Carmodel,
+          color:item.CarColor,
+          year:item.Caryear,
+          licensePlate:item.LicencePlate,
           // licenseNumber:ee.LicencePlate,
           // age: "40",
           // phone: "+234 09018661696",
@@ -102,9 +103,9 @@ function ReservationItems ({ee={}}) {
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       From:{" "}
                     </span>
-                    {item.from}{" "}
+                    {item.trip_from}{" "}
                     <span style={{ fontWeight: "normal" }}>to</span>{" "}
-                    {item.to}
+                    {item.trip_to}
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
@@ -122,13 +123,13 @@ function ReservationItems ({ee={}}) {
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Number of seat:{" "}
                     </span>
-                    {item.numberOfSeat}
+                    {item.Seat}
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Next of kin's phone:{" "}
                     </span>
-                    {item.nextofKinPhone}
+                    {item.nextOfKinPhone}
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
@@ -200,13 +201,13 @@ function ReservationItems ({ee={}}) {
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Phone:{" "}
                     </span>
-                    {item.phone}
+                    {item.phoneNo}
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Address:{" "}
                     </span>
-                    {item.address}
+                    {item.currentAddress}
                   </p>
                 </Col>
               </Row>
@@ -260,39 +261,34 @@ function ReservationItems ({ee={}}) {
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Car Name:{" "}
                     </span>
-                    {item.name}
+                    {item.carName}
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Model:{" "}
                     </span>
-                    {item.model}
+                    {item.carModel}
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Color:{" "}
                     </span>
-                    {item.color}
+                    {item.carColor}
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Year:{" "}
                     </span>
-                    {item.year}
+                    {item.carYear}
                   </p>
 
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       License Plate:{" "}
                     </span>
-                    {item.licensePlate}
+                    {item.Platenumber}
                   </p>
-                  <p className="from-to">
-                    <span style={{ fontWeight: "normal", fontSize: 13 }}>
-                      License No:{" "}
-                    </span>
-                    {item.licenseNumber}
-                  </p>
+                  
                 </Col>
               </Row>
             </Col>
