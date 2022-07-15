@@ -1,8 +1,5 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-// import {Eye, AlignJustify, Users, GitPullRequest } from "react-feather";
-import {useSelector} from "react-redux"
-
 import sedan from "../Images/car.png";
 import {
   Clock,
@@ -17,12 +14,9 @@ import "./Sidebar.css";
 export default function Sidebar() {
   const navigate = useNavigate();
   const location = useLocation();
-  const user = useSelector(state => state.auth.user)
   return (
     <div style={{ position: "fixed" }}>
       <ul className="sidebar-items" style={{ marginTop: 70 }}>
-       {user.account_type === 'passenger' ? 
-       <>
         <li
           onClick={() => navigate("/overview")}
           className={`active1 ${
@@ -60,9 +54,6 @@ export default function Sidebar() {
           <Clock className="sidebar-icon" />
           Trip history
         </li>
-</>
-:
-<>
         <li
           onClick={() => navigate("/driver")}
           className={`active1 ${
@@ -104,11 +95,9 @@ export default function Sidebar() {
           }`}
         >
           {" "}
-        <Users className="sidebar-icon" />
+          <Users className="sidebar-icon" />
           Passengers
         </li>
-        </>
-        }
       </ul>
       <div className="brand"></div>
     </div>
