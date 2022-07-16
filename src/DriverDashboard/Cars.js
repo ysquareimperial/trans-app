@@ -133,7 +133,7 @@ export default function Cars() {
             ))}
             <div className="text-center mt-5">
               {cars.length === 0 ?
-                <h3 style={{ color: 'grey' }}>No car created yet.</h3> : null}
+                <h3 style={{ color: 'grey' }}>No car created yet</h3> : null}
               <button className="request"  onClick={() => navigate('/cars/register-your-car')}>Create One Here</button>
             </div>
           </Row>
