@@ -21,7 +21,7 @@ export default function Section1() {
   const handleChange = ({ target: { name, value } }) => {
     setSearchForm((prev) => ({ ...prev, [name]: value }));
   };
-  
+
   const navigate = useNavigate();
   const [open1, setOpen1] = useState(false);
   const [Cars, setCars] = useState([]);
@@ -48,7 +48,7 @@ export default function Section1() {
 
   const handleSubmit = () => {
     // console.log(searchForm);
-    _postApi(`/get_availableTrips`,searchForm, data => {
+    _postApi(`/get_availableTrips`, searchForm, data => {
       setTripList(data.results)
       toggle1();
     }, err => {
@@ -299,7 +299,7 @@ export default function Section1() {
                 <p className="from-to">{item.date}</p>
                 <p className="from-to">
                   Available seats:{" "}
-                  <span style={{ fontWeight: "bold" }}>{item.availableSeats	}</span>
+                  <span style={{ fontWeight: "bold" }}>{item.availableSeats}</span>
                 </p>
               </Col>
               <Col md={3}>
@@ -317,6 +317,7 @@ export default function Section1() {
               <hr className="mt-2"></hr>
             </Row>
           ))}
+          <p className="text-center">{tripList.length === 0 ? <span>Sorry, No available trip.</span> : null}</p>
           <div className="mt-3">
             <button className="close" onClick={toggle1}>
               Close
