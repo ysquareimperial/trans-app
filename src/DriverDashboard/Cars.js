@@ -3,24 +3,24 @@ import { Edit } from "react-feather";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Card, Col, Row } from "reactstrap";
 import carImg from "../Images/toyota.png";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import { _fetchApi } from "../redux/action/api";
- 
+
 export default function Cars() {
   const driverInfo = useSelector(state => state.auth.user)
   const [cars, setCars] = useState([]);
   const navigate = useNavigate()
- 
+
   const get_registercar = () => {
-    _fetchApi(`/get_registercar?user_id=${driverInfo.id}`, 
-    (data) => {
-          if (data.results && data.results.length) {
-            setCars(data.results);
-          }
-        }, 
-        (e) => {
-          console.log(e);
-        })
+    _fetchApi(`/get_registercar?user_id=${driverInfo.id}`,
+      (data) => {
+        if (data.results && data.results.length) {
+          setCars(data.results);
+        }
+      },
+      (e) => {
+        console.log(e);
+      })
   };
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export default function Cars() {
         <Card
           className="request-card shadow p-3"
           style={{ marginTop: 78, border: "none" }}
-          >
+        >
           <Row>
             <Col md={6}>
               <p
@@ -60,22 +60,22 @@ export default function Cars() {
                   fontWeight: "bold",
                   color: "grey",
                 }}
-                >
+              >
                 All Cars
               </p>
             </Col>
-                {/* {JSON.stringify(cars)} */}
+            {/* {JSON.stringify(cars)} */}
             <Col md={6}>
               {" "}
               <p
-                style={{    
+                style={{
                   fontWeight: "bold",
                   color: "grey",
                   float: "right",
-                  cursor:'pointer',
-                //   padding:5,
+                  cursor: 'pointer',
+                  //   padding:5,
                 }}
-                onClick={()=>navigate('/cars/register-your-car')}
+                onClick={() => navigate('/cars/register-your-car')}
               >
                 Create New
               </p>
@@ -87,7 +87,7 @@ export default function Cars() {
               <Col md={6}>
                 <Card className="reservation-card shadow-sm p-3 mb-3">
                   <Row className="p-2">
-                 
+
                     <Col md={5}>
                       <img alt="" src={item.img} className="driver-car" />
                     </Col>
@@ -131,6 +131,11 @@ export default function Cars() {
                 </Card>
               </Col>
             ))}
+            <div className="text-center mt-5">
+              {cars.length === 0 ?
+                <h3 style={{ color: 'grey' }}>you have not created any car yet.</h3> : null}
+              <button className="request"  onClick={() => navigate('/cars/register-your-car')}>Create One Here</button>
+            </div>
           </Row>
         </Card>
       </div>
