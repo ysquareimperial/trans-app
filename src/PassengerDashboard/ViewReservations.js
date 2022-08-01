@@ -8,7 +8,7 @@ import ReservationItems from "./ReservationItems"
 import {useSelector} from "react-redux";
 
 export default function ViewReservations({item={}}) {
-  const uerInfo = useSelector(state => state.auth.user)
+  const user_id = useSelector(state => state.auth.user)
 
   const [reservations, setReservations] = useState([]);
   const [driverdetails, setDriverdetails] = useState([]);
@@ -17,32 +17,32 @@ export default function ViewReservations({item={}}) {
   const trip = [
     {
       img: tripImg,
-      from:item.Trip_from,
-      to: item.Trip_to,
-      numberOfSeat:item.date,
-      nextofKinPhone:item.nextofKinPhone,
-      time:item.time,
-      date:item.date,
+      from:reservations.Trip_from,
+      to: reservations.Trip_to,
+      numberOfSeat:reservations.date,
+      nextofKinPhone:reservations.nextofKinPhone,
+      time:reservations.time,
+      date:reservations.date,
       // price: "4,000",
     },
   ];
   const driver = [
     {
       img: driverImg,
-      fullName:item.fullName,
-      age:item.age,
-      phoneNo:item.phoneNo,
-      address:item.currentAddress,
+      fullName:driverdetails.fullName,
+      age:driverdetails.age,
+      phoneNo:driverdetails.phoneNo,
+      address:driverdetails.currentAddress,
     },
   ];
   const car = [
     {
       img: carImg,
-      name:item.carName,
-      model:item.carModel,
-      color:item.carColor,
-      year:item.carYear,
-      licensePlate:item.Platenumber,
+      name:cardetails.carName,
+      model:cardetails.carModel,
+      color:cardetails.carColor,
+      year:cardetails.carYear,
+      licensePlate:cardetails.Platenumber,
       // licenseNumber: "1212334134",
       // age: "40",
       // phone: "+234 09018661696",
@@ -50,7 +50,7 @@ export default function ViewReservations({item={}}) {
     },
   ]
   const get_requestride = () => {
-    fetch("http://127.0.0.1:34567/get_requestride_user?user_id="+uerInfo.id)
+    fetch("http://127.0.0.1:34567/get_requestride_user?user_id="+user_id.id)
       .then((raw) => raw.json())
       .then((data) => {
         if (data.results && data.results.length) {
@@ -69,7 +69,7 @@ export default function ViewReservations({item={}}) {
   }, []);
 
   const get_driver = () => {
-    fetch("http://127.0.0.1:34567/get_driverregistration_user?user_id="+uerInfo.id)
+    fetch("http://127.0.0.1:34567/get_driverregistration_user?user_id="+user_id.id)
       .then((raw) => raw.json())
       .then((data) => {
         if (data.results && data.results.length) {
@@ -88,7 +88,7 @@ export default function ViewReservations({item={}}) {
   }, []);
 
   const get_Cardetails = () => {
-    fetch("http://127.0.0.1:34567/get_registercar_user?user_id="+uerInfo.id)
+    fetch("http://127.0.0.1:34567/get_registercar_user?user_id="+user_id.id)
       .then((raw) => raw.json())
       .then((data) => {
         if (data.results && data.results.length) {

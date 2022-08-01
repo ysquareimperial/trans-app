@@ -61,9 +61,9 @@ export default function TripHisory() {
   //   },
   ];
   const [Trip_history, setTrip_history] = useState([]);
-  const uerInfo = useSelector(state => state.auth.user)
+  const userInfo = useSelector(state => state.auth.user)
   const get_Trip_history = () => {
-    fetch("http://127.0.0.1:34567/get_Trip_history_user?user_id="+uerInfo.id)
+    fetch("http://127.0.0.1:34567/get_Trip_history_user?user_id="+userInfo.id)
       .then((raw) => raw.json())
       .then((data) => {
         if (data.results && data.results.length) {

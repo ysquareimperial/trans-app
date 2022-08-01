@@ -15,7 +15,7 @@ import {useSelector} from "react-redux";
 import "../Auth/input.css";
 
 function RequestRide() {
-  const uerInfo = useSelector(state => state.auth.user)
+  const userInfo = useSelector(state => state.auth.user)
   const query = useQuery();
   const from = query.get("from");
   const to = query.get("to");
@@ -41,7 +41,7 @@ function RequestRide() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({...requestForm, user_id:uerInfo.id, trip_id}),
+      body: JSON.stringify({...requestForm, user_id:userInfo.id, trip_id}),
     })
     .then((resp) => resp.json())
     .then((data) => {
@@ -112,7 +112,7 @@ function RequestRide() {
                     }}
                     className="p-1"
                   >
-                    Price: ₦ 4,000
+                    {/* Price: ₦ 4,000 */}
                   </p>
                 </Col>
               </Row>

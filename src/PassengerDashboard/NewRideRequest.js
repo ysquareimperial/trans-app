@@ -240,7 +240,7 @@ export default function NewRideRequest() {
                 className="request-btn"
                 onClick={() =>
                   navigate(
-                    `/request-ride?from=${requestedride.from}&to=${requestedride.to}&date=${requestedride.date}&time=${requestedride.time}&Trip_id=${requestedride.id}`
+                    `/request-ride?from=${requestedride.from}&to=${requestedride.to}&trip_id=${item.id}&date=${requestedride.date}&time=${requestedride.time}&Trip_id=${requestedride.id}`
                   )
                 }
               >

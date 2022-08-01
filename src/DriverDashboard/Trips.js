@@ -8,9 +8,11 @@ import { _fetchApi } from "../redux/action/api";
 export default function Trips() {
   const navigate = useNavigate();
   const [trips, setTrips] = useState([]);
-  const uerInfo = useSelector(state => state.auth.user)
+  const userInfo = useSelector(state => state.auth.user)
+
+  console.log('userInfo', userInfo)
   const get_Trips = () => {
-    _fetchApi(`/get_Trips?user_id=${uerInfo .id}`, 
+    _fetchApi(`/get_Trips?user_id=${userInfo.id}`, 
     (data) => {
           if (data.results && data.results.length) {
             setTrips(data.results);
