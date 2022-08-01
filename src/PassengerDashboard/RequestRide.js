@@ -123,8 +123,8 @@ function RequestRide() {
                       className="form-control"
                       placeholder="From"
                       id="from"
-                      name='trip_from'
-                      value={requestForm.trip_from}
+                      name='from'
+                      value={from}
                       onChange={handleChange}
                     />
                     <label for="from" className="form-label">
@@ -139,8 +139,8 @@ function RequestRide() {
                       className="form-control"
                       placeholder="To"
                       id="To"
-                      name='trip_to'
-                      value={requestForm.trip_to}
+                      name='to'
+                      value={to}
                       onChange={handleChange}
                     />
                     <label for="To" className="form-label">

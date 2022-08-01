@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import useQuery from "../hooks/useQuery";
 import { useNavigate } from "react-router-dom";
 import { Card, Col, Row } from "reactstrap";
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { passengerLogin } from "../redux/action/auth";
 
 export default function PassengerLogin() {
@@ -23,13 +23,19 @@ export default function PassengerLogin() {
     setLoginForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  
+
   const handleSubmit = () => {
     // console.log(loginForm);
     dispatch(passengerLogin(loginForm, data => {
       console.log(data)
       // alert(data.message)
-      navigate("/overview");;
+      if (!gotoDashboard) {
+        navigate('/overview')
+      } else {
+
+        // navigate(`/request-ride?rdr=true&from=${searchForm.from}&to=${searchForm.to}&date=${searchForm.date}&time=${searchForm.time}`)
+        navigate(`/request-ride?from=${from}&to=${to}&date=${date}&time=${time}`)
+      }
     }, err => {
       console.log(err)
       alert(err.message)
@@ -82,11 +88,7 @@ export default function PassengerLogin() {
           className="login-btn mt-3"
           onClick={() => {
             handleSubmit();
-            // if (!gotoDashboard) {
-           
-            // } else {
-            
-            // }
+
           }}
         >
           Login

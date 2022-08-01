@@ -301,6 +301,10 @@ export default function Section1() {
                   Available seats:{" "}
                   <span style={{ fontWeight: "bold" }}>{item.availableSeats}</span>
                 </p>
+                <p className="from-to">
+                  Price:{" "}
+                  <span style={{ fontWeight: "bold" }}>{item.price}</span>
+                </p>
               </Col>
               <Col md={3}>
                 <button

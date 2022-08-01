@@ -121,8 +121,11 @@ export default function Trips() {
             ))}
               <div className="text-center mt-5">
               {trips.length === 0 ?
-                <h3 style={{ color: 'grey' }}>No trip created yet.</h3> : null}
+              <>
+                <h3 style={{ color: 'grey' }}>No trip created yet.</h3>
               <button className="request"  onClick={() => navigate('/trips/create-trip')}>Create One Here</button>
+              </>
+                 : null}
             </div>
           </Row>
         </Card>

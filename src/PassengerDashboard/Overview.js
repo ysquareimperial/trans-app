@@ -5,6 +5,7 @@ import "./ViewReservation.css";
 import "./Overview.css";
 import { GitPullRequest, XCircle } from "react-feather";
 import { PlusSquare } from "react-feather";
+import { useSelector } from "react-redux";
 export default function Overview() {
   const overview = [
     {
@@ -33,6 +34,7 @@ export default function Overview() {
       date: "2020 - Present: 50",
     },
   ];
+  
   return (
     <div>
       <div>
@@ -48,7 +50,7 @@ export default function Overview() {
           >
             Overview
           </p>
-
+      
           <Row>
             {overview.map((item, index) => (
               <Col md={4}>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, Col, Row } from "reactstrap";
 import { useNavigate } from "react-router-dom";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Trip() {
   const driverInfo = useSelector(state => state.auth.user)
@@ -14,6 +14,7 @@ export default function Trip() {
       time: "",
       availableSeats: "",
       price: "",
+      selectCar: '',
     },
   ];
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ export default function Trip() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({...createTripForm, driver_id: driverInfo.id}),
+      body: JSON.stringify({ ...createTripForm, driver_id: driverInfo.id }),
     })
       .then((resp) => resp.json())
       .then((data) => {
@@ -134,6 +135,17 @@ export default function Trip() {
                 <Row className="p-3">
                   <Col md={6}>
                     <div className="form-group">
+                      <select className="form-control" name='selectCar' value={createTripForm.selectCar} onChange={handleChange}>
+                        <option>select car</option>
+                        <option>Toyotal Camry, 12121NT</option>
+                      </select>
+                      <label for="select car" className="form-label">
+                        select car
+                      </label>
+                    </div>
+                  </Col>
+                  <Col md={6}>
+                    <div className="form-group">
                       <input
                         type="text"
                         className="form-control"
@@ -148,6 +160,9 @@ export default function Trip() {
                       </label>
                     </div>
                   </Col>
+                </Row>
+                <Row className="p-3">
+
                   <Col md={6}>
                     <div className="form-group">
                       <input
@@ -164,6 +179,7 @@ export default function Trip() {
                       </label>
                     </div>
                   </Col>
+                  <Col md={6}></Col>
                 </Row>
                 <Row className="m-1">
                   <div style={{ marginTop: "" }}>

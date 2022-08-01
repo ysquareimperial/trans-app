@@ -5,6 +5,7 @@ import sedan from "../Images/car.png";
 // import "./ViewReservation.css";
 // import "./Overview.css";
 import { GitPullRequest, Users } from "react-feather";
+import { useSelector } from "react-redux";
 export default function Overview() {
   // const year = () => {
   //   let currentYear = new Date();
@@ -33,6 +34,7 @@ export default function Overview() {
       // date: "2020 - Present: 50",
     },
   ];
+  const users = useSelector(e => e)
   return (
     <div>
       <div>
@@ -48,7 +50,7 @@ export default function Overview() {
           >
             Overview
           </p>
-
+          {/* {JSON.stringify(users)} */}
           <Row>
             {overview.map((item, index) => (
               <Col md={4}>
