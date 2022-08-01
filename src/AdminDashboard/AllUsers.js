@@ -14,8 +14,8 @@ import classnames from "classnames";
 import AllPassengers from "./AllPassengers";
 import AllDrivers from "./AllDrivers";
 export default function AllUsers() {
-  const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
+  // const [modal, setModal] = useState(false);
+  // const toggle = () => setModal(!modal);
 
   const [activeTab, setActiveTab] = useState("0");
   const toggle2 = (tab) => {

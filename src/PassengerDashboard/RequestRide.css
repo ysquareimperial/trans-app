@@ -1,0 +1,105 @@
+:root {
+    --primaryColor: rgb(7, 82, 94);
+    --btnColor: rgb(63, 167, 196);
+    --white: rgb(255, 255, 255);
+    --hover: 0px 4px 4px 0px rgba(0, 0, 0, 0.2), 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.request-card {
+    height: 85vh;
+}
+
+.driver {
+    border-radius: 50%;
+    width: 70px;
+}
+
+.car {
+    width: 80px;
+}
+
+.atm {
+    width: 80px;
+}
+
+.modal-atm {
+    width: 50px
+}
+
+.request-field {
+    outline: none;
+    background-color: rgb(230, 230, 230);
+    border: none;
+    width: 100%;
+    /* border-radius: 5px; */
+    padding: 8px
+}
+
+
+.request-field:focus {
+    outline: none;
+}
+
+.request {
+    border: none;
+    padding: 10px;
+    background-color: var(--btnColor);
+    color: var(--white);
+    /* width: 20%; */
+}
+
+.request:hover {
+    border-radius: 10px;
+    transition: 500ms;
+    box-shadow: var(--hover)
+}
+
+.request2:hover {
+    border-radius: 10px;
+    transition: 500ms;
+    box-shadow: var(--hover)
+}
+
+.visa {
+    width: 40px
+}
+
+.request2 {
+    border: none;
+    padding: 10px;
+    background-color: var(--btnColor);
+    color: var(--white);
+    width: 100%;
+}
+
+.sel {
+    outline: none;
+    background-color: rgb(230, 230, 230);
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    padding: 8px
+}
+
+.req-card {
+    background-image: linear-gradient(to bottom right, rgb(244, 252, 255), rgb(255, 255, 255));
+}
+
+.sidebar-icon-eye {
+    color: var(--btnColor);
+    margin-right: 10px;
+    /* font-size: 10px; */
+}
+
+.sidebar-icon-dlt {
+    color: var(--btnColor);
+    margin-right: 5px;
+}
+
+.sidebar-icon-dlt:hover {
+    color: red;
+}
+
+.sidebar-icon-eye:hover {
+    color: blue;
+}

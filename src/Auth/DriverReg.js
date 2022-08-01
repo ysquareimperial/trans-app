@@ -6,12 +6,14 @@ export default function DriverReg() {
   const navigate = useNavigate();
   let _form = {
     fullName: "",
+    Age:"",
     phone: "",
     nin: "",
     licenseNo: "",
     licenseExpiry: "",
     address: "",
     password: "",
+    account_type: 'driver'
   };
 
   const [driverReg, setDriverReg] = useState(_form);
@@ -22,10 +24,10 @@ export default function DriverReg() {
   const handleSubmit = () => {
     // e.preventDefault();
     //setLoading(true);
-    fetch('http://127.0.0.1:34567/DriverReg', {
+    fetch('http://127.0.0.1:34567/register', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(driverReg),
     })
@@ -33,14 +35,14 @@ export default function DriverReg() {
       .then((data) => {
         // setLoading(false);
         console.log(data);
-        navigate("/pushlish-ride")
+        navigate("/driver")
         
       })
       .catch((err) => {
         // setLoading(false);
         console.log(err);
       });
-  }
+  };
 
   return (
     <div>
@@ -51,6 +53,14 @@ export default function DriverReg() {
           placeholder="Full Name"
           name="fullName"
           value={driverReg.fullName}
+          onChange={handleChange}
+        />
+          <input
+          type="text"
+          className="login-input"
+          placeholder="Age"
+          name="Age"
+          value={driverReg.Age}
           onChange={handleChange}
         />
         <Row>
@@ -115,9 +125,9 @@ export default function DriverReg() {
         />
         <Row>
           <Col md={6}>
-            <label className="mt-3" style={{ fontSize: 12 }}>
+            {/* <label className="mt-3" style={{ fontSize: 12 }}>
               <input type="checkbox" /> Remember Password
-            </label>
+            </label> */}
           </Col>
           <Col md={6}>
             {/* <p className="text-center mt-3" style={{ fontSize: 12, float:'right', cursor:'pointer' }}>
@@ -125,12 +135,24 @@ export default function DriverReg() {
                   </p> */}
           </Col>
         </Row>
-        <button className="login-btn mt-3" onClick={handleSubmit}>
+        <button
+          className="login-btn mt-3"
+          onClick={() => {
+            handleSubmit();
+            navigate("/driver");
+          }}
+        >
           Register
         </button>
-        <p className="text-center mt-3" style={{ fontSize: 12 }}>
+        <p
+          className="text-center mt-3"
+          style={{ fontSize: 12, color: "white" }}
+        >
           Already have an account? |{" "}
-          <span style={{ cursor: "pointer" }} onClick={() => navigate("/pushlish-ride")}>
+          <span
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate("/login")}
+          >
             login here!
           </span>
         </p>

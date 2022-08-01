@@ -1,9 +1,10 @@
+// import React, { useState } from "react";
 // import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
-// // import { themeClass } from '../variables';
+// import { themeClass } from '../variables';
 
 // function ModalAlert({ isOpen = false, toggle = (f) => f, prisonNo='' }) {
-//   // const [isOpen, setIsOpen] = useState(false)
-//   // const toggle = () => setIsOpen(p => !p)
+//   const [isOpen, setIsOpen] = useState(false)
+//   const toggle = () => setIsOpen(p => !p)
 
 //   return (
 //     <Modal toggle={toggle} isOpen={isOpen}>

@@ -1,0 +1,143 @@
+:root {
+    --primaryColor: rgb(7, 82, 94);
+    --btnColor: rgb(63, 167, 196);
+    --white: rgb(255, 255, 255);
+    --hover: 0px 4px 4px 0px rgba(0, 0, 0, 0.2), 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.trans-head {
+    color: var(--white);
+    font-weight: bold;
+    font-size: 5em;
+}
+
+.title-wrap {
+    position: relative;
+    top: 30%;
+    color: var(--white);
+    margin-left: 3em;
+    /* text-align: center; */
+}
+
+.goto {
+    background-color: var(--btnColor);
+    color: white;
+    padding: 0.5em;
+    border: none;
+    width: 10em;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.search {
+    color: var(--white);
+    position: relative;
+    top: 35%;
+}
+
+.login-form {
+    position: relative;
+    top: 40%;
+}
+
+.search-card {
+    border-radius: 0;
+    /* border-bottom-left-radius: 4em;
+    border-top-right-radius: 4em;
+    border-bottom-right-radius: 0em; */
+    border: none;
+    background-color: rgba(127, 205, 218, 0.1);
+    /* text-align: center; */
+
+}
+
+.login-field {
+    width: 100%;
+    /* margin-top: 1em; */
+    border-radius: 0;
+    border: none;
+    background-color: rgb(245, 245, 245);
+    height: 2.5em;
+    padding: 1em;
+    outline: none;
+    margin-right: 5px;
+}
+
+/* input[type=date] {
+    width: 100%;
+    margin-top: 1em;
+    border-radius: 0;
+    border: none;
+    background-color: rgb(245, 245, 245);
+    height: 2.5em;
+    padding: 1em;
+    outline: none;
+    margin-right: 5px;
+} */
+
+.login-text {
+    /* text-align: center; */
+    font-weight: bold;
+    margin: 0;
+    color: var(--white);
+    font-size: 2em;
+}
+
+.go {
+    background-color: var(--btnColor);
+    color: white;
+    padding: 0.5em;
+    border: none;
+    width: 100%;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.request-btn {
+    background-color: var(--btnColor);
+    color: white;
+    padding: 0.5em;
+    border: none;
+    /* width: 100%; */
+    float: right;
+    border-radius: 0;
+    cursor: pointer;
+}
+.request-btn:hover{
+    border-radius: 10px;
+    transition: 500ms;
+    box-shadow: var(--hover)
+}
+.car-name, .time{
+    margin:0;
+    font-weight: bold;
+}
+.from-to{
+    margin: 0;
+    color: var(--primaryColor);
+    font-size: 13px;
+}
+.time{
+    font-size: 13px;
+}
+.avail{
+    font-weight: bold;
+    color:var(--primaryColor)
+}
+.close{
+    background-color: var(--btnColor);
+    color: white;
+    padding: 0.5em;
+    border: none;
+    /* width: 100%; */
+    border-radius: 0;
+    cursor: pointer;
+}
+.close:hover{
+    border-radius: 10px;
+    transition: 500ms;
+    box-shadow: var(--hover)
+}
+.modal-body{
+   /* background-color: rgba(127, 205, 218, 0.1); */
+}

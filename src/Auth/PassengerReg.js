@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Col, Row } from "reactstrap";
 import { useNavigate } from "react-router-dom";
+import ModalAlert from "../Modal";
+
 export default function PassengerReg() {
   const navigate = useNavigate();
   let _form = {
@@ -9,21 +11,24 @@ export default function PassengerReg() {
     nin: "",
     address: "",
     password: "",
-  };
+    account_type: 'passenger'
 
+  };
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  const toggleModal = () => setModalIsOpen((p) => !p);
   const [passengerReg, setPassengerReg] = useState(_form);
   const handleChange = ({ target: { name, value } }) => {
     setPassengerReg((prev) => ({ ...prev, [name]: value }));
   };
 
- 
   const handleSubmit = () => {
     // e.preventDefault();
     //setLoading(true);
-    fetch('http://127.0.0.1:34567/PassengerReg', {
-      method: 'POST',
+    fetch("http://127.0.0.1:34567/register", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(passengerReg),
     })
@@ -31,17 +36,20 @@ export default function PassengerReg() {
       .then((data) => {
         // setLoading(false);
         console.log(data);
-        navigate("/pushlish-ride")
+        navigate("/overview");
         // setModalIsOpen(true);
       })
       .catch((err) => {
         // setLoading(false);
         console.log(err);
       });
-  }
+  };
 
   return (
     <div className="p-reg">
+      <form>
+
+      
       <input
         type="text"
         className="login-input"
@@ -88,41 +96,23 @@ export default function PassengerReg() {
         value={passengerReg.password}
         onChange={handleChange}
       />
-      {/* <p style={{ margin: 0, marginTop: 30, fontSize: 12 }}>
-                Login as:
-              </p> */}
-      {/* <div className="login-as">
-                    <label>
-                    <p style={{ fontSize: 18, display: "inline" }}>Passenger</p>{" "}
-                    {""}
-                    <input type="radio" />
-                    </label>
-                    <label>
-                    <p style={{ fontSize: 18, display: "inline" }}>Driver</p> {""}
-                    <input type="radio" />
-                    </label>{" "}
-                </div> */}
-      <Row>
-        <Col md={6}>
-          <label className="mt-3" style={{ fontSize: 12 }}>
-            <input type="checkbox" /> Remember Password
-          </label>
-        </Col>
-        <Col md={6}>
-          {/* <p className="text-center mt-3" style={{ fontSize: 12, float:'right', cursor:'pointer' }}>
-                    Forgot password?
-                  </p> */}
-        </Col>
-      </Row>
-      <button className="login-btn mt-3" onClick={handleSubmit}>
+      <button
+        className="login-btn mt-3"
+        onClick={() => {
+          navigate("/overview");
+          handleSubmit();
+        }}
+      >
         Register
       </button>
-      <p className="text-center mt-3" style={{ fontSize: 12 }}>
+      <p className="text-center mt-3" style={{ fontSize: 12, color: "white" }}>
         Already have an account? |{" "}
-        <span style={{ cursor: "pointer" }} onClick={() => navigate("/pushlish-ride")}>
+        <span style={{ cursor: "pointer" }} onClick={() => navigate("/login")}>
           login here!
         </span>
       </p>
+      <ModalAlert isOpen={modalIsOpen} toggle={toggleModal} />
+      </form>
     </div>
   );
 }

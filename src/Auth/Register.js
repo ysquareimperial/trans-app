@@ -1,16 +1,20 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Col, Row } from "reactstrap";
 import "../Styles.css";
 import { useNavigate } from "react-router-dom";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
+// import useQuery from "../hooks/useQuery";
 import PassengerReg from "./PassengerReg";
 import DriverReg from "./DriverReg";
 export default function Register() {
+  // const query = useQuery();
+  // const gotoDashboard = query.get("rdr");
+
   const navigate = useNavigate();
-  const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
+  // const [modal, setModal] = useState(false);
+  // const toggle = () => setModal(!modal);
 
   const [activeTab, setActiveTab] = useState("0");
   const toggle2 = (tab) => {
@@ -21,23 +25,33 @@ export default function Register() {
       <div className="container">
         <Row className="login-row">
           {/* <Col md={1}></Col> */}
-          <Col md={6}>
+          <Col className="" md={6}>
             <h1 className="login-title">Trans App</h1>
             <h4 className="bkd">The Transit You Can Trust...</h4>
             <p className="login-p">
-              ...manages and tracks records of both driver(S) and passengers
+              ...manages and tracks records of both driver(s) and passengers
             </p>
-            <button className="login-btn" onClick={() => navigate("/")}>
+            <button className="login-btn" onClick={() => navigate("/login")}>
               Login Here
             </button>
           </Col>
           <Col md={6} className="reg-card-con">
             <Card className="px-5 py-5 login-card mb-4">
               <h1 className="login">Register</h1>
-              <p style={{ fontSize: 12, margin: 0, marginTop: 10 }}>
-                Register as:
-              </p>
               <div>
+                {/* <div>
+                  <p
+                    style={{
+                      fontSize: 12,
+                      margin: 0,
+                      marginTop: 10,
+                      float: "left",
+                      color: "white",
+                    }}
+                  >
+                    Register as:
+                  </p>
+                </div> */}
                 <Nav tabs className="">
                   <NavItem>
                     <NavLink

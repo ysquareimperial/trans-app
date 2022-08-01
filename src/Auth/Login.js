@@ -2,23 +2,52 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Col, Row } from "reactstrap";
 import "../Styles.css";
-import { Navigate, useNavigate } from "react-router-dom";
-import img from "../Images/car.svg";
+import { useNavigate } from "react-router-dom";
+import PassengerLogin from "./PassengerLogin";
+import DriverLogin from "./DriverLogin";
 export default function Login() {
   const navigate = useNavigate();
   let _form = {
-    phone: "",
+   phoneNo: "",
     password: "",
   };
 
   const [loginForm, setLoginForm] = useState(_form);
+  const [loading, setLoading] = useState(false)
   const handleChange = ({ target: { name, value } }) => {
     setLoginForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = () => {
-    console.log(loginForm);
+  const handleSubmit = (e) => {
+    // e.preventDefault();
+    setLoading(true);
+    // login(
+    //   { email: loginForm.email, password: loginForm.password },
+    //   (data) => {
+    //     console.log(data);
+    //     if (data && data.success) {
+    //       setLoading(false);
+    //       alert("Successfully Saved");
+    //       Navigate("/app/dashbord");
+    //     } else {
+    //       if (data) {
+    //         alert(JSON.stringify(Object.values(data)[0]));
+    //         setLoading(false);
+    //       } else {
+    //         setLoading(false);
+    //         alert("An error occured!");
+    //       }
+    //     }
+    //   },
+    //   (err) => {
+    //     alert(JSON.stringify(Object.values(err)[0]) || "error occured");
+    //     setLoading(false);
+    //     console.log("err", err);
+    //   }
+    // )
   };
+
+  const [select, setSelect] = useState(2);
   return (
     <div className="login-body">
       <div className="container">
@@ -26,13 +55,13 @@ export default function Login() {
           {/* <Col md={1}></Col> */}
           <Col className="bgg" md={6}>
             <div>
-              <h1 className="login-title">Trans App</h1>
+              <h1 className="login-title">trans app</h1>
               <h4 className="bkd">The Transit Your Can Trust...</h4>
               <p className="login-p">
-                ...manages and tracks records of both driver(S) and passengers
+                ...manages and tracks records of both driver(s) and passengers
               </p>
               <button
-                className="login-btn"
+                className="login-btn shadow"
                 onClick={() => navigate("/register")}
               >
                 Register Here
@@ -40,62 +69,29 @@ export default function Login() {
             </div>
           </Col>
           <Col md={6}>
-            <Card className="px-5 py-5 login-card">
-              <h1 className="login">Login</h1>
-              <input
-                type="num"
-                name="phone"
-                value={loginForm.phone}
-                onChange={handleChange}
-                className="login-input"
-                placeholder="phone"
-              />
-              <input
-                type="password"
-                value={loginForm.password}
-                name="password"
-                onChange={handleChange}
-                className="login-input"
-                placeholder="password"
-              />
-
-              <Row>
-                <Col md={6}>
-                  <label className="mt-3" style={{ fontSize: 12 }}>
-                    <input type="checkbox" /> Remember Password
-                  </label>
-                </Col>
-                <Col md={6}>
-                  <p
-                    className="text-center mt-3"
-                    style={{ fontSize: 12, float: "right", cursor: "pointer" }}
-                  >
-                    Forgot password?
-                  </p>
-                </Col>
-              </Row>
+            
+               
+            <div className="loginas-btn">
               <button
-                className="login-btn mt-3"
-                onClick={() => {
-                  handleSubmit();
-                  navigate("/admin-home");
-                }}
+                className={select === 2 ? "role-btn" : "role-btn-active "}
+                onClick={() => setSelect(2)}
+                style={{ borderTopLeftRadius: 10 }}
               >
-                Login
+                Passenger
               </button>
-              <p className="text-center mt-3" style={{ fontSize: 12 }}>
-                Don't have an account? |{" "}
-                <span
-                  style={{ cursor: "pointer" }}
-                  onClick={() => navigate("/register")}
-                >
-                  register here!
-                </span>
-              </p>
-            </Card>
+              <button
+                className={select === 3 ? "role-btn" : "role-btn-active  "}
+                onClick={() => setSelect(3)}
+                style={{ borderTopRightRadius: 10 }}
+              >
+                Driver
+              </button>
+            </div>
+            {select === 2 ? <PassengerLogin /> : <DriverLogin />}
+         
           </Col>
-          {/* <Col md={1}></Col> */}
         </Row>
+         
       </div>
     </div>
   );
