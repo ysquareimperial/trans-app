@@ -26,7 +26,9 @@ export default function RegisterCar() {
   const handleSubmit = () => {
     // e.preventDefault();
     //setLoading(true);
-    _postApi('/registercar', {...registerCarForm,driver_id: driverInfo.id }, (data) => {
+
+    _postApi('/registercar', {...registerCarForm,driver_id: driverInfo.id,
+       }, (data) => {
       console.log(data);
     }, (err) => {
       console.log(err);

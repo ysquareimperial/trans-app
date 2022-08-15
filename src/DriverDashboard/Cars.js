@@ -28,7 +28,7 @@ export default function Cars() {
   }, [])
   // const car = [
   //   {
-  //     img: carImg,
+  //     img: carImg,x  
   //     name: cars.carName,
   //     model: cars.carModel,
   //     color:cars.carColor,
@@ -127,14 +127,18 @@ export default function Cars() {
                         <Edit />
                       </button>
                     </Col>
+                    <button className="request mt-2" onClick={() => navigate(`/trips/create-trip?car_id=${item.id}`)}>Create Trip</button>
                   </Row>
                 </Card>
               </Col>
             ))}
             <div className="text-center mt-5">
               {cars.length === 0 ?
-                <h3 style={{ color: 'grey' }}>No car created yet</h3> : null}
-              <button className="request"  onClick={() => navigate('/cars/register-your-car')}>Create One Here</button>
+                <>
+                  <h3 style={{ color: 'grey' }}>No car created yet</h3>
+                  <button className="request" onClick={() => navigate('/cars/register-your-car')}>Create One Here</button>
+                </>
+                : null}
             </div>
           </Row>
         </Card>

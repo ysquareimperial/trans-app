@@ -17,6 +17,7 @@ export default function Section1() {
   ];
   const [searchForm, setSearchForm] = useState(_form);
   const [tripList, setTripList] = useState([])
+    const [nigerianstates, setNigerianstates] = useState([])
 
   const handleChange = ({ target: { name, value } }) => {
     setSearchForm((prev) => ({ ...prev, [name]: value }));
@@ -38,6 +39,24 @@ export default function Section1() {
         console.log(e);
       });
   };
+  const getNigerianstates = () => {
+    fetch('http://127.0.0.1:34567/nigerianstates')
+      .then((resp) => resp.json())
+      .then((data) => {
+        // setLoading(false);
+        console.log(data);
+        //   setModalIsOpen(true);
+        let stateList = data.results.map(m => m.State)
+        setNigerianstates(stateList);
+      }) 
+      .catch((err) => {
+        // setLoading(false);
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    getNigerianstates();
+  }, []);
 
   // useEffect(() => {
   //   get_Availabletrips();
@@ -164,6 +183,7 @@ export default function Section1() {
                               name="from"
                               value={searchForm.from}
                               onChange={handleChange}
+                              // options={nigerianstates}
                             />
 
                             <label
@@ -300,6 +320,10 @@ export default function Section1() {
                 <p className="from-to">
                   Available seats:{" "}
                   <span style={{ fontWeight: "bold" }}>{item.availableSeats}</span>
+                </p>
+                <p className="from-to">
+                  Price:{" "}
+                  <span style={{ fontWeight: "bold" }}>{item.price}</span>
                 </p>
               </Col>
               <Col md={3}>

@@ -10,9 +10,8 @@ import { useNavigate } from "react-router";
 import visa from "../Images/visa.png";
 import car from "../Images/toyota.png";
 import {useSelector} from "react-redux";
-
-
 import "../Auth/input.css";
+import { useEffect } from "react";
 
 function RequestRide() {
   const userInfo = useSelector(state => state.auth.user)
@@ -21,7 +20,7 @@ function RequestRide() {
   const to = query.get("to");
   const date = query.get("date");
   const time = query.get("time");
-  const trip_id = query.get("Trip_id");
+  const trip_id = query.get("trip_id");
   let requestRideForm = {
     from,
     to,
@@ -30,6 +29,10 @@ function RequestRide() {
     Seat: "",
     nextOfKinPhone: "",
   };
+  const user = useSelector(state => state.auth.user)
+
+  const [driverdetails, setDriverdetails] = useState([]);
+  const [cardetails, setCardetails] = useState([]);
   const [requestForm, setRequestForm] = useState(requestRideForm);
   const handleChange = ({ target: { name, value } }) => {
     setRequestForm((prev) => ({ ...prev, [name]: value }));
@@ -55,6 +58,25 @@ function RequestRide() {
       console.log(err);
     });
   };
+
+  const get_driver = () => {
+    fetch("http://127.0.0.1:34567/registration?user_id="+user.id)
+      .then((raw) => raw.json())
+      .then((data) => {
+        if (data.results && data.results.length) {
+          setDriverdetails(data.results);
+        //   setDriverdetails(data.results);
+          setCardetails(data.results);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  useEffect(() => {
+    get_driver();
+  }, []);
   const navigate = useNavigate();
   const [open1, setOpen1] = useState(false);
   const toggle1 = () => {
@@ -221,7 +243,7 @@ function RequestRide() {
               </Row>
               <Row className="m-1">
                 <div style={{ marginTop: "" }}>
-                  <button className="request mb-3" onClick={toggle1}>
+                  <button className="request mb-3" onClick={toggle1} >
                     Request
                   </button>
                 </div>
@@ -263,7 +285,7 @@ function RequestRide() {
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Full Name:{" "}
                     </span>
-                    Musa Isah
+                    {driverdetails.fullName}
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
@@ -275,13 +297,15 @@ function RequestRide() {
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Phone:{" "}
                     </span>
-                    +234 090 1866 1696
+                    {driverdetails.phoneNO}
+
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Address:{" "}
                     </span>
-                    Sabon Gari, Kano.
+                    {driverdetails.currentAddress}
+
                   </p>
                 </Col>
               </Row>
@@ -322,55 +346,43 @@ function RequestRide() {
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Car Name:{" "}
                     </span>
-                    Toyota Camry
+                    {cardetails.CarName}
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Model:{" "}
                     </span>
-                    2020
+                    {cardetails.CarModel}
+
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Color:{" "}
                     </span>
-                    White
+                    {cardetails.CarColor}
+
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Year:{" "}
                     </span>
-                    1
+                    {cardetails.CarYear}
+
                   </p>
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       Total Seats:{" "}
                     </span>
-                    4
+                    {cardetails.availableSeats}
+
                   </p>
-                  <p className="from-to">
-                    <span style={{ fontWeight: "normal", fontSize: 13 }}>
-                      Reserved Seats:{" "}
-                    </span>
-                    2
-                  </p>
-                  <p className="from-to">
-                    <span style={{ fontWeight: "normal", fontSize: 13 }}>
-                      Available Seats:{" "}
-                    </span>
-                    2
-                  </p>
+                  
                   <p className="from-to">
                     <span style={{ fontWeight: "normal", fontSize: 13 }}>
                       License Plate:{" "}
                     </span>
-                    NSR-12-122
-                  </p>
-                  <p className="from-to">
-                    <span style={{ fontWeight: "normal", fontSize: 13 }}>
-                      License Number:{" "}
-                    </span>
-                    2020 23 2 3
+                    {cardetails.Platenumber}
+
                   </p>
                 </Col>
               </Row>

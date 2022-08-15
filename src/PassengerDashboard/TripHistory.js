@@ -136,6 +136,8 @@ export default function TripHisory() {
               <tbody>
                 {history.map((item, index) => (
                   <tr>
+
+                    
                     <td className="t-data">{item.date}</td>
                     <td className="t-data">{item.time}</td>
                     <td className="t-data">

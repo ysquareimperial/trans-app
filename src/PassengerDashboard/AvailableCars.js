@@ -64,20 +64,20 @@ export default function AvailableCars() {
                   <td className="t-data">{item.carImage}</td>
                   <td className="t-data">
                     {item.carName} {<br></br>}
-                    {item.from} to {item.to}
+                    {item.Trip_from} to {item.Trip_to}
                     {<br></br>}
                     {item.time}
                     {<br></br>}
                     {item.date}
                     {<br></br>}
-                    Available seats: {item.seats}
+                    Available seats: {item.availableSeats}
                     {<br></br>}
                   </td>
                   <td>{item.driverImg}</td>
                   <td>
-                    {item.driverName}
+                    {item.fullName}
                     {<br></br>}
-                    {item.driverPhone}
+                    {item.phoneNo}
                   </td>
                   <td>fdfdf</td>
                 </tr>

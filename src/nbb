@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function NewRideRequest() {
   const query = useQuery();
   const from = query.get("from");
@@ -21,6 +23,8 @@ function NewRideRequest() {
   // const [open1, setOpen1] = useState(false);
   const [Cars, setCars] = useState([]);
   const [availabletrips, setAvailabletrips] = useState([]);
+  const [nigerianstates, setNigerianstates] = useState([])
+
   const get_Availabletrips = () => {
     fetch("http://127.0.0.1:34567/get_Trips")
       .then((raw) => raw.json())
@@ -33,6 +37,25 @@ function NewRideRequest() {
         console.log(e);
       });
   };
+
+  const getNigerianstates = () => {
+    fetch('http://127.0.0.1:34567/nigerianstates')
+      .then((resp) => resp.json())
+      .then((data) => {
+        // setLoading(false);
+        console.log(data);
+        //   setModalIsOpen(true);
+        let stateList = data.results.map(m => m.State)
+        setNigerianstates(stateList);
+      }) 
+      .catch((err) => {
+        // setLoading(false);
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    getNigerianstates();
+  }, []);
 
   // const cars = [
   //   {
@@ -101,6 +124,8 @@ function NewRideRequest() {
                       name="from"
                       value={rideRequestForm.from}
                       onChange={handleChange}
+                    options={nigerianstates}
+
                     />
                     <label for="from" className="form-label">
                       From
@@ -117,6 +142,8 @@ function NewRideRequest() {
                       name="to"
                       value={rideRequestForm.to}
                       onChange={handleChange}
+                    options={nigerianstates}
+
                     />
                     <label for="To" className="form-label">
                       To

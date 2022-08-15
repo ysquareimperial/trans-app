@@ -8,11 +8,12 @@ import ReservationItems from "./ReservationItems"
 import {useSelector} from "react-redux";
 
 export default function ViewReservations({item={}}) {
-  const user_id = useSelector(state => state.auth.user)
+  const user = useSelector(state => state.auth.user)
 
-  const [reservations, setReservations] = useState([]);
+  const [Trips, setTrips] = useState([]);
   const [driverdetails, setDriverdetails] = useState([]);
   const [cardetails, setCardetails] = useState([]);
+  const reservations = []
   
   const trip = [
     {
@@ -49,12 +50,12 @@ export default function ViewReservations({item={}}) {
       // address: "Sabon Gari, Kano.",
     },
   ]
-  const get_requestride = () => {
-    fetch("http://127.0.0.1:34567/get_requestride_user?user_id="+user_id.id)
+  const get_Trips = () => {
+    fetch("http://127.0.0.1:34567/get_Trips?user_id="+user.id)
       .then((raw) => raw.json())
       .then((data) => {
         if (data.results && data.results.length) {
-          setReservations(data.results);
+          setTrips(data.results);
         //   setDriverdetails(data.results);
         //   setCardetails(data.results);
         }
@@ -65,11 +66,11 @@ export default function ViewReservations({item={}}) {
   };
 
   useEffect(() => {
-    get_requestride();
+    get_Trips();
   }, []);
 
   const get_driver = () => {
-    fetch("http://127.0.0.1:34567/get_driverregistration_user?user_id="+user_id.id)
+    fetch("http://127.0.0.1:34567/get_driverregistration_user?user_id="+user.id)
       .then((raw) => raw.json())
       .then((data) => {
         if (data.results && data.results.length) {
@@ -87,8 +88,10 @@ export default function ViewReservations({item={}}) {
     get_driver();
   }, []);
 
+  
+
   const get_Cardetails = () => {
-    fetch("http://127.0.0.1:34567/get_registercar_user?user_id="+user_id.id)
+    fetch("http://127.0.0.1:34567/get_registercar?user_id="+user.id)
       .then((raw) => raw.json())
       .then((data) => {
         if (data.results && data.results.length) {
@@ -112,7 +115,7 @@ export default function ViewReservations({item={}}) {
           className="request-card shadow p-3"
           style={{ marginTop: 78, border: "none" }}
           >
-          {JSON.stringify(reservations)}
+          {JSON.stringify({Trips,user,car})}
           <p
             style={{
               fontWeight: "bold",
@@ -122,10 +125,10 @@ export default function ViewReservations({item={}}) {
             Reservations
           </p>
           
-          {reservations.map((item, index) => (
-           <ReservationItems ee={item} />
+          {Trips.map((item, index) => (
+           <ReservationItems trip={item} driver={user} vehicle={car} />
           ))}
-          <Card className="reservation-card shadow-sm p-3 mb-3">
+          {/* <Card className="reservation-card shadow-sm p-3 mb-3">
             <Row>
               <Col md={6}>
                 <p
@@ -149,7 +152,7 @@ export default function ViewReservations({item={}}) {
             <Row>
             {trip.map((item, index) => (
                 <Col md={4}>
-                  {/* {trip.map((item, index) => ()}} */}
+                  {/* {trip.map((item, index) => ()}} *
                   <Row>
                     <Col md={6}>
                       <p
@@ -254,7 +257,7 @@ export default function ViewReservations({item={}}) {
                         }}
                         className="p-1"
                       >
-                        {/* <Trash size='2em' style={{color:'rgb(222,222,222)'}} /> */}
+                        {/* <Trash size='2em' style={{color:'rgb(222,222,222)'}} /> *
                       </p>
                     </Col>
                   </Row>
@@ -262,7 +265,7 @@ export default function ViewReservations({item={}}) {
                   {/* <Row className="p-3 mt-3">
                   <Col md={6}></Col>
                   <Col md={6}></Col>
-                </Row> */}
+                </Row> *
                   <Row className="p-2">
                     <Col md={3}>
                       <img alt='' src={item.img} className="driver" />
@@ -272,25 +275,25 @@ export default function ViewReservations({item={}}) {
                         <span style={{ fontWeight: "normal", fontSize: 13 }}>
                           Full Name:{" "}
                         </span>
-                        {item.fullName}
+                        {user.fullName}
                       </p>
                       <p className="from-to">
                         <span style={{ fontWeight: "normal", fontSize: 13 }}>
                           Age:{" "}
                         </span>
-                        {item.age}
+                        {user.age}
                       </p>
                       <p className="from-to">
                         <span style={{ fontWeight: "normal", fontSize: 13 }}>
                           Phone:{" "}
                         </span>
-                        {item.phoneNo}
+                        {user.phoneNo}
                       </p>
                       <p className="from-to">
                         <span style={{ fontWeight: "normal", fontSize: 13 }}>
                           Address:{" "}
                         </span>
-                        {item.currentAddress}
+                        {user.currentAddress}
                       </p>
                     </Col>
                   </Row>
@@ -326,7 +329,7 @@ export default function ViewReservations({item={}}) {
                         }}
                         className="p-1"
                       >
-                        {/* <Trash size='2em' style={{color:'rgb(222,222,222)'}} /> */}
+                        {/* <Trash size='2em' style={{color:'rgb(222,222,222)'}} /> *
                       </p>
                     </Col>
                   </Row>
@@ -334,7 +337,7 @@ export default function ViewReservations({item={}}) {
                   {/* <Row className="p-3 mt-3">
                   <Col md={6}></Col>
                   <Col md={6}></Col>
-                </Row> */}
+                </Row> *
                   <Row className="p-2">
                     <Col md={3}>
                       <img alt='' src={item.img} className="car" />
@@ -376,14 +379,14 @@ export default function ViewReservations({item={}}) {
                           License No:{" "}
                         </span>
                         {item.licenseNumber}
-                      </p> */}
+                      </p> *
                     </Col>
                   </Row>
                 </Col>
               ))}
             </Row>
-          </Card>
-        </Card>
+          </Card>*/}
+        </Card> 
       </div>
     </div>
   );
